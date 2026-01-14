@@ -9,7 +9,6 @@
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
   <style>
     :root{
@@ -35,29 +34,30 @@
     .btn-red { background: var(--red); color: white; box-shadow: 0 4px 14px 0 rgba(224, 34, 34, 0.3); }
     .btn-red:hover { transform: translateY(-2px); background: var(--red-dark); }
     
-    /* Pills (Etiquetas) */
     .pill {
         display: inline-block; padding: 6px 12px; border-radius: 50px; 
         font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;
         background: #eff6ff; color: var(--blue); margin-bottom: 15px;
     }
     .pill.red { background: #fef2f2; color: var(--red); }
-    /* Pills para fondos oscuros */
     .pill.dark-mode { background: rgba(255,255,255,0.1); color: #fff; border: 1px solid rgba(255,255,255,0.2); }
 
-    /* Descripciones */
     .section-desc { font-size: 18px; color: #64748b; max-width: 700px; margin: 0 auto; line-height: 1.6; }
     .section-desc.dark-mode { color: #cbd5e1; }
 
-    /* --- HERO SLIDER --- */
+    /* --- HERO SLIDER FIXED --- */
     .hero { height: 85vh; min-height: 600px; position: relative; overflow: hidden; background: #1e293b; }
     .hero-slide {
-        position: absolute; inset: 0; background-size: cover; background-position: center; background-color: #333;
-        opacity: 0; transition: opacity 1s ease; display: flex; align-items: center; justify-content: center;
+        position: absolute; inset: 0; background-size: cover; background-position: center;
+        opacity: 0; transition: opacity 1s ease-in-out; 
+        display: flex; align-items: center; justify-content: center;
+        z-index: 0; pointer-events: none;
     }
-    .hero-slide.active { opacity: 1; }
-    .hero-slide::before { content:''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 100%); }
-    .hero-content { position: relative; z-index: 10; text-align: center; color: white; padding: 20px; max-width: 900px; }
+    .hero-slide.active { opacity: 1; z-index: 10; pointer-events: auto; }
+    
+    .hero-slide::before { content:''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 100%); z-index: 1; }
+    
+    .hero-content { position: relative; z-index: 20; text-align: center; color: white; padding: 20px; max-width: 900px; }
     .hero-content h1 { font-size: clamp(36px, 5vw, 68px); font-weight: 900; line-height: 1.1; margin-bottom: 25px; text-shadow: 0 4px 10px rgba(0,0,0,0.5); }
     .hero-content p { font-size: 20px; opacity: 0.95; margin-bottom: 40px; font-weight: 500; }
 
@@ -83,11 +83,7 @@
     /* --- INSTAGRAM --- */
     .insta-icon:hover { color: #E1306C; transition: 0.3s; }
 
-    /* --- ESTILOS ADICIONALES --- */
-    .engine-brand { 
-        background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 10px 20px; 
-        font-weight: 700; color: #64748b; display: flex; align-items: center; justify-content: center;
-    }
+    /* --- IMÁGENES --- */
     img { background-color: #cbd5e1; min-height: 100px; object-fit: cover; }
     .logo-img { object-fit: contain !important; background-color: transparent !important; min-height: 0 !important; }
     
@@ -135,79 +131,85 @@
 
   <section class="hero">
     <div class="hero-slide active" style="background-image: url('hero-flotas.jpg');">
-      <div class="hero-content" data-aos="fade-up">
-        <h1>Mantenimiento de Flotas Comerciales</h1>
-        <p>Planes preventivos y correctivos para asegurar la continuidad de su negocio. Servicio 24/7.</p>
+      <div class="hero-content">
+        [cite_start]<h1>Mantenimiento de Flotas Comerciales [cite: 1]</h1>
+        <p>Planes preventivos y correctivos para asegurar la continuidad de su negocio. [cite_start]Servicio 24/7[cite: 25, 270].</p>
         <a href="#flotas" class="btn btn-primary">Ver Servicios</a>
       </div>
     </div>
     <div class="hero-slide" style="background-image: url('hero-taller.jpg');">
       <div class="hero-content">
-        <h1>Taller de Mecánica Especializada</h1>
-        <p>Overhaul de motores, chapistería, diagnóstico y reconstrucción con repuestos de alta calidad.</p>
+        [cite_start]<h1>Taller de Mecánica Especializada [cite: 1]</h1>
+        [cite_start]<p>Overhaul de motores [cite: 99][cite_start], chapistería [cite: 118][cite_start], diagnóstico y reconstrucción con repuestos de alta calidad[cite: 103].</p>
         <a href="#taller" class="btn btn-primary">Conocer Taller</a>
       </div>
     </div>
     <div class="hero-slide" style="background-image: url('hero-allison.jpg');">
       <div class="hero-content">
-        <h1>Venta y Reparación de Transmisiones Allison</h1>
-        <p>Diagnóstico en sitio, calibración electrónica y venta de repuestos originales.</p>
+        [cite_start]<h1>Venta y Reparación de Transmisiones Allison [cite: 12, 16, 88]</h1>
+        [cite_start]<p>Diagnóstico en sitio, calibración electrónica y venta de repuestos originales[cite: 15, 87, 88, 97].</p>
         <a href="#allison" class="btn btn-red">Especialidad Allison</a>
       </div>
-    </div>
-    <div class="sliderControls">
-      <div class="dot active" onclick="goToSlide(0)"></div>
-      <div class="dot" onclick="goToSlide(1)"></div>
-      <div class="dot" onclick="goToSlide(2)"></div>
     </div>
   </section>
 
   <section id="nosotros" class="py-24 bg-white">
     <div class="max-w-7xl mx-auto px-6">
-        <div class="text-center mb-16" data-aos="fade-up">
-            <span class="pill">Nuestra Trayectoria</span>
-            <h2 class="text-4xl font-black text-slate-900 mb-6">Sobre Motor Plus Panamá</h2>
-            <p class="section-desc text-slate-600">
-                Fundada en 2014 por ejecutivos con amplia experiencia en la distribución de insumos y equipos para el sector transporte, marítimo e industrial. Somos expertos en mecánica menor y mayor para flotas de equipo pesado y liviano.
-            </p>
+        <div class="grid lg:grid-cols-2 gap-16 items-center mb-20">
+            <div class="relative h-[400px] rounded-2xl overflow-hidden shadow-xl border border-slate-100">
+                <img src="nosotros.jpg" alt="Equipo Motor Plus" class="w-full h-full object-cover">
+                <span class="img-missing-text">Foto Nosotros / Equipo</span>
+            </div>
+            <div>
+                <span class="pill">Nuestra Trayectoria</span>
+                <h2 class="text-4xl font-black text-slate-900 mb-6">Sobre Motor Plus Panamá</h2>
+                <p class="text-lg text-slate-600 leading-relaxed mb-6">
+                    [cite_start]Motor Plus Panamá, S.A. fue fundada en la República de Panamá en 2014 por Ejecutivos con muchos años de experiencia en el campo de la distribución de insumos y equipos para el sector transporte, marítimo e industrial, como también con vasta experiencia en mecánica menor y mayor para flotas de equipo pesado y liviano[cite: 10].
+                </p>
+                <p class="text-lg text-slate-600 leading-relaxed">
+                    Somos distribuidores exclusivos y oficiales de la marca NAPA y CEPSA. [cite_start]Somos dealers ALLISON y CUMMINS[cite: 11, 12].
+                </p>
+            </div>
         </div>
+
         <div class="grid md:grid-cols-2 gap-10 mb-16">
-            <div class="bg-slate-50 p-10 rounded-2xl border border-slate-100 shadow-sm">
+            <div class="bg-slate-50 p-10 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition">
                 <div class="w-16 h-16 bg-blue-100 text-[#2f5f9b] rounded-full flex items-center justify-center text-3xl mb-6">🚀</div>
-                <h3 class="text-2xl font-bold text-slate-900 mb-4">Nuestra Misión</h3>
+                [cite_start]<h3 class="text-2xl font-bold text-slate-900 mb-4">Nuestra Misión [cite: 21]</h3>
                 <p class="text-slate-600 leading-relaxed">
-                    Satisfacer las necesidades de nuestros clientes, brindando un servicio excepcional, esmerado y personalizado, ofreciéndoles una gama amplia de productos y servicios a toda la industria automotriz, marítima e industrial.
+                    [cite_start]Satisfacer las necesidades de nuestros clientes, brindando un servicio excepcional, esmerado y personalizado, ofreciéndoles una gama amplia de productos y servicios a toda la industria automotriz, marítima e industrial[cite: 22].
                 </p>
             </div>
-            <div class="bg-slate-50 p-10 rounded-2xl border border-slate-100 shadow-sm">
+            <div class="bg-slate-50 p-10 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition">
                 <div class="w-16 h-16 bg-red-100 text-[#e02222] rounded-full flex items-center justify-center text-3xl mb-6">👁️</div>
-                <h3 class="text-2xl font-bold text-slate-900 mb-4">Nuestra Visión</h3>
+                [cite_start]<h3 class="text-2xl font-bold text-slate-900 mb-4">Nuestra Visión [cite: 29]</h3>
                 <p class="text-slate-600 leading-relaxed">
-                    Ser la empresa panameña líder en el campo automotriz, marítimo e industrial en el suministro de filtros, lubricantes y servicios de mecánica menor y especializada, brindando un servicio con los más altos estándares de calidad.
+                    [cite_start]Ser la empresa panameña líder en el campo automotriz, marítimo e industrial en el suministro de filtros, lubricantes y servicios de mecánica menor y especializada, brindando un servicio con los más altos estándares de calidad[cite: 30].
                 </p>
             </div>
         </div>
+
         <div class="grid sm:grid-cols-3 gap-6 text-center">
-            <div class="p-6 rounded-xl border border-slate-200 bg-white shadow-sm">
+            <div class="p-6 rounded-xl border border-slate-200 bg-white shadow-sm hover:-translate-y-1 transition duration-300">
                 <span class="text-4xl mb-3 block">🤝</span>
-                <h4 class="font-bold text-slate-900">Servicio al Cliente</h4>
-                <p class="text-sm text-slate-500 mt-2">Atención personalizada y esmerada.</p>
+                [cite_start]<h4 class="font-bold text-slate-900">Servicio al Cliente [cite: 34]</h4>
+                [cite_start]<p class="text-sm text-slate-500 mt-2">Atención personalizada y esmerada[cite: 22].</p>
             </div>
-            <div class="p-6 rounded-xl border border-slate-200 bg-white shadow-sm">
+            <div class="p-6 rounded-xl border border-slate-200 bg-white shadow-sm hover:-translate-y-1 transition duration-300">
                 <span class="text-4xl mb-3 block">⚙️</span>
-                <h4 class="font-bold text-slate-900">Calidad Total</h4>
-                <p class="text-sm text-slate-500 mt-2">Certificaciones y productos garantizados.</p>
+                [cite_start]<h4 class="font-bold text-slate-900">Calidad Total [cite: 35, 36]</h4>
+                [cite_start]<p class="text-sm text-slate-500 mt-2">Certificaciones y productos garantizados[cite: 50].</p>
             </div>
-            <div class="p-6 rounded-xl border border-slate-200 bg-white shadow-sm">
+            <div class="p-6 rounded-xl border border-slate-200 bg-white shadow-sm hover:-translate-y-1 transition duration-300">
                 <span class="text-4xl mb-3 block">🛠️</span>
-                <h4 class="font-bold text-slate-900">Servicio Técnico</h4>
-                <p class="text-sm text-slate-500 mt-2">Personal experto y diagnóstico preciso.</p>
+                [cite_start]<h4 class="font-bold text-slate-900">Servicio Técnico [cite: 37]</h4>
+                [cite_start]<p class="text-sm text-slate-500 mt-2">Personal experto y diagnóstico preciso[cite: 60].</p>
             </div>
         </div>
     </div>
   </section>
 
-  <section id="mangueras" class="py-16 bg-slate-900 text-white relative overflow-hidden">
+  <section id="mangueras" class="py-20 bg-slate-900 text-white relative overflow-hidden">
     <div class="absolute inset-0 z-0 opacity-20" style="background-image: url('seccion-mangueras.jpg'); background-size: cover; background-position: center;"></div>
     <div class="max-w-7xl mx-auto px-6 relative z-10">
       <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
@@ -215,20 +217,20 @@
           <div class="bg-white/10 backdrop-blur-sm p-6 rounded-2xl inline-block mb-6 border border-white/10">
             <img src="logo-gates.png" alt="Gates Logo" class="logo-img h-16 w-auto filter brightness-0 invert">
           </div>
-          <h2 class="text-3xl md:text-4xl font-black mb-4">Fabricamos Mangueras Hidráulicas</h2>
-          <p class="text-slate-300 text-lg">Soluciones a medida con tecnología líder mundial.</p>
+          [cite_start]<h2 class="text-3xl md:text-4xl font-black mb-4">Fabricamos Mangueras Hidráulicas [cite: 209]</h2>
+          [cite_start]<p class="text-slate-300 text-lg">Soluciones a medida con tecnología líder mundial Gates MegaSys[cite: 203, 204].</p>
           <div class="mt-8">
             <a href="#contacto" class="btn bg-[#e02222] hover:bg-red-700 text-white border-none shadow-lg shadow-red-900/50">Cotizar Manguera</a>
           </div>
         </div>
         <div class="lg:w-2/3 bg-white/5 backdrop-blur-md rounded-2xl p-8 border border-white/10">
-          <h3 class="text-xl font-bold mb-6 text-white border-b border-white/20 pb-4">Ventajas GATES MegaSys™</h3>
+          [cite_start]<h3 class="text-xl font-bold mb-6 text-white border-b border-white/20 pb-4">Ventajas GATES MegaSys™ [cite: 204, 207]</h3>
           <div class="grid sm:grid-cols-2 gap-y-4 gap-x-8">
-            <div class="flex items-start gap-3"><span class="text-[#e02222] text-xl mt-1">✔</span><div><strong class="block text-white">Confección a Medida</strong><span class="text-sm text-slate-400">Ensamblaje preciso.</span></div></div>
-            <div class="flex items-start gap-3"><span class="text-[#e02222] text-xl mt-1">✔</span><div><strong class="block text-white">Alta Presión</strong><span class="text-sm text-slate-400">Resistencia extrema.</span></div></div>
+            [cite_start]<div class="flex items-start gap-3"><span class="text-[#e02222] text-xl mt-1">✔</span><div><strong class="block text-white">Confección a Medida</strong><span class="text-sm text-slate-400">Ensamblaje preciso[cite: 209].</span></div></div>
+            [cite_start]<div class="flex items-start gap-3"><span class="text-[#e02222] text-xl mt-1">✔</span><div><strong class="block text-white">Alta Presión</strong><span class="text-sm text-slate-400">Hasta 4000-6000 PSI[cite: 205].</span></div></div>
             <div class="flex items-start gap-3"><span class="text-[#e02222] text-xl mt-1">✔</span><div><strong class="block text-white">Durabilidad Extrema</strong><span class="text-sm text-slate-400">Resistentes a la abrasión.</span></div></div>
             <div class="flex items-start gap-3"><span class="text-[#e02222] text-xl mt-1">✔</span><div><strong class="block text-white">Stock Completo</strong><span class="text-sm text-slate-400">Conexiones disponibles.</span></div></div>
-            <div class="flex items-start gap-3"><span class="text-[#e02222] text-xl mt-1">✔</span><div><strong class="block text-white">Servicio Inmediato</strong><span class="text-sm text-slate-400">Sin esperas largas.</span></div></div>
+            [cite_start]<div class="flex items-start gap-3"><span class="text-[#e02222] text-xl mt-1">✔</span><div><strong class="block text-white">Servicio Inmediato</strong><span class="text-sm text-slate-400">Sin esperas largas[cite: 278].</span></div></div>
             <div class="flex items-start gap-3"><span class="text-[#e02222] text-xl mt-1">✔</span><div><strong class="block text-white">Calidad Certificada</strong><span class="text-sm text-slate-400">Garantía mundial.</span></div></div>
           </div>
         </div>
@@ -246,7 +248,7 @@
                     Contamos con una tienda física estratégicamente ubicada para atender tanto a <strong>usuarios comerciales (flotas)</strong> como a <strong>clientes particulares</strong>. 
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 mt-6">
-                    <div class="flex items-center gap-3 text-slate-700 font-bold"><span class="text-[#2f5f9b]">📍</span> PH Toneles, Vista Hermosa</div>
+                    [cite_start]<div class="flex items-center gap-3 text-slate-700 font-bold"><span class="text-[#2f5f9b]">📍</span> PH Toneles, Vista Hermosa [cite: 297, 298]</div>
                     <div class="flex items-center gap-3 text-slate-700 font-bold"><span class="text-[#2f5f9b]">⏰</span> Lunes a Sábado</div>
                 </div>
             </div>
@@ -263,15 +265,15 @@
       <div class="grid lg:grid-cols-2 gap-16 items-center">
         <div>
           <span class="pill dark-mode">Servicio Comercial</span>
-          <h2 class="text-4xl font-black text-white mb-6">Repuestos y Mantenimiento de Flotas Comerciales</h2>
+          [cite_start]<h2 class="text-4xl font-black text-white mb-6">Repuestos y Mantenimiento de Flotas Comerciales [cite: 1, 115]</h2>
           <p class="text-lg text-slate-300 mb-8 leading-relaxed">
-            Ofrecemos una solución todo-en-uno para mantener sus camiones y equipos en movimiento. Desde el suministro de insumos hasta la reparación compleja.
+            Ofrecemos una solución todo-en-uno para mantener sus camiones y equipos en movimiento. [cite_start]Desde el suministro de insumos hasta la reparación compleja[cite: 10, 115].
           </p>
           <div class="grid sm:grid-cols-2 gap-6">
-            <div class="flex flex-col gap-2"><span class="text-blue-400 font-bold text-xl">📦 Repuestos</span><p class="text-sm text-slate-400">Filtros, frenos y suspensión.</p></div>
-            <div class="flex flex-col gap-2"><span class="text-blue-400 font-bold text-xl">🛢️ Lubricantes</span><p class="text-sm text-slate-400">Aceites de motor y grasas.</p></div>
-            <div class="flex flex-col gap-2"><span class="text-blue-400 font-bold text-xl">🔧 Mangueras</span><p class="text-sm text-slate-400">Confección GATES a medida.</p></div>
-            <div class="flex flex-col gap-2"><span class="text-blue-400 font-bold text-xl">🚛 Mecánica</span><p class="text-sm text-slate-400">Taller integral y chapistería.</p></div>
+            [cite_start]<div class="flex flex-col gap-2"><span class="text-blue-400 font-bold text-xl">📦 Repuestos</span><p class="text-sm text-slate-400">Filtros, frenos y suspensión[cite: 13, 277].</p></div>
+            [cite_start]<div class="flex flex-col gap-2"><span class="text-blue-400 font-bold text-xl">🛢️ Lubricantes</span><p class="text-sm text-slate-400">Aceites de motor y grasas[cite: 13, 275].</p></div>
+            [cite_start]<div class="flex flex-col gap-2"><span class="text-blue-400 font-bold text-xl">🔧 Mangueras</span><p class="text-sm text-slate-400">Confección GATES a medida[cite: 209].</p></div>
+            [cite_start]<div class="flex flex-col gap-2"><span class="text-blue-400 font-bold text-xl">🚛 Mecánica</span><p class="text-sm text-slate-400">Taller integral y chapistería[cite: 10, 118].</p></div>
           </div>
           <div class="mt-10"><a href="#contacto" class="btn btn-primary">Cotizar para mi Flota</a></div>
         </div>
@@ -294,15 +296,15 @@
         </div>
         <div class="order-1 lg:order-2">
           <span class="pill red">Especialidad de la Casa</span>
-          <h2 class="text-4xl font-black text-slate-900 mb-6">Transmisiones <span class="text-[#e02222]">Allison</span></h2>
+          [cite_start]<h2 class="text-4xl font-black text-slate-900 mb-6">Transmisiones <span class="text-[#e02222]">Allison</span> [cite: 16, 83]</h2>
           <p class="text-lg text-slate-600 mb-8 leading-relaxed">
-            Somos su centro experto. Contamos con equipos de diagnóstico originales y personal certificado para garantizar la máxima operatividad.
+            Somos su centro experto. [cite_start]Contamos con equipos de diagnóstico originales y personal certificado para garantizar la máxima operatividad[cite: 12, 125, 291].
           </p>
           <ul class="space-y-4 mb-10 text-slate-700">
-            <li class="flex items-center gap-4"><div class="w-8 h-8 rounded-full bg-red-100 flex items-center justify-center text-[#e02222] font-bold">✓</div><span class="font-bold">Mantenimiento y Reparación Certificada</span></li>
-            <li class="flex items-center gap-4"><div class="w-8 h-8 rounded-full bg-red-100 flex items-center justify-center text-[#e02222] font-bold">✓</div><span class="font-bold">Venta de Repuestos Originales (Genuinos)</span></li>
-            <li class="flex items-center gap-4"><div class="w-8 h-8 rounded-full bg-red-100 flex items-center justify-center text-[#e02222] font-bold">✓</div><span class="font-bold">Venta de Unidades y Reconstrucción</span></li>
-            <li class="flex items-center gap-4"><div class="w-8 h-8 rounded-full bg-red-100 flex items-center justify-center text-[#e02222] font-bold">✓</div><span class="font-bold">Calibración Electrónica y Diagnóstico</span></li>
+            [cite_start]<li class="flex items-center gap-4"><div class="w-8 h-8 rounded-full bg-red-100 flex items-center justify-center text-[#e02222] font-bold">✓</div><span class="font-bold">Mantenimiento y Reparación Certificada [cite: 91]</span></li>
+            [cite_start]<li class="flex items-center gap-4"><div class="w-8 h-8 rounded-full bg-red-100 flex items-center justify-center text-[#e02222] font-bold">✓</div><span class="font-bold">Venta de Repuestos Originales (Genuinos) [cite: 97, 98]</span></li>
+            [cite_start]<li class="flex items-center gap-4"><div class="w-8 h-8 rounded-full bg-red-100 flex items-center justify-center text-[#e02222] font-bold">✓</div><span class="font-bold">Venta de Unidades y Reconstrucción [cite: 94]</span></li>
+            [cite_start]<li class="flex items-center gap-4"><div class="w-8 h-8 rounded-full bg-red-100 flex items-center justify-center text-[#e02222] font-bold">✓</div><span class="font-bold">Calibración Electrónica y Diagnóstico [cite: 87, 88, 103]</span></li>
           </ul>
           <a href="#contacto" class="btn btn-red">Servicio Técnico Allison</a>
         </div>
@@ -314,8 +316,8 @@
     <div class="max-w-7xl mx-auto px-6">
       <div class="text-center mb-16">
         <span class="text-[#2f5f9b] font-bold tracking-widest uppercase mb-2 block">Potencia Líquida</span>
-        <h2 class="text-4xl font-black mb-4">Lubricantes y Químicos Premium</h2>
-        <p class="section-desc dark-mode">Distribuidores oficiales NAPA y CEPSA.</p>
+        [cite_start]<h2 class="text-4xl font-black mb-4">Lubricantes y Químicos Premium [cite: 13, 276]</h2>
+        [cite_start]<p class="section-desc dark-mode">Distribuidores oficiales NAPA y CEPSA[cite: 11].</p>
       </div>
 
       <div class="grid md:grid-cols-3 gap-8 mb-16">
@@ -323,19 +325,19 @@
             <div class="h-48 mb-6 rounded-xl overflow-hidden relative">
                 <img src="prod-napa.jpg" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition">
                 <span class="img-missing-text text-black">Foto Aceite NAPA</span>
-                <div class="absolute top-2 right-2 bg-[#2563eb] text-white text-xs font-bold px-2 py-1 rounded">NAPA</div>
+                [cite_start]<div class="absolute top-2 right-2 bg-[#2563eb] text-white text-xs font-bold px-2 py-1 rounded">NAPA [cite: 151]</div>
             </div>
-            <h3 class="text-xl font-bold mb-2">Aceite Motor 15W-40</h3>
-            <p class="text-sm text-slate-400 mb-4">Heavy Duty Diesel Universal Fleet Plus. Protección superior.</p>
+            [cite_start]<h3 class="text-xl font-bold mb-2">Aceite Motor 15W-40 [cite: 154]</h3>
+            <p class="text-sm text-slate-400 mb-4">Heavy Duty Diesel Universal Fleet Plus. [cite_start]Protección superior contra el desgaste[cite: 152].</p>
         </div>
         <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition group text-center">
             <div class="h-48 mb-6 rounded-xl overflow-hidden relative">
                 <img src="prod-cepsa.jpg" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition">
                 <span class="img-missing-text text-black">Foto Aceite CEPSA</span>
-                <div class="absolute top-2 right-2 bg-[#e02222] text-white text-xs font-bold px-2 py-1 rounded">CEPSA</div>
+                [cite_start]<div class="absolute top-2 right-2 bg-[#e02222] text-white text-xs font-bold px-2 py-1 rounded">CEPSA [cite: 235]</div>
             </div>
-            <h3 class="text-xl font-bold mb-2">Traction MAX</h3>
-            <p class="text-sm text-slate-400 mb-4">Tecnología Europea. Eficiencia energética.</p>
+            [cite_start]<h3 class="text-xl font-bold mb-2">Traction MAX [cite: 232]</h3>
+            <p class="text-sm text-slate-400 mb-4">Tecnología Europea. Eficiencia energética para flotas modernas.</p>
         </div>
         <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition group text-center">
             <div class="h-48 mb-6 rounded-xl overflow-hidden relative">
@@ -343,8 +345,8 @@
                 <span class="img-missing-text text-black">Foto Hidráulico</span>
                 <div class="absolute top-2 right-2 bg-white text-black text-xs font-bold px-2 py-1 rounded">PREMIUM</div>
             </div>
-            <h3 class="text-xl font-bold mb-2">Hidráulico AW-68</h3>
-            <p class="text-sm text-slate-400 mb-4">Fluido hidráulico de alto rendimiento.</p>
+            [cite_start]<h3 class="text-xl font-bold mb-2">Hidráulico AW-68 [cite: 142]</h3>
+            <p class="text-sm text-slate-400 mb-4">Fluido hidráulico de alto rendimiento para maquinaria pesada.</p>
         </div>
       </div>
 
@@ -356,24 +358,24 @@
                 <img src="chem-purple.jpg" class="w-full h-full object-cover">
                 <span class="img-missing-text text-black opacity-50">Foto Purple Power</span>
             </div>
-            <h4 class="font-bold text-[#a855f7] text-xl mb-1">Purple Power</h4>
-            <p class="text-sm text-slate-400">Limpiadores industriales.</p>
+            [cite_start]<h4 class="font-bold text-[#a855f7] text-xl mb-1">Purple Power [cite: 189]</h4>
+            [cite_start]<p class="text-sm text-slate-400">Limpiadores y desengrasantes industriales[cite: 190, 198].</p>
           </div>
           <div class="bg-slate-800 rounded-xl p-4 text-center border border-slate-700 hover:border-[#e02222] transition">
             <div class="h-48 mb-4 rounded-lg overflow-hidden bg-white/5 relative">
                 <img src="chem-macs.jpg" class="w-full h-full object-cover">
                 <span class="img-missing-text text-black opacity-50">Foto MACs</span>
             </div>
-            <h4 class="font-bold text-[#e02222] text-xl mb-1">MAC's Chemicals</h4>
-            <p class="text-sm text-slate-400">Químicos automotrices.</p>
+            [cite_start]<h4 class="font-bold text-[#e02222] text-xl mb-1">MAC's Chemicals [cite: 161]</h4>
+            [cite_start]<p class="text-sm text-slate-400">Línea completa de químicos automotrices[cite: 171].</p>
           </div>
           <div class="bg-slate-800 rounded-xl p-4 text-center border border-slate-700 hover:border-[#2563eb] transition">
             <div class="h-48 mb-4 rounded-lg overflow-hidden bg-white/5 relative">
                 <img src="chem-antifreeze.jpg" class="w-full h-full object-cover">
                 <span class="img-missing-text text-black opacity-50">Foto Antifreeze</span>
             </div>
-            <h4 class="font-bold text-[#2563eb] text-xl mb-1">NAPA Antifreeze</h4>
-            <p class="text-sm text-slate-400">Refrigerantes.</p>
+            [cite_start]<h4 class="font-bold text-[#2563eb] text-xl mb-1">NAPA Antifreeze [cite: 177, 186]</h4>
+            [cite_start]<p class="text-sm text-slate-400">Refrigerantes y anticongelantes[cite: 176, 178].</p>
           </div>
         </div>
       </div>
@@ -393,27 +395,27 @@
             <img src="seccion-taller-2.jpg" class="rounded-2xl shadow-lg w-full h-full object-cover">
         </div>
         <div>
-          <h3 class="text-3xl font-bold mb-6 text-slate-800">Overhaul de Motores de Alto Desempeño</h3>
+          [cite_start]<h3 class="text-3xl font-bold mb-6 text-slate-800">Overhaul de Motores de Alto Desempeño [cite: 99]</h3>
           <p class="text-slate-600 mb-6">
-            Reconstrucción completa siguiendo especificaciones de fábrica. Garantizamos potencia y durabilidad renovada.
+            Reconstrucción completa siguiendo especificaciones de fábrica. [cite_start]Garantizamos potencia y durabilidad renovada[cite: 99].
           </p>
           <div class="mb-8">
             <h4 class="font-bold text-slate-900 mb-4 uppercase text-sm tracking-wide">Especialistas en marcas:</h4>
             <div class="flex flex-wrap gap-3">
-              <span class="engine-brand">CUMMINS</span>
-              <span class="engine-brand">CATERPILLAR</span>
+              [cite_start]<span class="engine-brand">CUMMINS [cite: 71, 102]</span>
+              [cite_start]<span class="engine-brand">CATERPILLAR [cite: 17]</span>
               <span class="engine-brand">DETROIT</span>
-              <span class="engine-brand">MERCEDES</span>
-              <span class="engine-brand">HINO</span>
+              [cite_start]<span class="engine-brand">MERCEDES [cite: 19]</span>
+              [cite_start]<span class="engine-brand">HINO [cite: 18]</span>
             </div>
           </div>
           <div class="space-y-3 border-t pt-6 border-slate-200">
             <h4 class="font-bold text-slate-900">Otros Servicios:</h4>
             <div class="grid sm:grid-cols-2 gap-4 text-sm text-slate-600">
-              <div class="flex items-center gap-2">✓ Chapistería y Pintura</div>
-              <div class="flex items-center gap-2">✓ Diagnóstico Computarizado</div>
-              <div class="flex items-center gap-2">✓ Electricidad Automotriz</div>
-              <div class="flex items-center gap-2">✓ Mantenimiento de Flotas</div>
+              [cite_start]<div class="flex items-center gap-2">✓ Chapistería y Pintura [cite: 118]</div>
+              [cite_start]<div class="flex items-center gap-2">✓ Diagnóstico Computarizado [cite: 15, 103]</div>
+              [cite_start]<div class="flex items-center gap-2">✓ Electricidad Automotriz [cite: 93]</div>
+              [cite_start]<div class="flex items-center gap-2">✓ Mantenimiento de Flotas [cite: 115]</div>
             </div>
           </div>
         </div>
@@ -425,18 +427,18 @@
     <div class="max-w-7xl mx-auto px-6">
       <div class="text-center mb-16">
         <span class="pill dark-mode">Servicio al Cliente</span>
-        <h2 class="text-3xl font-black text-white mb-4">Logística y Entrega</h2>
-        <p class="section-desc text-slate-400">Llevamos los repuestos y lubricantes donde su flota los necesite.</p>
+        [cite_start]<h2 class="text-3xl font-black text-white mb-4">Logística y Entrega [cite: 253]</h2>
+        [cite_start]<p class="section-desc text-slate-400">Llevamos los repuestos y lubricantes donde su flota los necesite[cite: 258].</p>
       </div>
       <div class="grid md:grid-cols-2 gap-12 items-center">
         <div class="space-y-6">
           <div class="flex gap-4">
             <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white text-2xl">🚚</div>
-            <div><h4 class="font-bold text-lg text-white">Entrega Inmediata</h4><p class="text-slate-400">Despacho ágil según disponibilidad.</p></div>
+            [cite_start]<div><h4 class="font-bold text-lg text-white">Entrega Inmediata [cite: 278]</h4><p class="text-slate-400">Despacho ágil según disponibilidad.</p></div>
           </div>
           <div class="flex gap-4">
             <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white text-2xl">⏱️</div>
-            <div><h4 class="font-bold text-lg text-white">Atención 24 Horas</h4><p class="text-slate-400">Disponibles para emergencias.</p></div>
+            [cite_start]<div><h4 class="font-bold text-lg text-white">Atención 24 Horas [cite: 270]</h4><p class="text-slate-400">Disponibles para emergencias.</p></div>
           </div>
         </div>
         <div class="bg-slate-800 p-4 rounded-2xl shadow-lg border border-slate-700 h-80 flex items-center justify-center relative overflow-hidden group">
@@ -451,29 +453,29 @@
     <div class="max-w-7xl mx-auto px-6">
       <div class="text-center mb-16">
         <span class="pill">Capital Humano</span>
-        <h2 class="text-3xl font-black text-slate-900">Nuestro Equipo</h2>
+        [cite_start]<h2 class="text-3xl font-black text-slate-900">Nuestro Equipo [cite: 281]</h2>
         <p class="section-desc text-slate-600 mt-4">Profesionales con trayectoria listos para asesorarle.</p>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
         <div class="bg-white border border-slate-200 p-6 rounded-xl text-center shadow-sm hover:shadow-md transition">
             <div class="w-12 h-12 bg-blue-50 text-[#2f5f9b] rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-xl">GL</div>
-            <h4 class="font-bold text-slate-900">Gustavo Lasso</h4><p class="text-sm text-slate-500 font-medium uppercase mt-1">Gerente General</p>
+            [cite_start]<h4 class="font-bold text-slate-900">Gustavo Lasso [cite: 282][cite_start]</h4><p class="text-sm text-slate-500 font-medium uppercase mt-1">Gerente General [cite: 282]</p>
         </div>
         <div class="bg-white border border-slate-200 p-6 rounded-xl text-center shadow-sm hover:shadow-md transition">
             <div class="w-12 h-12 bg-blue-50 text-[#2f5f9b] rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-xl">GG</div>
-            <h4 class="font-bold text-slate-900">Gaspar González</h4><p class="text-sm text-slate-500 font-medium uppercase mt-1">Supervisor Técnico</p>
+            [cite_start]<h4 class="font-bold text-slate-900">Gaspar González [cite: 283][cite_start]</h4><p class="text-sm text-slate-500 font-medium uppercase mt-1">Supervisor Técnico [cite: 283]</p>
         </div>
         <div class="bg-white border border-slate-200 p-6 rounded-xl text-center shadow-sm hover:shadow-md transition">
             <div class="w-12 h-12 bg-blue-50 text-[#2f5f9b] rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-xl">VG</div>
-            <h4 class="font-bold text-slate-900">Virgilio Guillén</h4><p class="text-sm text-slate-500 font-medium uppercase mt-1">Ejecutivo de Ventas</p>
+            [cite_start]<h4 class="font-bold text-slate-900">Virgilio Guillén [cite: 284][cite_start]</h4><p class="text-sm text-slate-500 font-medium uppercase mt-1">Ejecutivo de Ventas [cite: 284]</p>
         </div>
         <div class="bg-white border border-slate-200 p-6 rounded-xl text-center shadow-sm hover:shadow-md transition">
             <div class="w-12 h-12 bg-blue-50 text-[#2f5f9b] rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-xl">IR</div>
-            <h4 class="font-bold text-slate-900">Irvin Ramos</h4><p class="text-sm text-slate-500 font-medium uppercase mt-1">Asesor Cummins</p>
+            [cite_start]<h4 class="font-bold text-slate-900">Irvin Ramos [cite: 285][cite_start]</h4><p class="text-sm text-slate-500 font-medium uppercase mt-1">Asesor Cummins [cite: 285]</p>
         </div>
         <div class="bg-white border border-slate-200 p-6 rounded-xl text-center shadow-sm hover:shadow-md transition">
             <div class="w-12 h-12 bg-blue-50 text-[#2f5f9b] rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-xl">JS</div>
-            <h4 class="font-bold text-slate-900">Jairo Salazar</h4><p class="text-sm text-slate-500 font-medium uppercase mt-1">Logística y Allison</p>
+            [cite_start]<h4 class="font-bold text-slate-900">Jairo Salazar [cite: 286][cite_start]</h4><p class="text-sm text-slate-500 font-medium uppercase mt-1">Logística y Allison [cite: 286]</p>
         </div>
       </div>
     </div>
@@ -517,21 +519,21 @@
           <div class="flex items-center gap-1 mb-6">
             <img src="logo-motorplus.png" class="logo-img h-10 w-auto">
           </div>
-          <p class="text-sm opacity-80 leading-relaxed mb-6">Su socio estratégico en soluciones integrales para el transporte y la industria.</p>
+          [cite_start]<p class="text-sm opacity-80 leading-relaxed mb-6">Su socio estratégico en soluciones integrales para el transporte y la industria[cite: 78].</p>
         </div>
         <div>
           <h4 class="text-white font-bold text-lg mb-6 uppercase tracking-wide">Ubicaciones</h4>
           <ul class="space-y-4">
-            <li class="flex gap-3"><span class="text-[#2f5f9b]">📍</span><div><strong class="text-white block">Sede Vista Hermosa</strong><span class="text-sm">PH Toneles, Ciudad de Panamá</span></div></li>
-            <li class="flex gap-3"><span class="text-[#2f5f9b]">📍</span><div><strong class="text-white block">Sede Mañanitas</strong><span class="text-sm">PH Ofidepositos, Ciudad de Panamá</span></div></li>
+            [cite_start]<li class="flex gap-3"><span class="text-[#2f5f9b]">📍</span><div><strong class="text-white block">Sede Vista Hermosa</strong><span class="text-sm">PH Toneles, Ciudad de Panamá [cite: 297, 298]</span></div></li>
+            [cite_start]<li class="flex gap-3"><span class="text-[#2f5f9b]">📍</span><div><strong class="text-white block">Sede Mañanitas</strong><span class="text-sm">PH Ofidepositos, Ciudad de Panamá [cite: 297, 298]</span></div></li>
           </ul>
         </div>
         <div>
           <h4 class="text-white font-bold text-lg mb-6 uppercase tracking-wide">Contacto</h4>
           <ul class="space-y-4">
-            <li class="flex gap-3 items-center"><span class="text-[#2f5f9b]">📞</span><span class="font-bold text-white">232-5200 / +507 6558-6494</span></li>
-            <li class="flex gap-3"><span class="text-[#2f5f9b]">✉️</span><div><span class="block text-xs uppercase text-slate-500 mb-1">Cotizaciones</span><a href="mailto:ventas4@motorplus.pro" class="text-white hover:text-[#2563eb]">ventas4@motorplus.pro</a></div></li>
-            <li class="flex gap-3"><span class="text-[#2f5f9b]">✉️</span><div><span class="block text-xs uppercase text-slate-500 mb-1">Gerencia</span><a href="mailto:gerencia@motorplus.pro" class="text-white hover:text-[#2563eb]">gerencia@motorplus.pro</a></div></li>
+            [cite_start]<li class="flex gap-3 items-center"><span class="text-[#2f5f9b]">📞</span><span class="font-bold text-white">232-5200 / +507 6558-6494 [cite: 293, 294]</span></li>
+            [cite_start]<li class="flex gap-3"><span class="text-[#2f5f9b]">✉️</span><div><span class="block text-xs uppercase text-slate-500 mb-1">Cotizaciones</span><a href="mailto:ventas4@motorplus.pro" class="text-white hover:text-[#2563eb]">ventas4@motorplus.pro [cite: 296]</a></div></li>
+            [cite_start]<li class="flex gap-3"><span class="text-[#2f5f9b]">✉️</span><div><span class="block text-xs uppercase text-slate-500 mb-1">Gerencia</span><a href="mailto:gerencia@motorplus.pro" class="text-white hover:text-[#2563eb]">gerencia@motorplus.pro [cite: 296]</a></div></li>
           </ul>
         </div>
       </div>
@@ -542,23 +544,26 @@
   </footer>
 
   <script>
-    AOS.init();
-    let currentSlide = 0;
     const slides = document.querySelectorAll('.hero-slide');
     const dots = document.querySelectorAll('.dot');
+    let currentSlide = 0;
+
+    function showSlide(index) {
+        slides.forEach(slide => slide.classList.remove('active'));
+        dots.forEach(dot => dot.classList.remove('active'));
+        slides[index].classList.add('active');
+        dots[index].classList.add('active');
+        currentSlide = index;
+    }
 
     function goToSlide(n) {
-      slides[currentSlide].classList.remove('active');
-      dots[currentSlide].classList.remove('active');
-      currentSlide = n;
-      slides[currentSlide].classList.add('active');
-      dots[currentSlide].classList.add('active');
+        showSlide(n);
     }
 
     setInterval(() => {
-      let next = (currentSlide + 1) % slides.length;
-      goToSlide(next);
-    }, 6000);
+        let next = (currentSlide + 1) % slides.length;
+        showSlide(next);
+    }, 5000);
   </script>
 </body>
 </html>
