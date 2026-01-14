@@ -9,6 +9,7 @@
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
   <style>
     :root{
@@ -80,12 +81,17 @@
     /* --- INSTAGRAM --- */
     .insta-icon:hover { color: #E1306C; transition: 0.3s; }
 
-    /* --- BRANDS & PLACEHOLDERS --- */
+    /* --- ENGINE BRANDS --- */
     .engine-brand { 
         background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 10px 20px; 
         font-weight: 700; color: var(--muted); display: flex; align-items: center; justify-content: center;
     }
-    img { background-color: #cbd5e1; min-height: 100px; object-fit: cover; }
+    
+    /* --- CORRECCIÓN IMÁGENES --- */
+    /* Solo aplicamos fondo gris a las imágenes que NO son logos para evitar que el logo se vea mal */
+    img:not(.logo-img) { background-color: #cbd5e1; object-fit: cover; }
+    /* El logo debe verse limpio */
+    .logo-img { object-fit: contain; background-color: transparent !important; min-height: 0 !important;}
     
     .img-missing-text {
         position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
@@ -109,7 +115,7 @@
   <header class="fixed w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 transition-all">
     <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
       <a href="#inicio" class="flex items-center gap-1 group">
-        <img src="logo-motorplus.png" alt="Motor Plus" class="h-12 w-auto bg-transparent object-contain">
+        <img src="logo-motorplus.png" alt="Motor Plus" class="logo-img h-12 w-auto">
       </a>
 
       <nav class="hidden lg:flex items-center gap-8 text-sm font-bold text-slate-700">
@@ -133,7 +139,7 @@
 
   <section class="hero">
     <div class="hero-slide active" style="background-image: url('hero-flotas.jpg');">
-      <div class="hero-content">
+      <div class="hero-content" data-aos="fade-up">
         <h1>Mantenimiento de Flotas Comerciales</h1>
         <p>Planes preventivos y correctivos para asegurar la continuidad de su negocio. Servicio 24/7.</p>
         <a href="#flotas" class="btn btn-primary">Ver Servicios</a>
@@ -168,7 +174,7 @@
       <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
         <div class="lg:w-1/3 text-center lg:text-left">
           <div class="bg-white/10 backdrop-blur-sm p-6 rounded-2xl inline-block mb-6 border border-white/10">
-            <img src="logo-gates.png" alt="Gates Logo" class="h-16 w-auto object-contain mx-auto lg:mx-0 filter brightness-0 invert">
+            <img src="logo-gates.png" alt="Gates Logo" class="logo-img h-16 w-auto filter brightness-0 invert">
           </div>
           <h2 class="text-3xl md:text-4xl font-black mb-4">Fabricamos Mangueras Hidráulicas</h2>
           <p class="text-slate-300 text-lg">Soluciones a medida con tecnología líder mundial.</p>
@@ -180,48 +186,12 @@
         <div class="lg:w-2/3 bg-white/5 backdrop-blur-md rounded-2xl p-8 border border-white/10">
           <h3 class="text-xl font-bold mb-6 text-white border-b border-white/20 pb-4">Ventajas GATES MegaSys™</h3>
           <div class="grid sm:grid-cols-2 gap-y-4 gap-x-8">
-            <div class="flex items-start gap-3">
-              <span class="text-[#e02222] text-xl mt-1">✔</span>
-              <div>
-                <strong class="block text-white">Confección a Medida</strong>
-                <span class="text-sm text-slate-400">Ensamblaje preciso según su equipo.</span>
-              </div>
-            </div>
-            <div class="flex items-start gap-3">
-              <span class="text-[#e02222] text-xl mt-1">✔</span>
-              <div>
-                <strong class="block text-white">Alta Presión</strong>
-                <span class="text-sm text-slate-400">Resistencia extrema para maquinaria pesada.</span>
-              </div>
-            </div>
-            <div class="flex items-start gap-3">
-              <span class="text-[#e02222] text-xl mt-1">✔</span>
-              <div>
-                <strong class="block text-white">Durabilidad Extrema</strong>
-                <span class="text-sm text-slate-400">Materiales resistentes a la abrasión y el calor.</span>
-              </div>
-            </div>
-            <div class="flex items-start gap-3">
-              <span class="text-[#e02222] text-xl mt-1">✔</span>
-              <div>
-                <strong class="block text-white">Stock Completo</strong>
-                <span class="text-sm text-slate-400">Conexiones y adaptadores disponibles.</span>
-              </div>
-            </div>
-            <div class="flex items-start gap-3">
-              <span class="text-[#e02222] text-xl mt-1">✔</span>
-              <div>
-                <strong class="block text-white">Servicio Inmediato</strong>
-                <span class="text-sm text-slate-400">Sin esperas largas, solución al instante.</span>
-              </div>
-            </div>
-            <div class="flex items-start gap-3">
-              <span class="text-[#e02222] text-xl mt-1">✔</span>
-              <div>
-                <strong class="block text-white">Calidad Certificada</strong>
-                <span class="text-sm text-slate-400">Garantía de la marca líder mundial.</span>
-              </div>
-            </div>
+            <div class="flex items-start gap-3"><span class="text-[#e02222] text-xl mt-1">✔</span><div><strong class="block text-white">Confección a Medida</strong><span class="text-sm text-slate-400">Ensamblaje preciso según su equipo.</span></div></div>
+            <div class="flex items-start gap-3"><span class="text-[#e02222] text-xl mt-1">✔</span><div><strong class="block text-white">Alta Presión</strong><span class="text-sm text-slate-400">Resistencia extrema para maquinaria.</span></div></div>
+            <div class="flex items-start gap-3"><span class="text-[#e02222] text-xl mt-1">✔</span><div><strong class="block text-white">Durabilidad Extrema</strong><span class="text-sm text-slate-400">Resistentes a la abrasión y calor.</span></div></div>
+            <div class="flex items-start gap-3"><span class="text-[#e02222] text-xl mt-1">✔</span><div><strong class="block text-white">Stock Completo</strong><span class="text-sm text-slate-400">Conexiones y adaptadores disponibles.</span></div></div>
+            <div class="flex items-start gap-3"><span class="text-[#e02222] text-xl mt-1">✔</span><div><strong class="block text-white">Servicio Inmediato</strong><span class="text-sm text-slate-400">Sin esperas largas, solución al instante.</span></div></div>
+            <div class="flex items-start gap-3"><span class="text-[#e02222] text-xl mt-1">✔</span><div><strong class="block text-white">Calidad Certificada</strong><span class="text-sm text-slate-400">Garantía de la marca líder mundial.</span></div></div>
           </div>
         </div>
       </div>
@@ -230,7 +200,7 @@
 
   <section id="nosotros" class="py-24 bg-white">
     <div class="max-w-7xl mx-auto px-6">
-        <div class="text-center mb-16">
+        <div class="text-center mb-16" data-aos="fade-up">
             <span class="pill">Nuestra Trayectoria</span>
             <h2 class="text-4xl font-black text-slate-900 mb-6">Sobre Motor Plus Panamá</h2>
             <p class="text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
@@ -239,14 +209,14 @@
         </div>
 
         <div class="grid md:grid-cols-2 gap-10 mb-16">
-            <div class="bg-slate-50 p-10 rounded-2xl border border-slate-100 shadow-sm">
+            <div class="bg-slate-50 p-10 rounded-2xl border border-slate-100 shadow-sm" data-aos="fade-right">
                 <div class="w-16 h-16 bg-blue-100 text-[#2f5f9b] rounded-full flex items-center justify-center text-3xl mb-6">🚀</div>
                 <h3 class="text-2xl font-bold text-slate-900 mb-4">Nuestra Misión</h3>
                 <p class="text-slate-600 leading-relaxed">
                     Satisfacer las necesidades de nuestros clientes, brindando un servicio excepcional, esmerado y personalizado, ofreciéndoles una gama amplia de productos y servicios a toda la industria automotriz, marítima e industrial.
                 </p>
             </div>
-            <div class="bg-slate-50 p-10 rounded-2xl border border-slate-100 shadow-sm">
+            <div class="bg-slate-50 p-10 rounded-2xl border border-slate-100 shadow-sm" data-aos="fade-left">
                 <div class="w-16 h-16 bg-red-100 text-[#e02222] rounded-full flex items-center justify-center text-3xl mb-6">👁️</div>
                 <h3 class="text-2xl font-bold text-slate-900 mb-4">Nuestra Visión</h3>
                 <p class="text-slate-600 leading-relaxed">
@@ -256,17 +226,17 @@
         </div>
 
         <div class="grid sm:grid-cols-3 gap-6 text-center">
-            <div class="p-6 rounded-xl border border-slate-200 bg-white shadow-sm">
+            <div class="p-6 rounded-xl border border-slate-200 bg-white shadow-sm" data-aos="zoom-in">
                 <span class="text-4xl mb-3 block">🤝</span>
                 <h4 class="font-bold text-slate-900">Servicio al Cliente</h4>
                 <p class="text-sm text-slate-500 mt-2">Atención personalizada y esmerada.</p>
             </div>
-            <div class="p-6 rounded-xl border border-slate-200 bg-white shadow-sm">
+            <div class="p-6 rounded-xl border border-slate-200 bg-white shadow-sm" data-aos="zoom-in" data-aos-delay="100">
                 <span class="text-4xl mb-3 block">⚙️</span>
                 <h4 class="font-bold text-slate-900">Calidad Total</h4>
                 <p class="text-sm text-slate-500 mt-2">Certificaciones y productos garantizados.</p>
             </div>
-            <div class="p-6 rounded-xl border border-slate-200 bg-white shadow-sm">
+            <div class="p-6 rounded-xl border border-slate-200 bg-white shadow-sm" data-aos="zoom-in" data-aos-delay="200">
                 <span class="text-4xl mb-3 block">🛠️</span>
                 <h4 class="font-bold text-slate-900">Servicio Técnico</h4>
                 <p class="text-sm text-slate-500 mt-2">Personal experto y diagnóstico preciso.</p>
@@ -307,7 +277,7 @@
   <section id="flotas" class="py-24 bg-white">
     <div class="max-w-7xl mx-auto px-6">
       <div class="grid lg:grid-cols-2 gap-16 items-center">
-        <div>
+        <div data-aos="fade-right">
           <span class="pill">Servicio Comercial</span>
           <h2 class="text-4xl font-black text-slate-900 mb-6">Repuestos y Mantenimiento de Flotas Comerciales</h2>
           <p class="text-lg text-slate-600 mb-8 leading-relaxed">
@@ -321,7 +291,7 @@
           </div>
           <div class="mt-10"><a href="#contacto" class="btn btn-primary">Cotizar para mi Flota</a></div>
         </div>
-        <div class="relative h-[500px] rounded-2xl overflow-hidden shadow-2xl group">
+        <div class="relative h-[500px] rounded-2xl overflow-hidden shadow-2xl group" data-aos="fade-left">
           <img src="seccion-flotas.jpg" alt="Flota de Camiones" class="w-full h-full object-cover transition duration-700 group-hover:scale-105">
           <span class="img-missing-text">Foto Flota Camiones</span>
           <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-8">
@@ -335,13 +305,13 @@
   <section id="allison" class="py-24 bg-slate-50 overflow-hidden">
     <div class="max-w-7xl mx-auto px-6">
       <div class="grid lg:grid-cols-2 gap-16 items-center">
-        <div class="order-2 lg:order-1 relative">
+        <div class="order-2 lg:order-1 relative" data-aos="fade-right">
           <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-slate-50">
-            <img src="sec-allison.jpg" alt="Transmisión Allison" class="w-full h-auto object-cover">
+            <img src="seccion-allison.jpg" alt="Transmisión Allison" class="w-full h-auto object-cover">
             <span class="img-missing-text">Foto Transmisión Allison</span>
           </div>
         </div>
-        <div class="order-1 lg:order-2">
+        <div class="order-1 lg:order-2" data-aos="fade-left">
           <span class="pill red">Especialidad de la Casa</span>
           <h2 class="text-4xl font-black text-slate-900 mb-6">Transmisiones <span class="text-[#e02222]">Allison</span></h2>
           <p class="text-lg text-slate-600 mb-8 leading-relaxed">
@@ -574,7 +544,7 @@
       <div class="grid md:grid-cols-3 gap-12 mb-12">
         <div>
           <div class="flex items-center gap-1 mb-6">
-            <img src="logo-motorplus.png" class="h-10 bg-transparent object-contain">
+            <img src="logo-motorplus.png" class="logo-img h-10 w-auto">
           </div>
           <p class="text-sm opacity-80 leading-relaxed mb-6">Su socio estratégico en soluciones integrales para el transporte y la industria.</p>
         </div>
@@ -604,6 +574,7 @@
   </footer>
 
   <script>
+    AOS.init();
     let currentSlide = 0;
     const slides = document.querySelectorAll('.hero-slide');
     const dots = document.querySelectorAll('.dot');
