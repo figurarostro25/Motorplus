@@ -35,15 +35,15 @@
     .pill-dark { background: rgba(255,255,255,0.15); color: white; border: 1px solid rgba(255,255,255,0.3); }
 
     /* --- LOGOS E IMÁGENES --- */
-    /* Regla crítica para que el logo NO se deforme */
+    /* AJUSTE DE LOGO PARA HEADER MÁS ALTO */
     .logo-img { 
-        height: 50px !important; /* Altura fija elegante */
+        height: 70px !important; /* Aumentado de 50px a 70px */
         width: auto !important; 
         object-fit: contain !important; 
         background: transparent !important;
         min-height: 0 !important;
     }
-    /* El resto de imágenes si tienen fondo gris si faltan */
+    
     img:not(.logo-img) { background-color: #cbd5e1; object-fit: cover; width: 100%; }
     
     .img-placeholder-text {
@@ -53,11 +53,11 @@
     }
 
     /* --- SLIDER HERO --- */
-    .hero { height: 85vh; min-height: 600px; position: relative; overflow: hidden; background: #020617; }
+    .hero { height: 90vh; min-height: 650px; position: relative; overflow: hidden; background: #020617; } /* Aumenté un poco la altura del hero para compensar el header grande */
     .hero-slide { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0; transition: opacity 1.2s ease-in-out; display: flex; align-items: center; justify-content: center; }
     .hero-slide.active { opacity: 1; z-index: 10; }
     .hero-slide::before { content:''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 100%); }
-    .hero-content { position: relative; z-index: 20; text-align: center; color: white; padding: 20px; max-width: 900px; }
+    .hero-content { position: relative; z-index: 20; text-align: center; color: white; padding: 20px; max-width: 900px; margin-top: 60px; } /* Margen superior para que no choque con el header grande */
     .hero-content h1 { font-size: clamp(36px, 5vw, 64px); font-weight: 900; line-height: 1.1; margin-bottom: 24px; text-shadow: 0 4px 20px rgba(0,0,0,0.5); }
     .slider-dots { position: absolute; bottom: 30px; left: 0; right: 0; display: flex; justify-content: center; gap: 10px; z-index: 30; }
     .dot { width: 12px; height: 12px; border-radius: 50%; background: rgba(255,255,255,0.3); cursor: pointer; transition: 0.3s; }
@@ -78,54 +78,69 @@
     </div>
   </a>
 
-  <header class="fixed w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 transition-all shadow-sm">
-    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-      <a href="#inicio" class="flex items-center gap-2">
-        <img src="logo-motorplus.png" alt="Motor Plus" class="logo-img">
-      </a>
-
-      <nav class="hidden xl:flex items-center gap-8 text-sm font-bold text-slate-600">
-        <a href="#nosotros" class="hover:text-[#2f5f9b] transition">Nosotros</a>
-        <a href="#mangueras" class="hover:text-[#2f5f9b] transition">Mangueras</a>
-        <a href="#tienda" class="hover:text-[#2f5f9b] transition">Tienda</a>
-        <a href="#flotas" class="hover:text-[#2f5f9b] transition">Flotas</a>
-        <a href="#allison" class="hover:text-[#2f5f9b] transition">Allison</a>
-        <a href="#taller" class="hover:text-[#2f5f9b] transition">Taller</a>
-      </nav>
-
-      <div class="flex items-center gap-4">
-        <a href="https://www.instagram.com/motorplus.pro/#" target="_blank" class="text-slate-400 hover:text-[#E1306C] transition p-2">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-        </a>
-        <a href="#contacto" class="btn-primary hidden sm:inline-flex">Cotizar</a>
+  <div class="fixed top-0 w-full z-50 shadow-md font-inter">
+      
+      <div class="bg-[#0b1220] text-slate-300 py-3 text-xs font-semibold hidden md:block border-b border-slate-800">
+          <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+              <div class="flex gap-8">
+                  <span class="flex items-center gap-2"><span class="text-[#e02222]">📞</span> 232-5200 / 6558-6494</span>
+                  <span class="flex items-center gap-2"><span class="text-[#e02222]">✉️</span> ventas4@motorplus.pro</span>
+                  <span class="flex items-center gap-2"><span class="text-[#e02222]">⏰</span> Lun-Sab: 8am - 5pm</span>
+              </div>
+              <div class="flex items-center gap-4">
+                   <span class="uppercase tracking-widest opacity-70">Síguenos:</span>
+                   <a href="https://www.instagram.com/motorplus.pro/#" target="_blank" class="text-white hover:text-[#E1306C] transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                  </a>
+              </div>
+          </div>
       </div>
-    </div>
-  </header>
 
+      <header class="bg-white/95 backdrop-blur-md border-b border-slate-200 transition-all relative">
+        <div class="max-w-7xl mx-auto px-6 h-28 flex items-center justify-between">
+          <a href="#inicio" class="flex items-center gap-2 py-2">
+            <img src="logo-motorplus.png" alt="Motor Plus" class="logo-img">
+          </a>
+
+          <nav class="hidden xl:flex items-center gap-10 text-sm font-extrabold text-slate-700 uppercase tracking-wider">
+            <a href="#nosotros" class="hover:text-[#2f5f9b] transition py-2 border-b-2 border-transparent hover:border-[#e02222]">Nosotros</a>
+            <a href="#mangueras" class="hover:text-[#2f5f9b] transition py-2 border-b-2 border-transparent hover:border-[#e02222]">Mangueras</a>
+            <a href="#tienda" class="hover:text-[#2f5f9b] transition py-2 border-b-2 border-transparent hover:border-[#e02222]">Tienda</a>
+            <a href="#flotas" class="hover:text-[#2f5f9b] transition py-2 border-b-2 border-transparent hover:border-[#e02222]">Flotas</a>
+            <a href="#allison" class="hover:text-[#2f5f9b] transition py-2 border-b-2 border-transparent hover:border-[#e02222]">Allison</a>
+            <a href="#taller" class="hover:text-[#2f5f9b] transition py-2 border-b-2 border-transparent hover:border-[#e02222]">Taller</a>
+          </nav>
+
+          <div class="flex items-center gap-4">
+            <a href="#contacto" class="btn-primary hidden sm:inline-flex py-3 px-8 text-sm">Solicitar Cotización</a>
+          </div>
+        </div>
+      </header>
+  </div>
   <section class="hero" id="inicio">
     <div class="hero-slide active" style="background-image: url('hero-flotas.jpg');">
       <div class="hero-content" data-aos="fade-up">
-        <span class="pill pill-red mb-4 inline-block">Servicio 24/7</span>
-        <h1>Mantenimiento de<br>Flotas Comerciales</h1>
-        <p class="text-lg text-slate-200 mb-8 max-w-2xl mx-auto">Planes preventivos y correctivos para asegurar la continuidad de su negocio. Atendemos camiones, buses y equipo pesado.</p>
-        <div class="flex gap-4 justify-center">
-            <a href="#flotas" class="btn btn-primary">Nuestros Servicios</a>
-            <a href="#contacto" class="btn btn-red">Contactar</a>
+        <span class="pill pill-red mb-6 inline-block px-4 py-2 text-xs">Atención Inmediata 24/7</span>
+        <h1 class="leading-none mb-8">Mantenimiento Integral<br>de Flotas Comerciales</h1>
+        <p class="text-xl text-slate-200 mb-10 max-w-3xl mx-auto font-medium leading-relaxed">Planes preventivos y correctivos diseñados para maximizar la operatividad de sus camiones, buses y equipo pesado. Su negocio no se detiene.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="#flotas" class="btn btn-primary py-4 px-8 text-base">Ver Servicios de Flotas</a>
+            <a href="#contacto" class="btn btn-red py-4 px-8 text-base">Contactar Ahora</a>
         </div>
       </div>
     </div>
     <div class="hero-slide" style="background-image: url('hero-taller.jpg');">
       <div class="hero-content">
-        <h1>Taller de Mecánica<br>Especializada</h1>
-        <p class="text-lg text-slate-200 mb-8 max-w-2xl mx-auto">Overhaul de motores diésel, chapistería, diagnóstico computarizado y reconstrucción con repuestos de alta calidad.</p>
-        <a href="#taller" class="btn btn-primary">Conocer Taller</a>
+        <h1>Taller de Mecánica<br>Especializada Diésel</h1>
+        <p class="text-xl text-slate-200 mb-10 max-w-3xl mx-auto font-medium">Overhaul de motores, chapistería profesional, diagnóstico computarizado avanzado y reconstrucción con repuestos de alta calidad.</p>
+        <a href="#taller" class="btn btn-primary py-4 px-8 text-base">Conocer el Taller</a>
       </div>
     </div>
     <div class="hero-slide" style="background-image: url('hero-allison.jpg');">
       <div class="hero-content">
-        <h1>Especialistas en<br>Transmisiones Allison</h1>
-        <p class="text-lg text-slate-200 mb-8 max-w-2xl mx-auto">Diagnóstico en sitio, calibración electrónica y venta de repuestos originales.</p>
-        <a href="#allison" class="btn btn-red">Ver Allison</a>
+        <h1>Centro de Servicio<br>Transmisiones Allison</h1>
+        <p class="text-xl text-slate-200 mb-10 max-w-3xl mx-auto font-medium">Diagnóstico en sitio, calibración electrónica, venta de unidades y stock completo de repuestos genuinos.</p>
+        <a href="#allison" class="btn btn-red py-4 px-8 text-base">Especialidad Allison</a>
       </div>
     </div>
 
@@ -139,45 +154,45 @@
   <section id="nosotros" class="py-24 bg-white">
     <div class="max-w-7xl mx-auto px-6">
         <div class="grid lg:grid-cols-2 gap-16 items-center mb-20">
-            <div class="relative h-[450px] rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
+            <div class="relative h-[500px] rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-slate-100">
                 <img src="nosotros.jpg" alt="Equipo Motor Plus" class="w-full h-full object-cover">
                 <span class="img-placeholder-text">Foto Nosotros / Equipo</span>
             </div>
             <div>
                 <span class="pill pill-blue">Nuestra Trayectoria</span>
                 <h2 class="text-4xl font-black text-slate-900 mb-6 leading-tight">Sobre Motor Plus Panamá</h2>
-                <div class="space-y-4 text-slate-600 text-lg leading-relaxed">
-                    <p>
+                <div class="space-y-5 text-slate-600 text-lg leading-relaxed font-medium">
+                    <p class="border-l-4 border-[#e02222] pl-4">
                         <strong>Motor Plus Panamá, S.A.</strong> fue fundada en la República de Panamá en <strong>2014</strong> por Ejecutivos con muchos años de experiencia en el campo de la distribución de insumos y equipos para el sector transporte, marítimo e industrial.
                     </p>
                     <p>
                         Contamos con vasta experiencia en <strong>mecánica menor y mayor</strong> para flotas de equipo pesado y liviano. Somos distribuidores exclusivos y oficiales de la marca <strong>NAPA y CEPSA</strong>. Además, somos dealers autorizados de <strong>ALLISON y CUMMINS</strong>.
                     </p>
                     <p>
-                        Nuestro portafolio incluye filtros, lubricantes, fluidos e insumos varios para el sector automotriz, marítimo e industrial.
+                        Nuestro portafolio incluye filtros, lubricantes, fluidos e insumos varios para el sector automotriz, marítimo e industrial, siempre bajo el lema: <em>"A Toda Máquina"</em>.
                     </p>
                 </div>
             </div>
         </div>
 
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="bg-slate-50 p-8 rounded-2xl border border-slate-100 hover:shadow-lg transition">
-                <div class="w-12 h-12 bg-blue-100 text-[#2f5f9b] rounded-full flex items-center justify-center text-2xl mb-4">🚀</div>
-                <h3 class="font-bold text-slate-900 mb-2">Nuestra Misión</h3>
-                <p class="text-sm text-slate-600">Satisfacer las necesidades de nuestros clientes, brindando un servicio excepcional, esmerado y personalizado con una amplia gama de productos.</p>
+            <div class="bg-slate-50 p-8 rounded-2xl border border-slate-200 hover:shadow-xl transition group hover:-translate-y-2 duration-300">
+                <div class="w-14 h-14 bg-blue-100 text-[#2f5f9b] rounded-2xl flex items-center justify-center text-3xl mb-6 shadow-sm group-hover:scale-110 transition">🚀</div>
+                <h3 class="font-bold text-2xl text-slate-900 mb-3">Nuestra Misión</h3>
+                <p class="text-slate-600 leading-relaxed font-medium">Satisfacer las necesidades de nuestros clientes, brindando un servicio excepcional, esmerado y personalizado, ofreciéndoles una gama amplia de productos y servicios a toda la industria automotriz, marítima e industrial.</p>
             </div>
-            <div class="bg-slate-50 p-8 rounded-2xl border border-slate-100 hover:shadow-lg transition">
-                <div class="w-12 h-12 bg-red-100 text-[#e02222] rounded-full flex items-center justify-center text-2xl mb-4">👁️</div>
-                <h3 class="font-bold text-slate-900 mb-2">Nuestra Visión</h3>
-                <p class="text-sm text-slate-600">Ser la empresa panameña líder en el campo automotriz, marítimo e industrial, brindando servicios con los más altos estándares de calidad.</p>
+            <div class="bg-slate-50 p-8 rounded-2xl border border-slate-200 hover:shadow-xl transition group hover:-translate-y-2 duration-300">
+                <div class="w-14 h-14 bg-red-100 text-[#e02222] rounded-2xl flex items-center justify-center text-3xl mb-6 shadow-sm group-hover:scale-110 transition">👁️</div>
+                <h3 class="font-bold text-2xl text-slate-900 mb-3">Nuestra Visión</h3>
+                <p class="text-slate-600 leading-relaxed font-medium">Ser la empresa panameña líder en el campo automotriz, marítimo e industrial en el suministro de filtros, lubricantes y servicios de mecánica menor y especializada, brindando un servicio con los más altos estándares de calidad.</p>
             </div>
-            <div class="bg-slate-900 text-white p-8 rounded-2xl border border-slate-800 hover:shadow-lg transition relative overflow-hidden">
-                <div class="absolute top-0 right-0 p-4 opacity-10 text-6xl">🏛️</div>
-                <h3 class="font-bold text-lg mb-4 text-center border-b border-slate-700 pb-2">Nuestros Pilares</h3>
-                <ul class="space-y-3 text-sm">
-                    <li class="flex items-center gap-3"><span class="text-[#e02222]">★</span> <strong>Calidad Total:</strong> Productos garantizados.</li>
-                    <li class="flex items-center gap-3"><span class="text-[#e02222]">★</span> <strong>Servicio al Cliente:</strong> Atención personalizada.</li>
-                    <li class="flex items-center gap-3"><span class="text-[#e02222]">★</span> <strong>Servicio Técnico:</strong> Personal experto.</li>
+            <div class="bg-[#0b1220] text-white p-8 rounded-2xl border border-slate-800 hover:shadow-xl transition relative overflow-hidden group hover:-translate-y-2 duration-300">
+                <div class="absolute -top-6 -right-6 p-4 opacity-5 text-8xl rotate-12 group-hover:rotate-0 transition duration-500">🏛️</div>
+                <h3 class="font-bold text-2xl mb-6 text-center border-b border-slate-700 pb-4 tracking-wide">Nuestros Pilares</h3>
+                <ul class="space-y-5 font-semibold">
+                    <li class="flex items-start gap-4"><span class="text-[#e02222] text-xl bg-red-500/10 rounded-full w-8 h-8 flex items-center justify-center">★</span> <div><strong class="block text-lg">Calidad Total:</strong><span class="text-slate-300 text-sm font-normal">Productos y servicios garantizados.</span></div></li>
+                    <li class="flex items-start gap-4"><span class="text-[#e02222] text-xl bg-red-500/10 rounded-full w-8 h-8 flex items-center justify-center">★</span> <div><strong class="block text-lg">Servicio al Cliente:</strong><span class="text-slate-300 text-sm font-normal">Atención personalizada y esmerada.</span></div></li>
+                    <li class="flex items-start gap-4"><span class="text-[#e02222] text-xl bg-red-500/10 rounded-full w-8 h-8 flex items-center justify-center">★</span> <div><strong class="block text-lg">Servicio Técnico:</strong><span class="text-slate-300 text-sm font-normal">Personal experto y diagnóstico preciso.</span></div></li>
                 </ul>
             </div>
         </div>
@@ -191,34 +206,34 @@
       <div class="flex flex-col lg:flex-row items-center justify-between gap-16">
         <div class="lg:w-5/12">
           <div class="mb-8">
-             <img src="logo-gates.png" alt="Logo Gates" class="logo-img h-16 w-auto filter brightness-0 invert mb-6">
+             <img src="logo-gates.png" alt="Logo Gates" class="logo-img h-20 w-auto filter brightness-0 invert mb-6" style="height: 60px !important;">
              <span class="pill pill-dark">Tecnología MegaSys™</span>
           </div>
           <h2 class="text-4xl lg:text-5xl font-black mb-6 leading-tight">Fabricamos Mangueras <span class="text-[#e02222]">Hidráulicas</span></h2>
-          <p class="text-slate-400 text-lg mb-8">
-            Soluciones a medida con tecnología líder mundial. Ensamblamos mangueras de alta presión para maquinaria pesada, industrial y agrícola en minutos.
+          <p class="text-slate-300 text-lg mb-8 leading-relaxed font-medium">
+            Soluciones a medida con tecnología líder mundial. Ensamblamos mangueras de alta presión para maquinaria pesada, industrial y agrícola en minutos, minimizando sus tiempos de inactividad.
           </p>
-          <a href="#contacto" class="btn btn-red shadow-lg shadow-red-900/50">Cotizar Manguera</a>
+          <a href="#contacto" class="btn btn-red shadow-lg shadow-red-900/50 py-4 px-8">Cotizar Manguera Ahora</a>
         </div>
 
-        <div class="lg:w-6/12 bg-white/5 backdrop-blur-md rounded-3xl p-10 border border-white/10 shadow-2xl">
+        <div class="lg:w-6/12 bg-white/5 backdrop-blur-md rounded-3xl p-10 border border-white/10 shadow-2xl hover:bg-white/10 transition duration-300">
           <h3 class="text-2xl font-bold mb-8 text-white border-b border-white/10 pb-4">¿Por qué elegirnos?</h3>
-          <div class="grid sm:grid-cols-2 gap-y-6 gap-x-8">
-            <div class="flex gap-4">
-                <div class="w-10 h-10 rounded-full bg-red-500/20 flex items-center justify-center text-[#e02222] font-bold">1</div>
-                <div><h4 class="font-bold text-white">Confección a Medida</h4><p class="text-sm text-slate-400">Ensamblaje preciso.</p></div>
+          <div class="grid sm:grid-cols-2 gap-y-8 gap-x-8">
+            <div class="flex gap-5 items-start">
+                <div class="w-12 h-12 rounded-xl bg-red-500/20 flex items-center justify-center text-[#e02222] font-black text-xl shadow-inner-red">1</div>
+                <div><h4 class="font-bold text-white text-lg mb-1">Confección a Medida</h4><p class="text-sm text-slate-300">Ensamblaje preciso según muestra o especificación.</p></div>
             </div>
-            <div class="flex gap-4">
-                <div class="w-10 h-10 rounded-full bg-red-500/20 flex items-center justify-center text-[#e02222] font-bold">2</div>
-                <div><h4 class="font-bold text-white">Alta Presión</h4><p class="text-sm text-slate-400">4000-6000 PSI.</p></div>
+            <div class="flex gap-5 items-start">
+                <div class="w-12 h-12 rounded-xl bg-red-500/20 flex items-center justify-center text-[#e02222] font-black text-xl shadow-inner-red">2</div>
+                <div><h4 class="font-bold text-white text-lg mb-1">Alta Presión</h4><p class="text-sm text-slate-300">Resistencia extrema (4000-6000 PSI) para sistemas críticos.</p></div>
             </div>
-            <div class="flex gap-4">
-                <div class="w-10 h-10 rounded-full bg-red-500/20 flex items-center justify-center text-[#e02222] font-bold">3</div>
-                <div><h4 class="font-bold text-white">Stock Completo</h4><p class="text-sm text-slate-400">Conexiones disponibles.</p></div>
+            <div class="flex gap-5 items-start">
+                <div class="w-12 h-12 rounded-xl bg-red-500/20 flex items-center justify-center text-[#e02222] font-black text-xl shadow-inner-red">3</div>
+                <div><h4 class="font-bold text-white text-lg mb-1">Stock Completo</h4><p class="text-sm text-slate-300">Amplio inventario de conexiones y adaptadores.</p></div>
             </div>
-            <div class="flex gap-4">
-                <div class="w-10 h-10 rounded-full bg-red-500/20 flex items-center justify-center text-[#e02222] font-bold">4</div>
-                <div><h4 class="font-bold text-white">Entrega Inmediata</h4><p class="text-sm text-slate-400">Sin esperas largas.</p></div>
+            <div class="flex gap-5 items-start">
+                <div class="w-12 h-12 rounded-xl bg-red-500/20 flex items-center justify-center text-[#e02222] font-black text-xl shadow-inner-red">4</div>
+                <div><h4 class="font-bold text-white text-lg mb-1">Entrega Inmediata</h4><p class="text-sm text-slate-300">Servicio rápido en mostrador sin largas esperas.</p></div>
             </div>
           </div>
         </div>
@@ -228,30 +243,30 @@
 
   <section id="tienda" class="py-24 bg-slate-50 border-t border-slate-200">
     <div class="max-w-7xl mx-auto px-6">
-        <div class="bg-white rounded-3xl overflow-hidden shadow-xl flex flex-col lg:flex-row">
-            <div class="lg:w-1/2 p-12 flex flex-col justify-center">
-                <span class="pill pill-red mb-4 w-max">Ubicación Estratégica</span>
-                <h2 class="text-3xl lg:text-4xl font-black text-slate-900 mb-6">Sucursal Autorepuestos Vista Hermosa</h2>
-                <p class="text-lg text-slate-600 mb-6 leading-relaxed">
-                    Contamos con una tienda física diseñada para atender tanto a <strong>usuarios comerciales (flotas)</strong> como a <strong>clientes particulares</strong>.
+        <div class="bg-white rounded-[2rem] overflow-hidden shadow-2xl flex flex-col lg:flex-row border border-slate-100">
+            <div class="lg:w-1/2 p-12 lg:p-16 flex flex-col justify-center">
+                <span class="pill pill-red mb-6 w-max">Ubicación Estratégica</span>
+                <h2 class="text-3xl lg:text-5xl font-black text-slate-900 mb-6 leading-tight">Sucursal Autorepuestos Vista Hermosa</h2>
+                <p class="text-xl text-slate-600 mb-6 leading-relaxed font-medium">
+                    Contamos con una tienda física moderna diseñada para atender eficientemente tanto a <strong>usuarios comerciales (flotas)</strong> como a <strong>clientes particulares</strong>.
                 </p>
-                <p class="text-slate-600 mb-8">
-                    Encuentre repuestos, lubricantes y filtros de entrega inmediata con el respaldo y asesoría técnica de nuestros expertos en mostrador.
+                <p class="text-lg text-slate-600 mb-10 leading-relaxed">
+                    Encuentre repuestos, lubricantes, baterías y filtros de entrega inmediata con el respaldo y asesoría técnica de nuestros expertos en mostrador.
                 </p>
-                <div class="flex flex-col sm:flex-row gap-6 border-t pt-6 border-slate-100">
-                    <div class="flex items-center gap-3 text-slate-800 font-bold">
-                        <span class="text-2xl">📍</span>
-                        <div><span class="text-xs text-slate-400 block font-normal">DIRECCIÓN</span>PH Toneles, Vista Hermosa</div>
+                <div class="flex flex-col sm:flex-row gap-8 border-t pt-8 border-slate-100">
+                    <div class="flex items-center gap-4 text-slate-800">
+                        <span class="text-4xl bg-blue-50 w-16 h-16 rounded-full flex items-center justify-center text-[#2f5f9b] shadow-sm">📍</span>
+                        <div><span class="text-xs text-slate-400 block font-bold tracking-wider mb-1">DIRECCIÓN</span><strong class="text-lg">PH Toneles, Vista Hermosa</strong></div>
                     </div>
-                    <div class="flex items-center gap-3 text-slate-800 font-bold">
-                        <span class="text-2xl">⏰</span>
-                        <div><span class="text-xs text-slate-400 block font-normal">HORARIO</span>Lunes a Sábado</div>
+                    <div class="flex items-center gap-4 text-slate-800">
+                        <span class="text-4xl bg-blue-50 w-16 h-16 rounded-full flex items-center justify-center text-[#2f5f9b] shadow-sm">⏰</span>
+                        <div><span class="text-xs text-slate-400 block font-bold tracking-wider mb-1">HORARIO DE ATENCIÓN</span><strong class="text-lg">Lunes a Sábado</strong></div>
                     </div>
                 </div>
             </div>
-            <div class="lg:w-1/2 h-80 lg:h-auto bg-slate-200 relative">
+            <div class="lg:w-1/2 min-h-[500px] relative bg-slate-200">
                 <img src="tienda-vista-hermosa.jpg" alt="Fachada Tienda Motor Plus" class="w-full h-full object-cover absolute inset-0">
-                <span class="img-placeholder-text">Foto Tienda Vista Hermosa</span>
+                <span class="img-placeholder-text text-lg">Foto Fachada Tienda Vista Hermosa</span>
             </div>
         </div>
     </div>
@@ -261,38 +276,39 @@
     <div class="max-w-7xl mx-auto px-6">
       <div class="grid lg:grid-cols-2 gap-16 items-center">
         <div>
-          <span class="pill pill-dark">Servicio Comercial</span>
-          <h2 class="text-4xl font-black mb-6">Repuestos y Mantenimiento de Flotas</h2>
-          <p class="text-lg text-slate-300 mb-8 leading-relaxed">
-            Ofrecemos una solución "Todo en Uno" para mantener sus camiones y equipos en movimiento. Optimizamos el tiempo de sus activos.
+          <span class="pill pill-dark mb-6">Servicio Comercial Integral</span>
+          <h2 class="text-4xl lg:text-5xl font-black mb-6 leading-tight">Repuestos y Mantenimiento de Flotas</h2>
+          <p class="text-xl text-slate-300 mb-10 leading-relaxed font-medium">
+            Ofrecemos una solución "Todo en Uno" para mantener sus camiones y equipos en movimiento. Optimizamos el tiempo de sus activos y reducimos costos operativos.
           </p>
-          <div class="grid sm:grid-cols-2 gap-4">
-            <div class="p-4 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 transition">
-                <span class="text-2xl block mb-2">📦</span>
-                <h4 class="font-bold text-white">Repuestos</h4>
-                <p class="text-sm text-slate-400">Filtros, frenos, suspensión.</p>
+          <div class="grid sm:grid-cols-2 gap-6">
+            <div class="p-6 bg-[#0f172a] rounded-2xl border border-slate-700/50 hover:bg-white/5 transition duration-300 hover:-translate-y-1 shadow-lg">
+                <span class="text-4xl block mb-4 bg-blue-600/20 w-16 h-16 rounded-xl flex items-center justify-center">📦</span>
+                <h4 class="font-bold text-white text-xl mb-2">Repuestos</h4>
+                <p class="text-slate-400 font-medium">Filtros, frenos, suspensión y partes de motor.</p>
             </div>
-            <div class="p-4 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 transition">
-                <span class="text-2xl block mb-2">🛢️</span>
-                <h4 class="font-bold text-white">Lubricantes</h4>
-                <p class="text-sm text-slate-400">Aceites, grasas y fluidos.</p>
+            <div class="p-6 bg-[#0f172a] rounded-2xl border border-slate-700/50 hover:bg-white/5 transition duration-300 hover:-translate-y-1 shadow-lg">
+                <span class="text-4xl block mb-4 bg-blue-600/20 w-16 h-16 rounded-xl flex items-center justify-center">🛢️</span>
+                <h4 class="font-bold text-white text-xl mb-2">Lubricantes</h4>
+                <p class="text-slate-400 font-medium">Aceites de motor, hidráulicos, grasas y refrigerantes.</p>
             </div>
-            <div class="p-4 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 transition">
-                <span class="text-2xl block mb-2">🔧</span>
-                <h4 class="font-bold text-white">Mangueras</h4>
-                <p class="text-sm text-slate-400">Confección y reparación.</p>
+            <div class="p-6 bg-[#0f172a] rounded-2xl border border-slate-700/50 hover:bg-white/5 transition duration-300 hover:-translate-y-1 shadow-lg">
+                <span class="text-4xl block mb-4 bg-blue-600/20 w-16 h-16 rounded-xl flex items-center justify-center">🔧</span>
+                <h4 class="font-bold text-white text-xl mb-2">Mangueras</h4>
+                <p class="text-slate-400 font-medium">Confección y reparación hidráulica al instante.</p>
             </div>
-            <div class="p-4 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 transition">
-                <span class="text-2xl block mb-2">🚛</span>
-                <h4 class="font-bold text-white">Mecánica</h4>
-                <p class="text-sm text-slate-400">Taller integral y chapistería.</p>
+            <div class="p-6 bg-[#0f172a] rounded-2xl border border-slate-700/50 hover:bg-white/5 transition duration-300 hover:-translate-y-1 shadow-lg">
+                <span class="text-4xl block mb-4 bg-blue-600/20 w-16 h-16 rounded-xl flex items-center justify-center">🚛</span>
+                <h4 class="font-bold text-white text-xl mb-2">Mecánica</h4>
+                <p class="text-slate-400 font-medium">Taller integral, diagnóstico y chapistería.</p>
             </div>
           </div>
-          <div class="mt-10"><a href="#contacto" class="btn btn-primary">Cotizar para mi Flota</a></div>
+          <div class="mt-12"><a href="#contacto" class="btn btn-primary py-4 px-10 text-lg">Solicitar Cotización para Flota</a></div>
         </div>
-        <div class="relative h-[550px] rounded-2xl overflow-hidden shadow-2xl group border-4 border-slate-700">
-          <img src="seccion-flotas.jpg" alt="Flota de Camiones" class="w-full h-full object-cover transition duration-700 group-hover:scale-105">
-          <span class="img-placeholder-text text-black">Foto Flota Camiones</span>
+        <div class="relative h-[650px] rounded-[2.5rem] overflow-hidden shadow-3xl group border-8 border-[#0f172a] bg-slate-800">
+          <img src="seccion-flotas.jpg" alt="Flota de Camiones" class="w-full h-full object-cover transition duration-1000 group-hover:scale-110 opacity-90 group-hover:opacity-100">
+          <span class="img-placeholder-text text-white/50 text-2xl">Foto Flota Camiones / Taller</span>
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-transparent to-transparent opacity-60"></div>
         </div>
       </div>
     </div>
@@ -301,100 +317,107 @@
   <section id="allison" class="py-24 bg-white">
     <div class="max-w-7xl mx-auto px-6">
       <div class="grid lg:grid-cols-2 gap-16 items-center">
-        <div class="order-2 lg:order-1 relative h-[450px] rounded-3xl overflow-hidden shadow-2xl">
-            <img src="seccion-allison.jpg" alt="Transmisión Allison" class="w-full h-full object-cover">
-            <span class="img-placeholder-text">Foto Transmisión Allison</span>
+        <div class="order-2 lg:order-1 relative h-[550px] rounded-[2.5rem] overflow-hidden shadow-3xl border-4 border-slate-50 bg-slate-100 group">
+            <img src="seccion-allison.jpg" alt="Transmisión Allison" class="w-full h-full object-cover transition duration-700 group-hover:scale-105">
+            <span class="img-placeholder-text text-2xl">Foto Transmisión Allison</span>
         </div>
         <div class="order-1 lg:order-2">
-          <span class="pill pill-red">Especialidad de la Casa</span>
-          <h2 class="text-4xl font-black text-slate-900 mb-6">Transmisiones <span class="text-[#e02222]">Allison</span></h2>
-          <p class="text-lg text-slate-600 mb-8 leading-relaxed">
-            Somos su centro experto. Contamos con equipos de diagnóstico originales y personal certificado para garantizar la máxima operatividad.
+          <span class="pill pill-red mb-6">Especialidad de la Casa</span>
+          <h2 class="text-4xl lg:text-5xl font-black text-slate-900 mb-6 leading-tight">Transmisiones <span class="text-[#e02222]">Allison</span></h2>
+          <p class="text-xl text-slate-600 mb-10 leading-relaxed font-medium">
+            Somos su centro experto autorizado. Contamos con equipos de diagnóstico originales y personal certificado para garantizar la máxima operatividad y vida útil de sus transmisiones automáticas.
           </p>
-          <ul class="space-y-4 mb-10">
-            <li class="flex items-center gap-4 p-3 bg-slate-50 rounded-lg border border-slate-100">
-                <div class="w-8 h-8 rounded-full bg-red-100 flex items-center justify-center text-[#e02222] font-bold">✓</div>
-                <span class="font-bold text-slate-700">Mantenimiento y Reparación Certificada</span>
+          <ul class="space-y-4 mb-12">
+            <li class="flex items-center gap-5 p-4 bg-slate-50 rounded-2xl border border-slate-100 hover:border-red-200 transition hover:shadow-md">
+                <div class="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center text-[#e02222] font-black text-lg">✓</div>
+                <span class="font-bold text-slate-800 text-lg">Mantenimiento y Reparación Certificada</span>
             </li>
-            <li class="flex items-center gap-4 p-3 bg-slate-50 rounded-lg border border-slate-100">
-                <div class="w-8 h-8 rounded-full bg-red-100 flex items-center justify-center text-[#e02222] font-bold">✓</div>
-                <span class="font-bold text-slate-700">Venta de Repuestos Originales (Genuinos)</span>
+            <li class="flex items-center gap-5 p-4 bg-slate-50 rounded-2xl border border-slate-100 hover:border-red-200 transition hover:shadow-md">
+                <div class="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center text-[#e02222] font-black text-lg">✓</div>
+                <span class="font-bold text-slate-800 text-lg">Venta de Repuestos Originales (Genuinos)</span>
             </li>
-            <li class="flex items-center gap-4 p-3 bg-slate-50 rounded-lg border border-slate-100">
-                <div class="w-8 h-8 rounded-full bg-red-100 flex items-center justify-center text-[#e02222] font-bold">✓</div>
-                <span class="font-bold text-slate-700">Calibración Electrónica y Diagnóstico</span>
+            <li class="flex items-center gap-5 p-4 bg-slate-50 rounded-2xl border border-slate-100 hover:border-red-200 transition hover:shadow-md">
+                <div class="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center text-[#e02222] font-black text-lg">✓</div>
+                <span class="font-bold text-slate-800 text-lg">Calibración Electrónica y Diagnóstico</span>
+            </li>
+            <li class="flex items-center gap-5 p-4 bg-slate-50 rounded-2xl border border-slate-100 hover:border-red-200 transition hover:shadow-md">
+                <div class="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center text-[#e02222] font-black text-lg">✓</div>
+                <span class="font-bold text-slate-800 text-lg">Venta de Unidades Nuevas y Reconstruidas</span>
             </li>
           </ul>
-          <a href="#contacto" class="btn btn-red">Servicio Técnico Allison</a>
+          <a href="#contacto" class="btn btn-red py-4 px-10 text-lg">Agendar Servicio Allison</a>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="lubricantes" class="py-24 bg-[#0b1220] text-white">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="text-center mb-16">
-        <span class="text-[#2f5f9b] font-bold tracking-widest uppercase mb-2 block">Potencia Líquida</span>
-        <h2 class="text-4xl font-black mb-4">Lubricantes y Químicos Premium</h2>
-        <p class="section-desc text-slate-400">Distribuidores oficiales NAPA y CEPSA.</p>
+  <section id="lubricantes" class="py-32 bg-[#0b1220] text-white relative">
+    <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-5"></div>
+
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+      <div class="text-center mb-20">
+        <span class="text-[#2f5f9b] font-extrabold tracking-[0.2em] uppercase mb-4 block text-sm">Potencia Líquida</span>
+        <h2 class="text-4xl lg:text-6xl font-black mb-6">Lubricantes y Químicos Premium</h2>
+        <p class="text-xl text-slate-400 max-w-3xl mx-auto font-medium">Distribuidores oficiales de marcas líderes mundiales para máxima protección y rendimiento.</p>
       </div>
 
-      <div class="grid md:grid-cols-3 gap-8 mb-16">
-        <div class="bg-white/5 border border-white/10 rounded-2xl p-6 text-center hover:-translate-y-2 transition duration-300">
-            <div class="h-48 mb-6 rounded-xl overflow-hidden relative bg-slate-800">
-                <img src="prod-napa.jpg" class="w-full h-full object-cover opacity-90">
-                <span class="img-placeholder-text text-white/30">Foto NAPA</span>
-                <div class="absolute top-2 right-2 bg-[#2563eb] text-white text-xs font-bold px-2 py-1 rounded">NAPA</div>
+      <div class="grid md:grid-cols-3 gap-10 mb-24">
+        <div class="bg-gradient-to-b from-[#1e293b] to-[#0f172a] border border-slate-700/50 rounded-[2rem] p-8 text-center hover:-translate-y-3 transition duration-500 shadow-2xl group">
+            <div class="h-64 mb-8 rounded-2xl overflow-hidden relative bg-[#020617] shadow-inner-heavy p-4 group-hover:scale-105 transition duration-500">
+                <img src="prod-napa.jpg" class="w-full h-full object-contain opacity-95 drop-shadow-xl">
+                <span class="img-placeholder-text text-white/30">Foto NAPA Oil</span>
+                <div class="absolute top-4 right-4 bg-[#2563eb] text-white text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider shadow-lg">NAPA Oficial</div>
             </div>
-            <h3 class="text-xl font-bold mb-2">Aceite Motor 15W-40</h3>
-            <p class="text-sm text-slate-400">Heavy Duty Diesel Universal Fleet Plus. Protección superior.</p>
+            <h3 class="font-black text-2xl mb-3 text-blue-400 group-hover:text-blue-300 transition">Aceite Motor NAPA</h3>
+            <p class="text-base text-slate-400 font-medium px-4">Heavy Duty Diesel Universal Fleet Plus. Protección superior contra el desgaste y depósitos.</p>
         </div>
-        <div class="bg-white/5 border border-white/10 rounded-2xl p-6 text-center hover:-translate-y-2 transition duration-300">
-            <div class="h-48 mb-6 rounded-xl overflow-hidden relative bg-slate-800">
-                <img src="prod-cepsa.jpg" class="w-full h-full object-cover opacity-90">
-                <span class="img-placeholder-text text-white/30">Foto CEPSA</span>
-                <div class="absolute top-2 right-2 bg-[#e02222] text-white text-xs font-bold px-2 py-1 rounded">CEPSA</div>
+        <div class="bg-gradient-to-b from-[#1e293b] to-[#0f172a] border border-slate-700/50 rounded-[2rem] p-8 text-center hover:-translate-y-3 transition duration-500 shadow-2xl group relative z-20 scale-105 md:scale-110 border-red-900/30">
+             <div class="absolute inset-0 bg-red-600/5 rounded-[2rem] -z-10 blur-xl opacity-0 group-hover:opacity-100 transition duration-500"></div>
+            <div class="h-64 mb-8 rounded-2xl overflow-hidden relative bg-[#020617] shadow-inner-heavy p-4 group-hover:scale-105 transition duration-500">
+                <img src="prod-cepsa.jpg" class="w-full h-full object-contain opacity-95 drop-shadow-xl">
+                <span class="img-placeholder-text text-white/30">Foto CEPSA Oil</span>
+                <div class="absolute top-4 right-4 bg-[#e02222] text-white text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider shadow-lg">CEPSA Europa</div>
             </div>
-            <h3 class="text-xl font-bold mb-2">Traction MAX</h3>
-            <p class="text-sm text-slate-400">Tecnología Europea. Eficiencia energética.</p>
+            <h3 class="font-black text-2xl mb-3 text-red-500 group-hover:text-red-400 transition">Traction MAX</h3>
+            <p class="text-base text-slate-400 font-medium px-4">Tecnología Europea avanzada. Eficiencia energética y extensión de intervalos de cambio.</p>
         </div>
-        <div class="bg-white/5 border border-white/10 rounded-2xl p-6 text-center hover:-translate-y-2 transition duration-300">
-            <div class="h-48 mb-6 rounded-xl overflow-hidden relative bg-slate-800">
-                <img src="prod-hidraulico.jpg" class="w-full h-full object-cover opacity-90">
+        <div class="bg-gradient-to-b from-[#1e293b] to-[#0f172a] border border-slate-700/50 rounded-[2rem] p-8 text-center hover:-translate-y-3 transition duration-500 shadow-2xl group">
+            <div class="h-64 mb-8 rounded-2xl overflow-hidden relative bg-[#020617] shadow-inner-heavy p-4 group-hover:scale-105 transition duration-500">
+                <img src="prod-hidraulico.jpg" class="w-full h-full object-contain opacity-95 drop-shadow-xl">
                 <span class="img-placeholder-text text-white/30">Foto Hidráulico</span>
-                <div class="absolute top-2 right-2 bg-white text-black text-xs font-bold px-2 py-1 rounded">PREMIUM</div>
+                <div class="absolute top-4 right-4 bg-white text-black text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider shadow-lg">Alto Rendimiento</div>
             </div>
-            <h3 class="text-xl font-bold mb-2">Hidráulico AW-68</h3>
-            <p class="text-sm text-slate-400">Fluido hidráulico de alto rendimiento.</p>
+            <h3 class="font-black text-2xl mb-3 text-slate-200 group-hover:text-white transition">Hidráulico Premium</h3>
+            <p class="text-base text-slate-400 font-medium px-4">Fluidos hidráulicos AW de alto rendimiento para sistemas de maquinaria pesada.</p>
         </div>
       </div>
 
-      <div class="border-t border-white/10 pt-16">
-        <h3 class="text-2xl font-bold mb-8 text-center">Químicos Profesionales</h3>
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-          <div class="bg-slate-800 rounded-xl p-4 text-center border border-slate-700">
-            <div class="h-40 mb-4 rounded-lg overflow-hidden bg-black/40 relative">
-                <img src="chem-purple.jpg" class="w-full h-full object-contain">
+      <div class="border-t border-slate-800 pt-20">
+        <h3 class="text-3xl font-black mb-12 text-center">Químicos Profesionales y Refrigerantes</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
+          <div class="bg-slate-800/50 rounded-2xl p-6 text-center border border-slate-700 hover:bg-slate-800 transition duration-300 hover:-translate-y-2 group">
+            <div class="h-48 mb-6 rounded-xl overflow-hidden bg-black/30 relative p-2">
+                <img src="chem-purple.jpg" class="w-full h-full object-contain group-hover:scale-110 transition duration-500">
                 <span class="img-placeholder-text text-white/30">Foto Purple Power</span>
             </div>
-            <h4 class="font-bold text-[#a855f7] text-lg">Purple Power</h4>
-            <p class="text-xs text-slate-400">Limpiadores industriales.</p>
+            <h4 class="font-black text-[#a855f7] text-xl mb-2">Purple Power</h4>
+            <p class="text-sm text-slate-400 font-medium">Limpiadores y desengrasantes industriales potentes.</p>
           </div>
-          <div class="bg-slate-800 rounded-xl p-4 text-center border border-slate-700">
-            <div class="h-40 mb-4 rounded-lg overflow-hidden bg-black/40 relative">
-                <img src="chem-macs.jpg" class="w-full h-full object-contain">
+          <div class="bg-slate-800/50 rounded-2xl p-6 text-center border border-slate-700 hover:bg-slate-800 transition duration-300 hover:-translate-y-2 group">
+            <div class="h-48 mb-6 rounded-xl overflow-hidden bg-black/30 relative p-2">
+                <img src="chem-macs.jpg" class="w-full h-full object-contain group-hover:scale-110 transition duration-500">
                 <span class="img-placeholder-text text-white/30">Foto MACs</span>
             </div>
-            <h4 class="font-bold text-[#e02222] text-lg">MAC's Chemicals</h4>
-            <p class="text-xs text-slate-400">Químicos automotrices.</p>
+            <h4 class="font-black text-[#e02222] text-xl mb-2">MAC's Chemicals</h4>
+            <p class="text-sm text-slate-400 font-medium">Línea completa de químicos y aditivos automotrices.</p>
           </div>
-          <div class="bg-slate-800 rounded-xl p-4 text-center border border-slate-700">
-            <div class="h-40 mb-4 rounded-lg overflow-hidden bg-black/40 relative">
-                <img src="chem-antifreeze.jpg" class="w-full h-full object-contain">
+          <div class="bg-slate-800/50 rounded-2xl p-6 text-center border border-slate-700 hover:bg-slate-800 transition duration-300 hover:-translate-y-2 group">
+            <div class="h-48 mb-6 rounded-xl overflow-hidden bg-black/30 relative p-2">
+                <img src="chem-antifreeze.jpg" class="w-full h-full object-contain group-hover:scale-110 transition duration-500">
                 <span class="img-placeholder-text text-white/30">Foto Antifreeze</span>
             </div>
-            <h4 class="font-bold text-[#2563eb] text-lg">NAPA Antifreeze</h4>
-            <p class="text-xs text-slate-400">Refrigerantes.</p>
+            <h4 class="font-black text-[#2563eb] text-xl mb-2">NAPA Antifreeze</h4>
+            <p class="text-sm text-slate-400 font-medium">Refrigerantes y anticongelantes de larga duración.</p>
           </div>
         </div>
       </div>
@@ -403,121 +426,148 @@
 
   <section id="taller" class="py-24 bg-slate-50">
     <div class="max-w-7xl mx-auto px-6">
-      <div class="text-center mb-16">
-        <span class="pill pill-blue">Servicio Pesado</span>
-        <h2 class="text-4xl font-black text-slate-900 mb-4">Mecánica y Overhaul</h2>
-        <p class="section-desc">Devolvemos la vida a sus motores con reparaciones mayores de precisión.</p>
+      <div class="text-center mb-20">
+        <span class="pill pill-blue mb-4">Servicio Pesado</span>
+        <h2 class="text-4xl lg:text-5xl font-black text-slate-900 mb-6">Mecánica y Overhaul</h2>
+        <p class="text-xl text-slate-600 max-w-3xl mx-auto font-medium">Devolvemos la potencia y eficiencia a sus motores con reparaciones mayores de precisión.</p>
       </div>
 
-      <div class="grid lg:grid-cols-2 gap-12 items-center">
-        <div class="grid grid-cols-2 gap-4">
-            <img src="seccion-taller-1.jpg" class="rounded-2xl shadow-lg w-full h-64 object-cover translate-y-8">
-            <img src="seccion-taller-2.jpg" class="rounded-2xl shadow-lg w-full h-64 object-cover">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div class="grid grid-cols-2 gap-6 relative">
+            <div class="absolute inset-0 bg-blue-100/50 rounded-[3rem] -rotate-3 scale-105 -z-10"></div>
+            <div class="relative h-72 rounded-2xl shadow-xl overflow-hidden border-2 border-white hover:-translate-y-2 transition duration-300 bg-slate-200">
+                <img src="seccion-taller-1.jpg" class="w-full h-full object-cover">
+                <span class="img-placeholder-text">Taller 1 (Motor/Mecánico)</span>
+            </div>
+            <div class="relative h-72 rounded-2xl shadow-xl overflow-hidden border-2 border-white hover:-translate-y-2 transition duration-300 translate-y-8 bg-slate-200">
+                <img src="seccion-taller-2.jpg" class="w-full h-full object-cover">
+                <span class="img-placeholder-text">Taller 2 (Herramientas/Diagnóstico)</span>
+            </div>
         </div>
 
         <div>
-          <h3 class="text-3xl font-bold mb-6 text-slate-800">Overhaul de Motores de Alto Desempeño</h3>
-          <p class="text-slate-600 mb-6 leading-relaxed">
-            Reconstrucción completa siguiendo especificaciones de fábrica. Garantizamos potencia, eficiencia y durabilidad renovada para su inversión.
+          <h3 class="text-3xl font-bold mb-6 text-slate-900 leading-tight">Overhaul de Motores de Alto Desempeño</h3>
+          <p class="text-lg text-slate-700 mb-8 leading-relaxed font-medium">
+            Reconstrucción completa siguiendo especificaciones estrictas de fábrica. Garantizamos potencia, eficiencia y una durabilidad renovada para proteger su inversión a largo plazo.
           </p>
           
-          <div class="mb-8">
-            <h4 class="font-bold text-slate-900 mb-4 uppercase text-xs tracking-wide">Especialistas en marcas:</h4>
-            <div class="flex flex-wrap gap-2">
-              <span class="engine-brand">CUMMINS</span>
-              <span class="engine-brand">CATERPILLAR</span>
-              <span class="engine-brand">DETROIT</span>
-              <span class="engine-brand">MERCEDES</span>
-              <span class="engine-brand">HINO</span>
+          <div class="mb-10 p-6 bg-white rounded-2xl shadow-sm border border-slate-100">
+            <h4 class="font-black text-slate-900 mb-4 uppercase text-sm tracking-wider flex items-center gap-2"><span class="text-blue-600 text-xl">⚙️</span> Especialistas en marcas:</h4>
+            <div class="flex flex-wrap gap-3">
+              <span class="px-4 py-2 bg-slate-100 text-slate-700 rounded-lg font-bold text-sm border border-slate-200">CUMMINS</span>
+              <span class="px-4 py-2 bg-slate-100 text-slate-700 rounded-lg font-bold text-sm border border-slate-200">CATERPILLAR</span>
+              <span class="px-4 py-2 bg-slate-100 text-slate-700 rounded-lg font-bold text-sm border border-slate-200">DETROIT</span>
+              <span class="px-4 py-2 bg-slate-100 text-slate-700 rounded-lg font-bold text-sm border border-slate-200">MERCEDES</span>
+              <span class="px-4 py-2 bg-slate-100 text-slate-700 rounded-lg font-bold text-sm border border-slate-200">HINO</span>
             </div>
           </div>
 
-          <div class="grid sm:grid-cols-2 gap-4 text-sm text-slate-700 font-medium">
-             <div class="flex items-center gap-2"><span class="text-blue-600">●</span> Chapistería y Pintura</div>
-             <div class="flex items-center gap-2"><span class="text-blue-600">●</span> Diagnóstico PC</div>
-             <div class="flex items-center gap-2"><span class="text-blue-600">●</span> Electricidad Automotriz</div>
-             <div class="flex items-center gap-2"><span class="text-blue-600">●</span> Soldadura Especial</div>
+          <div class="grid sm:grid-cols-2 gap-5 text-base text-slate-800 font-bold bg-white p-6 rounded-2xl border border-slate-100 shadow-sm">
+             <div class="flex items-center gap-3"><span class="text-blue-600 bg-blue-100 rounded-full w-6 h-6 flex items-center justify-center text-sm">✓</span> Chapistería y Pintura</div>
+             <div class="flex items-center gap-3"><span class="text-blue-600 bg-blue-100 rounded-full w-6 h-6 flex items-center justify-center text-sm">✓</span> Diagnóstico Computarizado</div>
+             <div class="flex items-center gap-3"><span class="text-blue-600 bg-blue-100 rounded-full w-6 h-6 flex items-center justify-center text-sm">✓</span> Electricidad Automotriz</div>
+             <div class="flex items-center gap-3"><span class="text-blue-600 bg-blue-100 rounded-full w-6 h-6 flex items-center justify-center text-sm">✓</span> Soldadura Especializada</div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="logistica" class="py-16 bg-[#1e293b]">
-    <div class="max-w-5xl mx-auto px-6">
-      <div class="bg-white rounded-2xl p-8 flex flex-col md:flex-row items-center gap-8 shadow-2xl">
-        <div class="md:w-1/2">
-            <span class="text-blue-600 font-bold tracking-widest uppercase text-xs">Logística Integral</span>
-            <h2 class="text-3xl font-black text-slate-900 mb-4">Entrega Inmediata</h2>
-            <p class="text-slate-600 text-sm mb-6">
-                Entendemos la urgencia. Llevamos los repuestos y lubricantes directamente donde su flota los necesite.
+  <section id="logistica" class="py-20 bg-[#1e293b]">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="bg-white rounded-[2.5rem] p-10 lg:p-12 flex flex-col md:flex-row items-center gap-12 shadow-2xl relative overflow-hidden">
+        <div class="absolute top-0 right-0 p-4 text-slate-100 text-9xl opacity-50 font-black z-0 leading-none -mt-8 -mr-8">LOGÍSTICA</div>
+        <div class="md:w-5/12 relative z-10">
+            <span class="text-blue-600 font-black tracking-widest uppercase text-sm mb-4 block">Logística Integral</span>
+            <h2 class="text-4xl font-black text-slate-900 mb-6 leading-tight">Entrega Inmediata donde lo necesite</h2>
+            <p class="text-slate-600 text-lg mb-8 font-medium leading-relaxed">
+                Entendemos la urgencia de su operación. Llevamos los repuestos, lubricantes y mangueras directamente a su taller o campo de trabajo.
             </p>
-            <div class="flex gap-3">
-                <span class="bg-blue-50 text-blue-700 px-4 py-2 rounded-lg font-bold text-xs border border-blue-100">🚚 Envíos Nacionales</span>
-                <span class="bg-red-50 text-red-700 px-4 py-2 rounded-lg font-bold text-xs border border-red-100">🚨 Emergencias 24/7</span>
+            <div class="flex flex-col sm:flex-row gap-4">
+                <div class="flex items-center gap-3 bg-blue-50 text-blue-800 px-5 py-3 rounded-xl font-bold text-sm border border-blue-100 shadow-sm">
+                    <span class="text-2xl">🚚</span> Envíos Nacionales Ágiles
+                </div>
+                <div class="flex items-center gap-3 bg-red-50 text-red-800 px-5 py-3 rounded-xl font-bold text-sm border border-red-100 shadow-sm">
+                    <span class="text-2xl">🚨</span> Atención Emergencias 24/7
+                </div>
             </div>
         </div>
-        <div class="md:w-1/2 h-48 w-full rounded-xl overflow-hidden relative bg-slate-200">
-            <img src="seccion-logistica.jpg" class="w-full h-full object-cover">
-            <span class="img-placeholder-text">Foto Autos Entrega</span>
+        <div class="md:w-7/12 h-72 w-full rounded-3xl overflow-hidden relative bg-slate-200 shadow-lg border-4 border-slate-50 z-10">
+            <img src="seccion-logistica.jpg" alt="Vehículos de Entrega" class="w-full h-full object-cover">
+            <span class="img-placeholder-text text-lg">Foto Autos de Entrega / Reparto</span>
         </div>
       </div>
     </div>
   </section>
 
   <section id="equipo" class="py-24 bg-white">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="text-center mb-16">
-        <span class="pill pill-blue">Capital Humano</span>
-        <h2 class="text-3xl font-black text-slate-900">Nuestro Equipo</h2>
-        <p class="section-desc mt-4">Profesionales con trayectoria listos para asesorarle.</p>
+    <div class="max-w-7xl mx-auto px-6 text-center">
+      <div class="mb-16">
+        <span class="pill pill-blue mb-4">Capital Humano</span>
+        <h2 class="text-4xl font-black text-slate-900">Nuestro Equipo</h2>
+        <p class="text-xl text-slate-600 mt-6 max-w-2xl mx-auto font-medium">Profesionales con amplia trayectoria y experiencia listos para asesorarle técnicamente.</p>
       </div>
 
-      <div class="grid grid-cols-2 md:grid-cols-5 gap-4 text-center">
-        <div class="p-6 bg-slate-50 rounded-xl border border-slate-100">
-            <h4 class="font-bold text-slate-900">Gustavo Lasso</h4><p class="text-xs text-slate-500 mt-1 uppercase">Gerente General</p>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+        <div class="p-6 bg-white rounded-2xl border-2 border-slate-100 shadow-sm hover:shadow-md hover:-translate-y-2 transition duration-300 group text-center">
+            <div class="w-20 h-20 mx-auto bg-blue-100 rounded-full flex items-center justify-center text-2xl font-black text-[#2f5f9b] mb-4 group-hover:bg-[#2f5f9b] group-hover:text-white transition">GL</div>
+            <h4 class="font-bold text-slate-900 text-lg mb-1">Gustavo Lasso</h4>
+            <p class="text-xs text-slate-500 font-bold uppercase tracking-wider">Gerente General</p>
         </div>
-        <div class="p-6 bg-slate-50 rounded-xl border border-slate-100">
-            <h4 class="font-bold text-slate-900">Gaspar González</h4><p class="text-xs text-slate-500 mt-1 uppercase">Supervisor Técnico</p>
+        <div class="p-6 bg-white rounded-2xl border-2 border-slate-100 shadow-sm hover:shadow-md hover:-translate-y-2 transition duration-300 group text-center">
+            <div class="w-20 h-20 mx-auto bg-blue-100 rounded-full flex items-center justify-center text-2xl font-black text-[#2f5f9b] mb-4 group-hover:bg-[#2f5f9b] group-hover:text-white transition">GG</div>
+            <h4 class="font-bold text-slate-900 text-lg mb-1">Gaspar González</h4>
+            <p class="text-xs text-slate-500 font-bold uppercase tracking-wider">Supervisor Técnico</p>
         </div>
-        <div class="p-6 bg-slate-50 rounded-xl border border-slate-100">
-            <h4 class="font-bold text-slate-900">Virgilio Guillén</h4><p class="text-xs text-slate-500 mt-1 uppercase">Ejecutivo Ventas</p>
+        <div class="p-6 bg-white rounded-2xl border-2 border-slate-100 shadow-sm hover:shadow-md hover:-translate-y-2 transition duration-300 group text-center">
+            <div class="w-20 h-20 mx-auto bg-blue-100 rounded-full flex items-center justify-center text-2xl font-black text-[#2f5f9b] mb-4 group-hover:bg-[#2f5f9b] group-hover:text-white transition">VG</div>
+            <h4 class="font-bold text-slate-900 text-lg mb-1">Virgilio Guillén</h4>
+            <p class="text-xs text-slate-500 font-bold uppercase tracking-wider">Ejecutivo Ventas</p>
         </div>
-        <div class="p-6 bg-slate-50 rounded-xl border border-slate-100">
-            <h4 class="font-bold text-slate-900">Irvin Ramos</h4><p class="text-xs text-slate-500 mt-1 uppercase">Asesor Cummins</p>
+        <div class="p-6 bg-white rounded-2xl border-2 border-slate-100 shadow-sm hover:shadow-md hover:-translate-y-2 transition duration-300 group text-center">
+            <div class="w-20 h-20 mx-auto bg-blue-100 rounded-full flex items-center justify-center text-2xl font-black text-[#2f5f9b] mb-4 group-hover:bg-[#2f5f9b] group-hover:text-white transition">IR</div>
+            <h4 class="font-bold text-slate-900 text-lg mb-1">Irvin Ramos</h4>
+            <p class="text-xs text-slate-500 font-bold uppercase tracking-wider">Asesor Cummins</p>
         </div>
-        <div class="p-6 bg-slate-50 rounded-xl border border-slate-100">
-            <h4 class="font-bold text-slate-900">Jairo Salazar</h4><p class="text-xs text-slate-500 mt-1 uppercase">Logística</p>
+        <div class="p-6 bg-white rounded-2xl border-2 border-slate-100 shadow-sm hover:shadow-md hover:-translate-y-2 transition duration-300 group text-center">
+            <div class="w-20 h-20 mx-auto bg-blue-100 rounded-full flex items-center justify-center text-2xl font-black text-[#2f5f9b] mb-4 group-hover:bg-[#2f5f9b] group-hover:text-white transition">JS</div>
+            <h4 class="font-bold text-slate-900 text-lg mb-1">Jairo Salazar</h4>
+            <p class="text-xs text-slate-500 font-bold uppercase tracking-wider">Logística y Allison</p>
         </div>
       </div>
     </div>
   </section>
 
   <section id="blog" class="py-24 bg-[#0f1c24] text-white">
-    <div class="max-w-6xl mx-auto px-6">
-        <div class="text-center mb-12">
-            <span class="pill pill-dark">Blog Técnico</span>
-            <h2 class="text-3xl font-black">Diferencias: Reconstruido vs Remanufacturado</h2>
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+            <span class="pill pill-dark mb-4">Blog Técnico</span>
+            <h2 class="text-3xl lg:text-4xl font-black">Diferencias Clave: Motor Reconstruido vs Remanufacturado</h2>
         </div>
         
-        <div class="border border-slate-700 rounded-2xl overflow-hidden flex flex-col md:flex-row bg-[#1e293b] shadow-2xl">
-            <div class="md:w-2/5 h-64 md:h-auto relative bg-black">
-                <img src="blog-motor-diesel.jpg" class="w-full h-full object-cover">
-                <span class="img-placeholder-text text-white/50">Foto Motor Diesel</span>
+        <div class="bg-[#1e293b] rounded-[2.5rem] overflow-hidden flex flex-col lg:flex-row shadow-2xl border border-slate-700/50">
+            <div class="lg:w-2/5 min-h-[400px] lg:h-auto relative bg-black">
+                <img src="blog-motor-diesel.jpg" alt="Motor Diesel Amarillo" class="w-full h-full object-cover opacity-90">
+                <span class="img-placeholder-text text-white/50 text-xl">Foto Motor Diesel Grande (Amarillo)</span>
+                <div class="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent"></div>
             </div>
-            <div class="md:w-3/5 p-8 lg:p-12 text-sm leading-relaxed text-slate-300">
-                <div class="mb-8">
-                    <h3 class="font-bold text-xl text-white mb-2 flex items-center gap-2"><span class="text-yellow-500">⚠</span> Motor Reconstruido (Rebuilt)</h3>
+            <div class="lg:w-3/5 p-10 lg:p-14 text-base leading-relaxed text-slate-300 font-medium">
+                <div class="mb-10 p-6 bg-black/20 rounded-2xl border-l-4 border-yellow-500">
+                    <h3 class="font-bold text-2xl text-white mb-4 flex items-center gap-3"><span class="text-yellow-500 text-3xl">⚠</span> Motor Reconstruido (Rebuilt)</h3>
                     <p>
-                        Un Motor Reconstruido es un motor que tiene partes que se reparan y limpian, pero también contiene partes que se consideren satisfactorias por el reconstructor, y se les permite funcionar sin limpieza o ajuste. 
-                        Los motores reconstruidos tienden a ser más económicos, debido al hecho de que se utiliza menos mano de obra en el proceso, y muchos talleres de reparación los recomiendan por lo que sus estimaciones de la reparación permanecen relativamente bajos.
+                        Para reconstruir un motor el bloque del mismo debe ser abierto, sus partes son desmontadas, inspeccionadas y limpiadas. Si las partes están dañadas o muy usadas, entonces son reemplazadas por partes nuevas; <strong>si están en condiciones de funcionamiento, son reusadas en el motor</strong>.
+                    </p>
+                    <p class="mt-4">
+                        Las partes internas como los pistones, anillos, correas, empaquetaduras, cojinetes, etc, son reemplazados solo si es necesario. Los motores reconstruidos tienden a ser más económicos debido a la menor mano de obra y partes utilizadas en el proceso.
                     </p>
                 </div>
-                <div>
-                    <h3 class="font-bold text-xl text-white mb-2 flex items-center gap-2"><span class="text-green-500">✔</span> Motor Remanufacturado (Reman)</h3>
+                <div class="p-6 bg-black/20 rounded-2xl border-l-4 border-green-500">
+                    <h3 class="font-bold text-2xl text-white mb-4 flex items-center gap-3"><span class="text-green-500 text-3xl">✔</span> Motor Remanufacturado (Reman)</h3>
                     <p>
-                        Los Motores Remanufacturados, son revisados y suplidos bajo especificaciones del fabricante original para satisfacer sus necesidades básicas, el ajuste y la limpieza de todo el motor. 
-                        La elección de un motor remanufacturado por lo general puede costar más dinero, pero puede ahorrar dinero en el largo plazo, ya que tienden a ser los motores más confiables con mayor tiempo de vida útil.
+                        Involucra un proceso mucho más complejo donde el motor es extraído del vehículo y retornado a la fábrica para ser <strong>revisado y suplido bajo las especificaciones del fabricante original</strong>. En la fábrica, el motor es desensamblado y cada una de sus partes pasa por un proceso de limpieza y revisión.
+                    </p>
+                    <p class="mt-4">
+                        El motor es re-ensamblado por técnicos expertos utilizando partes nuevas o remanufacturadas. Los motores remanufacturados tienden a ser más costosos inicialmente, pero ahorran dinero a largo plazo al ser más confiables y tener mayor vida útil.
                     </p>
                 </div>
             </div>
@@ -525,53 +575,76 @@
     </div>
   </section>
 
-  <footer id="contacto" class="py-16 bg-black text-slate-400 text-sm">
-    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-12 mb-12">
-        <div>
-            <img src="logo-motorplus.png" alt="Motor Plus Panamá" class="logo-img mb-6">
-            <p class="leading-relaxed">Su aliado estratégico en soluciones integrales para el transporte y la industria.</p>
+  <footer id="contacto" class="py-20 bg-black text-slate-400 text-sm relative overflow-hidden">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-1 bg-gradient-to-r from-transparent via-[#e02222] to-transparent opacity-50"></div>
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-12 mb-12 relative z-10">
+        <div class="md:col-span-2">
+            <img src="logo-motorplus.png" alt="Motor Plus Panamá" class="logo-img mb-8" style="height: 60px !important;">
+            <p class="leading-relaxed text-base mb-6 font-medium max-w-md">Su aliado estratégico en soluciones integrales para el transporte y la industria. Calidad y servicio que mantienen su negocio en movimiento.</p>
+            <div class="font-black text-slate-300 tracking-widest uppercase">"A Toda Máquina"</div>
         </div>
         <div>
-            <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-xs">Ubicaciones</h4>
-            <ul class="space-y-3">
-                <li class="flex gap-2"><span>📍</span> Sede Vista Hermosa (PH Toneles)</li>
-                <li class="flex gap-2"><span>📍</span> Sede Mañanitas (PH Ofidepositos)</li>
+            <h4 class="text-white font-bold mb-6 uppercase tracking-wider text-xs border-b border-slate-800 pb-2 inline-block">Ubicaciones</h4>
+            <ul class="space-y-4 font-medium">
+                <li class="flex gap-3"><span class="text-2xl">📍</span> <div><strong class="text-slate-300 block">Sede Vista Hermosa</strong>PH Toneles, Ciudad de Panamá</div></li>
+                <li class="flex gap-3"><span class="text-2xl">📍</span> <div><strong class="text-slate-300 block">Sede Mañanitas</strong>PH Ofidepositos, Ciudad de Panamá</div></li>
             </ul>
         </div>
         <div>
-            <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-xs">Contacto</h4>
-            <ul class="space-y-3">
-                <li class="flex gap-2"><span>📞</span> 232-5200 / +507 6558-6494</li>
-                <li class="flex gap-2"><span>✉️</span> ventas4@motorplus.pro</li>
-                <li class="flex gap-2"><span>✉️</span> gerencia@motorplus.pro</li>
+            <h4 class="text-white font-bold mb-6 uppercase tracking-wider text-xs border-b border-slate-800 pb-2 inline-block">Contacto Directo</h4>
+            <ul class="space-y-4 font-medium">
+                <li class="flex gap-3 items-center"><span class="text-2xl">📞</span> <span class="text-lg text-slate-300 font-bold">232-5200 / 6558-6494</span></li>
+                <li class="flex gap-3 items-center"><span class="text-2xl">✉️</span> <a href="mailto:ventas4@motorplus.pro" class="hover:text-white transition">ventas4@motorplus.pro</a></li>
+                <li class="flex gap-3 items-center"><span class="text-2xl">✉️</span> <a href="mailto:gerencia@motorplus.pro" class="hover:text-white transition">gerencia@motorplus.pro</a></li>
+                <li class="flex gap-3 items-center mt-6"><span class="text-2xl text-[#E1306C]">📷</span> <a href="https://www.instagram.com/motorplus.pro/#" target="_blank" class="hover:text-white transition">@motorplus.pro</a></li>
             </ul>
         </div>
     </div>
-    <div class="border-t border-slate-900 pt-8 text-center text-xs text-slate-600">
-        &copy; 2024 Motor Plus Panamá S.A. Todos los derechos reservados. "A Toda Máquina".
+    <div class="border-t border-slate-900/50 pt-8 text-center text-xs text-slate-600 font-medium relative z-10">
+        <p>&copy; 2024 Motor Plus Panamá S.A. Todos los derechos reservados.</p>
     </div>
   </footer>
 
   <script>
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.hero-slide');
-    const dots = document.querySelectorAll('.dot');
+    document.addEventListener('DOMContentLoaded', function() {
+        const slides = document.querySelectorAll('.hero-slide');
+        const dots = document.querySelectorAll('.dot');
+        let currentSlide = 0;
+        let slideInterval;
 
-    function showSlide(n) {
-        slides.forEach(s => s.classList.remove('active'));
-        dots.forEach(d => d.classList.remove('active'));
-        
-        slides[n].classList.add('active');
-        dots[n].classList.add('active');
-        currentSlide = n;
-    }
+        function showSlide(n) {
+            slides.forEach(s => s.classList.remove('active'));
+            dots.forEach(d => d.classList.remove('active'));
+            
+            currentSlide = (n + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+        }
 
-    function goToSlide(n) { showSlide(n); }
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
 
-    setInterval(() => {
-        let next = (currentSlide + 1) % slides.length;
-        showSlide(next);
-    }, 5000);
+        // Funciones globales para los dots onclick
+        window.goToSlide = function(n) {
+            clearInterval(slideInterval);
+            showSlide(n);
+            startSlider();
+        }
+
+        function startSlider() {
+            slideInterval = setInterval(nextSlide, 6000); // Cambio cada 6 segundos
+        }
+
+        // Iniciar
+        showSlide(0);
+        startSlider();
+    });
+    AOS.init({
+        duration: 800,
+        once: true,
+    });
   </script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </body>
 </html>
