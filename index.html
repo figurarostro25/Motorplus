@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Motor Plus Panamá | Repuestos · Taller · Flotas</title>
-  <meta name="description" content="Soluciones integrales para flotas, tienda de repuestos en Vista Hermosa, taller Allison y Cummins, y lubricantes NAPA/CEPSA." />
+  <title>Motor Plus Panamá | Flotas · Allison · Motores · Lubricantes</title>
+  <meta name="description" content="Expertos en mantenimiento de flotas, reconstrucción de motores diésel, transmisiones Allison y lubricantes NAPA/CEPSA en Panamá." />
   <meta name="theme-color" content="#0b1220" />
 
   <script src="https://cdn.tailwindcss.com"></script>
@@ -48,13 +48,13 @@
     .section-desc { font-size: 18px; color: var(--muted); max-width: 700px; margin: 0 auto; line-height: 1.6; }
 
     /* --- HERO SLIDER --- */
-    .hero { height: 80vh; min-height: 600px; position: relative; overflow: hidden; background: #1e293b; }
+    .hero { height: 85vh; min-height: 600px; position: relative; overflow: hidden; background: #1e293b; }
     .hero-slide {
         position: absolute; inset: 0; background-size: cover; background-position: center; background-color: #333;
         opacity: 0; transition: opacity 1s ease; display: flex; align-items: center; justify-content: center;
     }
     .hero-slide.active { opacity: 1; }
-    .hero-slide::before { content:''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 100%); }
+    .hero-slide::before { content:''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 100%); }
     .hero-content { position: relative; z-index: 10; text-align: center; color: white; padding: 20px; max-width: 900px; }
     .hero-content h1 { font-size: clamp(36px, 5vw, 68px); font-weight: 900; line-height: 1.1; margin-bottom: 25px; text-shadow: 0 4px 10px rgba(0,0,0,0.5); }
     .hero-content p { font-size: 20px; opacity: 0.95; margin-bottom: 40px; font-weight: 500; }
@@ -109,11 +109,11 @@
 
       <nav class="hidden lg:flex items-center gap-8 text-sm font-bold text-slate-700">
         <a href="#nosotros" class="hover:text-[#2f5f9b] transition">Nosotros</a>
-        <a href="#tienda" class="hover:text-[#2f5f9b] transition">Tienda</a>
         <a href="#flotas" class="hover:text-[#2f5f9b] transition">Flotas</a>
         <a href="#allison" class="hover:text-[#2f5f9b] transition">Allison</a>
         <a href="#lubricantes" class="hover:text-[#2f5f9b] transition">Lubricantes</a>
         <a href="#taller" class="hover:text-[#2f5f9b] transition">Taller</a>
+        <a href="#blog" class="hover:text-[#2f5f9b] transition">Blog</a>
       </nav>
 
       <div class="flex items-center gap-6">
@@ -126,32 +126,25 @@
   </header>
 
   <section class="hero">
-    <div class="hero-slide active" style="background-image: url('hero-slide-1.jpg');">
+    <div class="hero-slide active" style="background-image: url('hero-flotas.jpg');">
       <div class="hero-content" data-aos="fade-up">
-        <h1>Soluciones Integrales para Flotas Industriales</h1>
-        <p>Su aliado estratégico en mantenimiento, repuestos y lubricantes. <br>Distribuidores NAPA y CEPSA. Servicio Autorizado Allison.</p>
-        <a href="#nosotros" class="btn btn-primary">Conócenos Más</a>
+        <h1>Mantenimiento de Flotas Comerciales</h1>
+        <p>Planes preventivos y correctivos para asegurar la continuidad de su negocio. Servicio 24/7.</p>
+        <a href="#flotas" class="btn btn-primary">Ver Servicios</a>
       </div>
     </div>
-    <div class="hero-slide" style="background-image: url('hero-slide-2.jpg');">
+    <div class="hero-slide" style="background-image: url('hero-taller.jpg');">
       <div class="hero-content">
-        <h1>Especialistas en Transmisiones Allison</h1>
-        <p>Diagnóstico en sitio, venta de repuestos originales y calibración electrónica con equipos certificados.</p>
+        <h1>Taller de Mecánica Especializada</h1>
+        <p>Overhaul de motores, chapistería, diagnóstico y reconstrucción con repuestos de alta calidad.</p>
+        <a href="#taller" class="btn btn-primary">Conocer Taller</a>
+      </div>
+    </div>
+    <div class="hero-slide" style="background-image: url('hero-allison.jpg');">
+      <div class="hero-content">
+        <h1>Venta y Reparación de Transmisiones Allison</h1>
+        <p>Diagnóstico en sitio, calibración electrónica y venta de repuestos originales.</p>
         <a href="#allison" class="btn btn-red">Especialidad Allison</a>
-      </div>
-    </div>
-    <div class="hero-slide" style="background-image: url('hero-slide-3.jpg');">
-      <div class="hero-content">
-        <h1>Potencia y Protección: NAPA y CEPSA</h1>
-        <p>Lubricantes de formulación avanzada y químicos profesionales para el máximo rendimiento de su motor.</p>
-        <a href="#lubricantes" class="btn btn-primary">Ver Catálogo</a>
-      </div>
-    </div>
-    <div class="hero-slide" style="background-image: url('hero-slide-4.jpg');">
-      <div class="hero-content">
-        <h1>Mantenimiento Preventivo de Flotas</h1>
-        <p>Asegure la continuidad de su negocio. Planes de mantenimiento a medida para transporte de carga y pasajeros.</p>
-        <a href="#taller" class="btn btn-primary">Agenda tu Cita</a>
       </div>
     </div>
 
@@ -159,7 +152,6 @@
       <div class="dot active" onclick="goToSlide(0)"></div>
       <div class="dot" onclick="goToSlide(1)"></div>
       <div class="dot" onclick="goToSlide(2)"></div>
-      <div class="dot" onclick="goToSlide(3)"></div>
     </div>
   </section>
 
@@ -169,7 +161,7 @@
             <span class="pill">Nuestra Trayectoria</span>
             <h2 class="text-4xl font-black text-slate-900 mb-6">Sobre Motor Plus Panamá</h2>
             <p class="text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
-                Fundada en 2014 por ejecutivos con amplia experiencia en la distribución de insumos para el sector transporte, marítimo e industrial. Somos expertos en mecánica menor y mayor para flotas de equipo pesado y liviano.
+                Fundada en 2014 por ejecutivos con amplia experiencia en la distribución de insumos y equipos para el sector transporte, marítimo e industrial. Somos expertos en mecánica menor y mayor para flotas de equipo pesado y liviano.
             </p>
         </div>
 
@@ -230,9 +222,6 @@
                         <span class="text-[#2f5f9b]">⏰</span> Lunes a Sábado
                     </div>
                 </div>
-                <div class="mt-8">
-                    <a href="https://waze.com/ul?ll=9.000000,-79.500000" target="_blank" class="btn btn-primary">Ver Ubicación en Waze</a>
-                </div>
             </div>
             <div class="lg:w-1/2 h-80 lg:h-auto bg-slate-200 relative">
                 <img src="tienda-vista-hermosa.jpg" alt="Fachada Tienda Motor Plus" class="w-full h-full object-cover absolute inset-0">
@@ -246,22 +235,22 @@
       <div class="grid lg:grid-cols-2 gap-16 items-center">
         <div data-aos="fade-right">
           <span class="pill">Servicio Comercial</span>
-          <h2 class="text-4xl font-black text-slate-900 mb-6">Mantenimiento de Flotas Comerciales</h2>
+          <h2 class="text-4xl font-black text-slate-900 mb-6">Repuestos y Mantenimiento de Flotas Comerciales</h2>
           <p class="text-lg text-slate-600 mb-8 leading-relaxed">
-            Entendemos que cada minuto cuenta. En Motor Plus ofrecemos una solución todo-en-uno para mantener sus camiones y equipos en movimiento.
+            Ofrecemos una solución todo-en-uno para mantener sus camiones y equipos en movimiento. Desde el suministro de insumos hasta la reparación compleja.
           </p>
           <div class="grid sm:grid-cols-2 gap-6">
             <div class="flex flex-col gap-2"><span class="text-[#2f5f9b] font-bold text-xl">📦 Repuestos</span><p class="text-sm text-slate-500">Filtros, frenos y suspensión.</p></div>
-            <div class="flex flex-col gap-2"><span class="text-[#2f5f9b] font-bold text-xl">🛢️ Lubricantes</span><p class="text-sm text-slate-500">Aceites hidráulicos y grasas.</p></div>
-            <div class="flex flex-col gap-2"><span class="text-[#2f5f9b] font-bold text-xl">🔧 Mangueras</span><p class="text-sm text-slate-500">Confección a medida GATES.</p></div>
-            <div class="flex flex-col gap-2"><span class="text-[#2f5f9b] font-bold text-xl">🚛 Mecánica</span><p class="text-sm text-slate-500">Taller integral y chapistería.</p></div>
+            <div class="flex flex-col gap-2"><span class="text-[#2f5f9b] font-bold text-xl">🛢️ Lubricantes</span><p class="text-sm text-slate-500">Aceites de motor, hidráulicos y grasas.</p></div>
+            <div class="flex flex-col gap-2"><span class="text-[#2f5f9b] font-bold text-xl">🔧 Mangueras</span><p class="text-sm text-slate-500">Confección a medida con tecnología GATES.</p></div>
+            <div class="flex flex-col gap-2"><span class="text-[#2f5f9b] font-bold text-xl">🚛 Mecánica</span><p class="text-sm text-slate-500">Servicio integral de taller y chapistería.</p></div>
           </div>
           <div class="mt-10"><a href="#contacto" class="btn btn-primary">Cotizar para mi Flota</a></div>
         </div>
         <div class="relative h-[500px] rounded-2xl overflow-hidden shadow-2xl group" data-aos="fade-left">
           <img src="seccion-flotas.jpg" alt="Flota de Camiones" class="w-full h-full object-cover transition duration-700 group-hover:scale-105">
           <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-8">
-            <p class="text-white font-bold text-xl">Soporte técnico para transporte pesado</p>
+            <p class="text-white font-bold text-xl">Soporte técnico para transporte pesado y liviano</p>
           </div>
         </div>
       </div>
@@ -309,7 +298,7 @@
                 <div class="absolute top-2 right-2 bg-[#2563eb] text-white text-xs font-bold px-2 py-1 rounded">NAPA</div>
             </div>
             <h3 class="text-xl font-bold mb-2">Aceite Motor 15W-40</h3>
-            <p class="text-sm text-slate-400 mb-4">Heavy Duty Diesel Universal Fleet Plus. Protección superior.</p>
+            <p class="text-sm text-slate-400 mb-4">Heavy Duty Diesel Universal Fleet Plus. Protección superior contra el desgaste.</p>
         </div>
 
         <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition group text-center">
@@ -334,16 +323,25 @@
       <div class="border-t border-white/10 pt-12">
         <h3 class="text-2xl font-bold mb-8 text-center">Químicos Profesionales</h3>
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-          <div class="bg-slate-800 rounded-xl p-6 text-center border border-slate-700">
-            <h4 class="font-bold text-[#a855f7] text-xl mb-2">Purple Power</h4>
-            <p class="text-sm text-slate-400">Limpiadores y desengrasantes.</p>
+          <div class="bg-slate-800 rounded-xl p-4 text-center border border-slate-700 hover:border-[#a855f7] transition">
+            <div class="h-32 mb-4 rounded-lg overflow-hidden bg-white/5">
+                <img src="chem-purple.jpg" class="w-full h-full object-contain">
+            </div>
+            <h4 class="font-bold text-[#a855f7] text-xl mb-1">Purple Power</h4>
+            <p class="text-sm text-slate-400">Limpiadores y desengrasantes industriales.</p>
           </div>
-          <div class="bg-slate-800 rounded-xl p-6 text-center border border-slate-700">
-            <h4 class="font-bold text-[#e02222] text-xl mb-2">MAC's Chemicals</h4>
-            <p class="text-sm text-slate-400">Línea completa automotriz.</p>
+          <div class="bg-slate-800 rounded-xl p-4 text-center border border-slate-700 hover:border-[#e02222] transition">
+            <div class="h-32 mb-4 rounded-lg overflow-hidden bg-white/5">
+                <img src="chem-macs.jpg" class="w-full h-full object-contain">
+            </div>
+            <h4 class="font-bold text-[#e02222] text-xl mb-1">MAC's Chemicals</h4>
+            <p class="text-sm text-slate-400">Línea completa de químicos automotrices.</p>
           </div>
-          <div class="bg-slate-800 rounded-xl p-6 text-center border border-slate-700">
-            <h4 class="font-bold text-[#2563eb] text-xl mb-2">NAPA Antifreeze</h4>
+          <div class="bg-slate-800 rounded-xl p-4 text-center border border-slate-700 hover:border-[#2563eb] transition">
+            <div class="h-32 mb-4 rounded-lg overflow-hidden bg-white/5">
+                <img src="chem-antifreeze.jpg" class="w-full h-full object-contain">
+            </div>
+            <h4 class="font-bold text-[#2563eb] text-xl mb-1">NAPA Antifreeze</h4>
             <p class="text-sm text-slate-400">Refrigerantes y anticongelantes.</p>
           </div>
         </div>
