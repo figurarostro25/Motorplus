@@ -13,12 +13,12 @@
   <style>
     :root{
       --bg:#ffffff;
-      --bg2:#f6f8fc; /* Color de fondo secundario claro */
+      --bg2:#f6f8fc;
       --text:#0b1220;
       --muted:#5b6475;
       --line: rgba(12,18,32,.12);
-      --blue:#2f5f9b;     /* Azul corporativo */
-      --red:#e02222;      /* Rojo corporativo */
+      --blue:#2f5f9b;
+      --red:#e02222;
       --accent:#2563eb;
       --shadow: 0 18px 60px rgba(2,6,23,.10);
       --shadow2: 0 12px 30px rgba(2,6,23,.08);
@@ -31,12 +31,7 @@
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
-      margin:0;
-      font-family: 'Inter', sans-serif;
-      color:var(--text);
-      background: var(--bg);
-      overflow-x:hidden;
-      line-height:1.5;
+      margin:0; font-family: 'Inter', sans-serif; color:var(--text); background: var(--bg); overflow-x:hidden; line-height:1.5;
     }
     a{color:inherit; text-decoration:none}
     img{max-width:100%; display:block}
@@ -44,89 +39,53 @@
     .wrap{max-width:var(--max); margin:0 auto; padding:0 18px}
     .wrapWide{max-width:var(--maxWide); margin:0 auto; padding:0 18px}
 
-    /* --- COMPONENTS --- */
+    /* --- BOTONES Y COMPONENTES --- */
     .btn{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:10px 16px;
-      border-radius: 12px;
-      border:1px solid var(--line);
-      background: #fff;
-      color: var(--text);
-      font-weight:700;
-      font-size:14px;
-      cursor:pointer;
-      transition:.2s ease;
-      white-space:nowrap;
+      display:inline-flex; align-items:center; gap:8px; padding:10px 16px; border-radius: 12px;
+      border:1px solid var(--line); background: #fff; color: var(--text); font-weight:700; font-size:14px;
+      cursor:pointer; transition:.2s ease; white-space:nowrap;
     }
     .btn:hover{transform: translateY(-2px); box-shadow: var(--shadow2)}
-    .btn.primary{
-      background: var(--blue);
-      color: #fff;
-      border-color: var(--blue);
-    }
-    .btn.red{
-      background: var(--red);
-      color: #fff;
-      border-color: var(--red);
-    }
+    .btn.primary{background: var(--blue); color: #fff; border-color: var(--blue);}
+    .btn.red{background: var(--red); color: #fff; border-color: var(--red);}
 
     .pill{
-      display:inline-flex; align-items:center; gap:6px;
-      font-size:12px; font-weight:600; letter-spacing:.05em; text-transform:uppercase;
-      padding:6px 10px;
-      border-radius: 99px;
-      background: rgba(47,95,155,.1);
-      color: var(--blue);
+      display:inline-flex; align-items:center; gap:6px; font-size:12px; font-weight:600; letter-spacing:.05em; text-transform:uppercase;
+      padding:6px 10px; border-radius: 99px; background: rgba(47,95,155,.1); color: var(--blue);
     }
     .pill.red{background: rgba(224,34,34,.1); color: var(--red);}
 
     /* --- HEADER --- */
     .topbar{
-      position:sticky; top:0; z-index:100;
-      background: rgba(255,255,255,.95);
-      backdrop-filter: blur(12px);
-      border-bottom:1px solid var(--line);
+      position:sticky; top:0; z-index:100; background: rgba(255,255,255,.95);
+      backdrop-filter: blur(12px); border-bottom:1px solid var(--line);
     }
-    .topbar .inner{
-      display:flex; align-items:center; justify-content:space-between;
-      height: 70px;
-    }
-    .brand{
-      display:flex; align-items:center; gap:12px;
-      font-weight:900; font-size:20px;
-    }
+    .topbar .inner{display:flex; align-items:center; justify-content:space-between; height: 70px;}
+    .brand{display:flex; align-items:center; gap:5px; font-weight:900; font-size:20px;}
     
     nav{display:flex; gap:20px; align-items:center}
     nav a{font-size:14px; font-weight:600; color:var(--muted); transition:.2s}
     nav a:hover{color:var(--blue)}
-    .insta-icon{
-        width: 24px; height: 24px; color: var(--muted); transition:.2s;
-    }
-    .insta-icon:hover{ color: #E1306C; } /* Color Instagram */
+    .insta-icon{width: 24px; height: 24px; color: var(--muted); transition:.2s;}
+    .insta-icon:hover{ color: #E1306C; }
 
     /* --- HERO SLIDER --- */
-    .hero{position:relative; overflow:hidden; background:#000; height: 650px;}
+    .hero{position:relative; overflow:hidden; background:#000; height: 600px;}
     .slides{display:flex; width:300%; height:100%; transition: transform .8s cubic-bezier(0.25, 1, 0.5, 1)}
     .slide{
-      width:100%; height:100%;
-      position:relative;
-      display:flex; align-items:center; justify-content:center;
-      color:#fff; text-align:center;
-      background-size:cover; background-position:center;
+      width:100%; height:100%; position:relative; display:flex; align-items:center; justify-content:center;
+      color:#fff; text-align:center; background-size:cover; background-position:center;
     }
-    /* Placeholders de alta calidad */
-    .slide:nth-child(1){background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1605280263929-1c42c62ef169?q=80&w=1920&auto=format&fit=crop')} /* Camiones/Flota */
-    .slide:nth-child(2){background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?q=80&w=1920&auto=format&fit=crop')} /* Motor/Mecánica */
-    .slide:nth-child(3){background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1635350736475-c8ce45304870?q=80&w=1920&auto=format&fit=crop')} /* Repuestos/Aceites */
+    /* Placeholders de imagen de fondo */
+    .slide:nth-child(1){background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1605280263929-1c42c62ef169?q=80&w=1920&auto=format&fit=crop')}
+    .slide:nth-child(2){background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?q=80&w=1920&auto=format&fit=crop')}
+    .slide:nth-child(3){background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1635350736475-c8ce45304870?q=80&w=1920&auto=format&fit=crop')}
 
     .heroContent{max-width:850px; padding:20px; z-index:2}
     .heroContent h1{font-size:clamp(36px, 5vw, 64px); font-weight:900; line-height:1.1; margin-bottom:20px; text-shadow: 0 2px 10px rgba(0,0,0,0.3);}
     .heroContent p{font-size:20px; margin-bottom:30px; opacity:.95; font-weight: 500;}
 
-    .sliderControls{
-      position:absolute; bottom:30px; left:0; right:0;
-      display:flex; justify-content:center; gap:10px; z-index:10;
-    }
+    .sliderControls{position:absolute; bottom:30px; left:0; right:0; display:flex; justify-content:center; gap:10px; z-index:10;}
     .dot{width:12px; height:12px; border-radius:50%; background:rgba(255,255,255,.3); cursor:pointer; transition:.2s}
     .dot.active{background:#fff; transform: scale(1.2);}
 
@@ -136,36 +95,28 @@
     .section-header h2{font-size:36px; font-weight:900; color:var(--text); margin-bottom:15px; letter-spacing: -0.02em;}
     .section-header p{color:var(--muted); font-size: 18px; line-height: 1.6;}
 
-    /* --- ALLISON SECTION (Split Banner) --- */
+    /* --- ALLISON SECTION --- */
     .split-banner{display:grid; grid-template-columns: 1fr 1fr; min-height: 600px;}
     .split-content{padding: 80px; display:flex; flex-direction:column; justify-content:center; background: var(--bg2);}
     .split-image{background-size:cover; background-position:center; min-height: 400px;}
-    .allison-services-list{
-        display: grid; gap: 15px; margin: 30px 0;
-    }
-    .allison-service-item{
-        display: flex; align-items: center; gap: 15px; background: #fff; padding: 15px 20px; border-radius: 12px; box-shadow: var(--shadow2); font-weight: 700;
-    }
-    .check-icon{ color: var(--red); background: rgba(224,34,34,.1); width: 32px; height: 32px; display: grid; place-items: center; border-radius: 50%; }
+    .allison-services-list{display: grid; gap: 15px; margin: 30px 0;}
+    .allison-service-item{display: flex; align-items: center; gap: 15px; background: #fff; padding: 15px 20px; border-radius: 12px; box-shadow: var(--shadow2); font-weight: 700;}
+    .check-icon{color: var(--red); background: rgba(224,34,34,.1); width: 32px; height: 32px; display: grid; place-items: center; border-radius: 50%;}
 
-    /* --- LUBRICANTS & CHEMICALS SECTION --- */
-    .lubes-grid{ display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; }
-    .lube-card{ background: #fff; border-radius: var(--radius2); overflow: hidden; border: 1px solid var(--line); box-shadow: var(--shadow2); display: flex; flex-direction: column;}
-    .lube-img-header{ height: 220px; background-size: cover; background-position: center; position: relative; }
-    .lube-brand-logo{ position: absolute; bottom: -20px; left: 30px; background: #fff; padding: 10px 20px; border-radius: 8px; box-shadow: var(--shadow2); font-weight: 900; font-size: 20px;}
-    .lube-body{ padding: 40px 30px 30px; flex: 1; display: flex; flex-direction: column; }
-    .napa-text{ font-style: italic; color: var(--muted); font-size: 16px; border-left: 4px solid var(--blue); padding-left: 20px; margin-bottom: 20px; }
-    .chemicals-list{ display: flex; flex-wrap: wrap; gap: 10px; margin-top: auto; }
-    .chem-tag{ background: var(--bg2); padding: 8px 12px; border-radius: 6px; font-size: 13px; font-weight: 600; border: 1px solid var(--line); display: flex; align-items: center; gap: 8px;}
-    .chem-tag img{ height: 20px; width: auto; }
+    /* --- LUBRICANTS & CHEMICALS --- */
+    .lubes-grid{display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px;}
+    .lube-card{background: #fff; border-radius: var(--radius2); overflow: hidden; border: 1px solid var(--line); box-shadow: var(--shadow2); display: flex; flex-direction: column;}
+    .lube-img-header{height: 220px; background-size: cover; background-position: center; position: relative;}
+    .lube-brand-logo{position: absolute; bottom: -20px; left: 30px; background: #fff; padding: 10px 20px; border-radius: 8px; box-shadow: var(--shadow2); font-weight: 900; font-size: 20px;}
+    .lube-body{padding: 40px 30px 30px; flex: 1; display: flex; flex-direction: column;}
+    .napa-text{font-style: italic; color: var(--muted); font-size: 16px; border-left: 4px solid var(--blue); padding-left: 20px; margin-bottom: 20px;}
+    
+    .chemicals-list{display: flex; flex-wrap: wrap; gap: 10px; margin-top: auto;}
+    .chem-tag{background: var(--bg2); padding: 8px 12px; border-radius: 6px; font-size: 13px; font-weight: 600; border: 1px solid var(--line); display: flex; align-items: center; gap: 8px;}
 
-
-    /* --- OTHER SERVICES GRID --- */
+    /* --- SERVICES & TEAM GRID --- */
     .services-grid{display:grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap:30px}
-    .service-card{
-      background:#fff; border:1px solid var(--line); border-radius:var(--radius);
-      overflow:hidden; transition:.3s; display:flex; flex-direction:column; group
-    }
+    .service-card{background:#fff; border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; transition:.3s; display:flex; flex-direction:column;}
     .service-card:hover{transform:translateY(-5px); box-shadow:var(--shadow)}
     .service-img{height:220px; background:#eee; position:relative; overflow: hidden;}
     .service-img img{width:100%; height:100%; object-fit:cover; transition: transform .5s;}
@@ -174,35 +125,30 @@
     .service-body h3{font-size:20px; font-weight:800; margin:0 0 10px; color:var(--text)}
     .service-body p{color:var(--muted); font-size:15px; margin-bottom:20px; flex:1}
 
-    /* --- TEAM SECTION --- */
-    .team-grid{ display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
-    .team-member{ background: #fff; border-radius: var(--radius); padding: 20px; text-align: center; border: 1px solid var(--line); box-shadow: var(--shadow2); transition: .3s;}
-    .team-member:hover{ transform: translateY(-5px); }
-    .team-img{ width: 120px; height: 120px; border-radius: 50%; overflow: hidden; margin: 0 auto 20px; border: 3px solid var(--bg2);}
-    .team-img img{ width: 100%; height: 100%; object-fit: cover; }
-    .team-member h4{ font-weight: 800; font-size: 18px; margin-bottom: 5px; }
-    .team-member p{ color: var(--blue); font-size: 14px; font-weight: 600; }
+    .team-grid{display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px;}
+    .team-member{background: #fff; border-radius: var(--radius); padding: 20px; text-align: center; border: 1px solid var(--line); box-shadow: var(--shadow2); transition: .3s;}
+    .team-member:hover{transform: translateY(-5px);}
+    .team-img{width: 100px; height: 100px; border-radius: 50%; overflow: hidden; margin: 0 auto 15px; border: 3px solid var(--bg2); background: #eee;}
+    .team-member h4{font-weight: 800; font-size: 16px; margin-bottom: 5px;}
+    .team-member p{color: var(--blue); font-size: 13px; font-weight: 600;}
 
     /* --- FOOTER --- */
-    footer { background: #0b1220; color: #fff; padding: 80px 0 40px; position: relative;}
-    .footer-grid{ display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 50px; margin-bottom: 60px;}
-    .footer-brand span:first-child { color: var(--blue); }
-    .footer-brand span:last-child { color: var(--red); }
-    .footer-info-list li { margin-bottom: 20px; display: flex; gap: 15px; align-items: flex-start; line-height: 1.4;}
-    .footer-icon { flex-shrink: 0; width: 24px; text-align: center; }
-    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px; text-align: center; font-size: 14px; opacity: 0.6; }
+    footer {background: #0b1220; color: #fff; padding: 80px 0 40px; position: relative;}
+    .footer-grid{display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 50px; margin-bottom: 60px;}
+    .footer-brand span:first-child {color: var(--blue);}
+    .footer-brand span:last-child {color: var(--red);}
+    .footer-info-list li {margin-bottom: 20px; display: flex; gap: 15px; align-items: flex-start; line-height: 1.4;}
+    .footer-icon {flex-shrink: 0; width: 24px; text-align: center;}
+    .footer-bottom {border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px; text-align: center; font-size: 14px; opacity: 0.6;}
     
-    /* Back to Top Button */
     .back-to-top {
-        position: absolute;
-        top: -25px; right: 50%; transform: translateX(50%);
+        position: absolute; top: -25px; right: 50%; transform: translateX(50%);
         width: 50px; height: 50px; background: var(--red); color: #fff;
         border-radius: 50%; display: grid; place-items: center; font-size: 24px;
         box-shadow: 0 10px 20px rgba(224,34,34,.3); cursor: pointer; transition: .3s;
     }
-    .back-to-top:hover{ background: #ff3333; transform: translateX(50%) translateY(-5px); }
+    .back-to-top:hover{background: #ff3333; transform: translateX(50%) translateY(-5px);}
 
-    /* --- RESPONSIVE --- */
     @media (max-width: 1024px){
       .split-banner{grid-template-columns: 1fr;}
       .split-image{height: 400px; order: -1;}
@@ -214,7 +160,7 @@
       .hero{height: 550px;}
       .heroContent h1{font-size: 42px;}
       section{padding: 60px 0;}
-      .lubes-grid { grid-template-columns: 1fr; }
+      .lubes-grid {grid-template-columns: 1fr;}
     }
   </style>
 </head>
@@ -228,7 +174,7 @@
       <nav>
         <a href="#allison">Allison</a>
         <a href="#lubricantes">Lubricantes y Químicos</a>
-        <a href="#servicios">Taller y Mangueras</a>
+        <a href="#servicios">Taller</a>
         <a href="#equipo">Equipo</a>
         <a href="#contacto">Contacto</a>
       </nav>
@@ -273,7 +219,7 @@
       <div class="dot" onclick="goToSlide(1)"></div>
       <div class="dot" onclick="goToSlide(2)"></div>
     </div>
-  </section>
+  </div>
 
   <section id="allison" style="padding:0;">
     <div class="split-banner">
@@ -293,7 +239,7 @@
                 </div>
                 <div class="allison-service-item">
                     <div class="check-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
-                    <div>Venta de Unidades Completas y más</div>
+                    <div>Venta de Unidades Completas y Calibración</div>
                 </div>
             </div>
             <a href="#contacto" class="btn red" style="align-self: flex-start; margin-top: 20px;">Cotizar Servicio Allison</a>
@@ -307,28 +253,28 @@
         <div class="section-header">
             <span class="pill">Fluidos de Alto Rendimiento</span>
             <h2>Lubricantes y Químicos Premium</h2>
-            <p>Protección superior para motores que trabajan duro. Distribuidores oficiales de marcas líderes mundialmente.</p>
+            <p>Protección superior para motores que trabajan duro. Distribuidores oficiales.</p>
         </div>
 
         <div class="lubes-grid">
             <div class="lube-card">
                 <div class="lube-img-header" style="background-image: url('https://images.unsplash.com/photo-1643802412212-0559c8724130?q=80&w=1000&auto=format&fit=crop');">
-                    <div class="lube-brand-logo" style="color: var(--blue);">NAPA LUBRICANTS</div>
+                    <div class="lube-brand-logo" style="color: var(--blue);">NAPA</div>
                 </div>
                 <div class="lube-body">
                     <h3>Excelencia en Lubricación</h3>
                     <p class="napa-text">"Potencia y protección inigualable. Los lubricantes NAPA ofrecen una formulación avanzada diseñada para exceder los estándares más exigentes, garantizando el máximo rendimiento y longevidad para motores sometidos a trabajo severo."</p>
-                    <p style="color: var(--muted);">Disponemos de la línea completa para motores diésel y gasolina de servicio pesado.</p>
+                    <p style="color: var(--muted);">Línea completa para motores diésel y gasolina de servicio pesado.</p>
                 </div>
             </div>
 
             <div class="lube-card">
-                 <div class="lube-img-header" style="background-image: url('https://images.unsplash.com/photo-1504328341730-91820444411e?q=80&w=1000&auto=format&fit=crop');">
+                <div class="lube-img-header" style="background-image: url('https://images.unsplash.com/photo-1504328341730-91820444411e?q=80&w=1000&auto=format&fit=crop');">
                     <div class="lube-brand-logo" style="color: var(--red);">CEPSA</div>
                 </div>
                 <div class="lube-body">
                     <h3>Tecnología Europea</h3>
-                    <p style="color: var(--muted); margin-bottom: 20px;">Lubricantes de alta gama desarrollados para ofrecer eficiencia energética y protección duradera en las condiciones más extremas. Una opción confiable para flotas modernas.</p>
+                    <p style="color: var(--muted); margin-bottom: 20px;">Lubricantes de alta gama desarrollados para ofrecer eficiencia energética y protección duradera en las condiciones más extremas.</p>
                     <ul style="list-style: none; padding: 0; display: grid; gap: 10px;">
                         <li style="display:flex; gap:10px;"><span style="color:var(--blue); font-weight:bold">✓</span> Motores Diésel Pesados</li>
                         <li style="display:flex; gap:10px;"><span style="color:var(--blue); font-weight:bold">✓</span> Sistemas Hidráulicos</li>
@@ -339,20 +285,17 @@
             <div class="lube-card" style="background: var(--bg2);">
                 <div class="lube-body">
                     <h3>Línea de Químicos Profesionales</h3>
-                    <p style="color: var(--muted); margin-bottom: 30px;">Insumos esenciales para el mantenimiento y limpieza profunda de su taller y flota. Calidad industrial garantizada.</p>
+                    <p style="color: var(--muted); margin-bottom: 30px;">Insumos esenciales para el mantenimiento y limpieza profunda de su taller y flota.</p>
                     
                     <div class="chemicals-list">
                         <div class="chem-tag">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6b21a8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.56 2.9A7 7 0 0 1 19 9v4m-2 4H2a3 3 0 0 1 3-3V7a3 3 0 0 1 3-3 2 2 0 0 1 2 1 3 3 0 0 1 2-1 3 3 0 1 1 3 3v2a3 3 0 0 1 3 3 2 2 0 0 1 2 1 3 3 0 0 1 2-1 3 3 0 1 1 3 3h2a3 3 0 0 1 3 3v2a3 3 0 0 1 3 3h-2a3 3 0 0 1-3-3v-2a3 3 0 0 1-3-3h-2a3 3 0 0 1-3 3v2a3 3 0 0 1-3 3H2"></path><path d="M22 17h-1a1 1 0 0 1-1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1ZM7 17H6a1 1 0 0 1-1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1Z"></path></svg>
-                            Purple Power Cleaner
+                            <span style="color:#6b21a8; font-weight:900">⚡</span> Purple Power Cleaner
                         </div>
                         <div class="chem-tag">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#e02222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.74 5.88-5.74 5.88-5.74-5.88L12 2.69zM12 21.31l5.74-5.88-5.74-5.88-5.74 5.88L12 21.31z"></path></svg>
-                            MAC's Chemicals
+                            <span style="color:#e02222; font-weight:900">🧪</span> MAC's Chemicals
                         </div>
                         <div class="chem-tag">
-                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16.5 2.5V11h5a1 1 0 0 1 1 1 3 3 0 0 1-3 3h-3V21a1 1 0 0 1-3 0v-6H7V6a1 1 0 0 1 1-1h2.5V2.5A1 1 0 0 1 11.5 1 1 1 0 0 1 12.5 2.5 1 1 0 0 1 13.5 1 1 1 0 0 1 14.5 2.5 1 1 0 0 1 15.5 1 1 1 0 0 1 16.5 2.5z"></path><path d="M3 11.5V20a1 1 0 0 0 1 1h3v-6a3 3 0 0 0 3-3h-6a1 1 0 0 0-1 1z"></path></svg>
-                            NAPA Antifreeze
+                             <span style="color:#2563eb; font-weight:900">❄️</span> NAPA Antifreeze
                         </div>
                     </div>
                 </div>
@@ -366,7 +309,7 @@
       <div class="section-header">
         <span class="pill">Capacidades Técnicas</span>
         <h2>Servicios de Taller y Mangueras</h2>
-        <p>Complementamos nuestra oferta con servicios técnicos especializados para mantener su flota operativa.</p>
+        <p>Soluciones técnicas especializadas para mantener su flota operativa.</p>
       </div>
 
       <div class="services-grid">
@@ -376,7 +319,7 @@
           </div>
           <div class="service-body">
             <h3>Confección de Mangueras Hidráulicas</h3>
-            <p>Fabricación al instante de mangueras hidráulicas <strong>a medida</strong> para alta y baja presión. Utilizamos insumos de calidad superior (tipo GATES) para asegurar durabilidad.</p>
+            <p>Fabricación a medida de mangueras hidráulicas de alta y baja presión con tecnología <strong>GATES</strong>. Soluciones inmediatas.</p>
             <span class="pill">Servicio Inmediato</span>
           </div>
         </div>
@@ -386,7 +329,7 @@
             <img src="https://images.unsplash.com/photo-1487754180451-c456f719a1fc?auto=format&fit=crop&q=80&w=800" alt="Mecánica General">
           </div>
           <div class="service-body">
-            <h3>Mecánica General de Flotas</h3>
+            <h3>Mecánica de Flotas</h3>
             <p>Mantenimiento preventivo y correctivo multimarca para vehículos comerciales diesel y gasolina. Diagnóstico computarizado.</p>
             <span class="pill">Preventivo y Correctivo</span>
           </div>
@@ -398,7 +341,7 @@
           </div>
           <div class="service-body">
             <h3>Chapistería y Pintura</h3>
-            <p>Restauración profesional de carrocerías para equipo pesado y liviano. Enderezado y pintura de alta calidad para renovar su flota.</p>
+            <p>Restauración profesional de carrocerías para equipo pesado y liviano. Enderezado y pintura de alta calidad.</p>
             <span class="pill">Acabado Profesional</span>
           </div>
         </div>
@@ -406,45 +349,42 @@
     </div>
   </section>
 
-    <section id="equipo" style="background: #fff;">
-        <div class="wrap">
-            <div class="section-header">
-                <span class="pill">Gente Motor Plus</span>
-                <h2>Nuestro Equipo</h2>
-                <p>El capital humano capacitado y comprometido que hace posible nuestro servicio "A Toda Máquina".</p>
+  <section id="equipo" style="background: #fff;">
+    <div class="wrap">
+        <div class="section-header">
+            <span class="pill">Gente Motor Plus</span>
+            <h2>Nuestro Equipo</h2>
+            <p>Profesionales comprometidos con su operación.</p>
+        </div>
+        <div class="team-grid">
+            <div class="team-member">
+                <div class="team-img"></div>
+                <h4>Gustavo Lasso</h4>
+                <p>Gerente General</p>
             </div>
-            <div class="team-grid">
-                <div class="team-member">
-                    <div class="team-img">
-                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=300&auto=format&fit=crop" alt="Miembro del equipo">
-                    </div>
-                    <h4>Nombre Apellido</h4>
-                    <p>Gerencia / Ventas</p>
-                </div>
-                 <div class="team-member">
-                    <div class="team-img">
-                         <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=300&auto=format&fit=crop" alt="Miembro del equipo">
-                    </div>
-                    <h4>Nombre Apellido</h4>
-                    <p>Especialista Técnico Allison</p>
-                </div>
-                 <div class="team-member">
-                    <div class="team-img">
-                         <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=300&auto=format&fit=crop" alt="Miembro del equipo">
-                    </div>
-                    <h4>Nombre Apellido</h4>
-                    <p>Logística y Repuestos</p>
-                </div>
-                 <div class="team-member">
-                    <div class="team-img">
-                         <img src="https://images.unsplash.com/photo-1537511446984-935f663eb1f4?q=80&w=300&auto=format&fit=crop" alt="Miembro del equipo">
-                    </div>
-                    <h4>Nombre Apellido</h4>
-                    <p>Jefe de Taller</p>
-                </div>
+            <div class="team-member">
+                <div class="team-img"></div>
+                <h4>Gaspar González</h4>
+                <p>Supervisor Técnico</p>
+            </div>
+            <div class="team-member">
+                <div class="team-img"></div>
+                <h4>Virgilio Guillén</h4>
+                <p>Ejecutivo de Ventas</p>
+            </div>
+            <div class="team-member">
+                <div class="team-img"></div>
+                <h4>Irvin Ramos</h4>
+                <p>Asesor Repuestos Cummins</p>
+            </div>
+            <div class="team-member">
+                <div class="team-img"></div>
+                <h4>Jairo Salazar</h4>
+                <p>Encargado de Logística y Allison</p>
             </div>
         </div>
-    </section>
+    </div>
+  </section>
 
   <footer id="contacto">
     <a href="#inicio" class="back-to-top" aria-label="Volver arriba">↑</a>
@@ -452,15 +392,10 @@
       <div class="footer-grid">
         
         <div>
-          <div class="brand footer-brand" style="font-size: 28px; margin-bottom: 20px;">
-            <span>MOTOR</span><span>PLUS</span>
+          <div class="brand" style="font-size: 28px; margin-bottom: 20px;">
+            <span style="color:var(--blue)">MOTOR</span><span style="color:var(--red)">PLUS</span>
           </div>
-          <p style="opacity: 0.8; margin-bottom: 25px;">Su socio estratégico en soluciones integrales para el transporte y la industria. Calidad y respaldo garantizado.</p>
-          <div style="display:flex; gap:15px;">
-            <a href="https://www.instagram.com/motorplus.pro/#" target="_blank" style="opacity:0.8; transition:.3s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.8">
-                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-            </a>
-            </div>
+          <p style="opacity: 0.8; margin-bottom: 25px;">Su socio estratégico en soluciones integrales para el transporte y la industria.</p>
         </div>
 
         <div>
@@ -468,17 +403,11 @@
           <ul class="footer-info-list" style="list-style:none; padding:0;">
             <li>
               <div class="footer-icon">📍</div>
-              <div>
-                <strong>Sede Vista Hermosa:</strong><br>
-                PH Toneles, Ciudad de Panamá.
-              </div>
+              <div><strong>PH Toneles</strong><br>Vista Hermosa, Panamá.</div>
             </li>
             <li>
               <div class="footer-icon">📍</div>
-              <div>
-                <strong>Sede Mañanitas:</strong><br>
-                PH Ofidepositos, Ciudad de Panamá.
-              </div>
+              <div><strong>PH Ofidepositos</strong><br>Mañanitas, Panamá.</div>
             </li>
           </ul>
         </div>
@@ -486,21 +415,18 @@
         <div>
           <h4 style="font-size: 18px; font-weight: 800; margin-bottom: 25px; color: #fff;">Contacto y Cotizaciones</h4>
           <ul class="footer-info-list" style="list-style:none; padding:0;">
-            <li>
-              <div class="footer-icon">📞</div>
-              <span>232-5200 / +507 6558-6494</span>
-            </li>
+            <li><div class="footer-icon">📞</div><span>232-5200 / +507 6558-6494</span></li>
             <li>
               <div class="footer-icon">✉️</div>
               <div>
-                <strong>Ventas y Repuestos:</strong><br>
+                <strong>Cotizaciones:</strong><br>
                 <a href="mailto:ventas4@motorplus.pro" style="color: var(--accent);">ventas4@motorplus.pro</a>
               </div>
             </li>
              <li>
               <div class="footer-icon">✉️</div>
               <div>
-                <strong>Gerencia y Negociaciones:</strong><br>
+                <strong>Negociaciones:</strong><br>
                 <a href="mailto:gerencia@motorplus.pro" style="color: var(--accent);">gerencia@motorplus.pro</a>
               </div>
             </li>
@@ -517,7 +443,6 @@
   </footer>
 
   <script>
-    /* Lógica simple del Slider */
     let currentSlide = 0;
     const slides = document.querySelectorAll('.slide');
     const dots = document.querySelectorAll('.dot');
@@ -530,16 +455,10 @@
       dots[n].classList.add('active');
     }
 
-    // Auto play
-    const slideInterval = setInterval(() => {
+    setInterval(() => {
       let next = (currentSlide + 1) % slides.length;
       goToSlide(next);
-    }, 6000); // Cambiado a 6 segundos para dar más tiempo de lectura
-
-    // Pausar el slider si el usuario interactúa con los puntos (opcional)
-    dots.forEach(dot => {
-        dot.addEventListener('click', () => clearInterval(slideInterval));
-    });
+    }, 6000);
   </script>
 </body>
 </html>
