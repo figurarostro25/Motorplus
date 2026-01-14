@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Motor Plus Panamá | Flotas · Allison · Motores · Lubricantes</title>
-  <meta name="description" content="Expertos en mantenimiento de flotas, reconstrucción de motores diésel, transmisiones Allison y lubricantes NAPA/CEPSA en Panamá." />
+  <title>Motor Plus Panamá | Flotas · Allison · Mangueras · Lubricantes</title>
+  <meta name="description" content="Expertos en mangueras hidráulicas Gates, mantenimiento de flotas, motores diésel, transmisiones Allison y lubricantes NAPA/CEPSA en Panamá." />
   <meta name="theme-color" content="#0b1220" />
 
   <script src="https://cdn.tailwindcss.com"></script>
@@ -53,8 +53,7 @@
         opacity: 0; transition: opacity 1s ease; display: flex; align-items: center; justify-content: center;
     }
     .hero-slide.active { opacity: 1; }
-    /* Capa oscura para leer texto siempre */
-    .hero-slide::before { content:''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 100%); }
+    .hero-slide::before { content:''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 100%); }
     .hero-content { position: relative; z-index: 10; text-align: center; color: white; padding: 20px; max-width: 900px; }
     .hero-content h1 { font-size: clamp(36px, 5vw, 68px); font-weight: 900; line-height: 1.1; margin-bottom: 25px; text-shadow: 0 4px 10px rgba(0,0,0,0.5); }
     .hero-content p { font-size: 20px; opacity: 0.95; margin-bottom: 40px; font-weight: 500; }
@@ -86,10 +85,8 @@
         background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 10px 20px; 
         font-weight: 700; color: var(--muted); display: flex; align-items: center; justify-content: center;
     }
-    /* Estilo para imágenes no encontradas (caja gris) */
     img { background-color: #cbd5e1; min-height: 100px; object-fit: cover; }
     
-    /* Clase para mostrar mensaje de "Falta Imagen" */
     .img-missing-text {
         position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
         color: #64748b; font-weight: bold; font-size: 14px; text-transform: uppercase;
@@ -118,6 +115,7 @@
       <nav class="hidden lg:flex items-center gap-8 text-sm font-bold text-slate-700">
         <a href="#nosotros" class="hover:text-[#2f5f9b] transition">Nosotros</a>
         <a href="#tienda" class="hover:text-[#2f5f9b] transition">Tienda</a>
+        <a href="#mangueras" class="hover:text-[#2f5f9b] transition">Mangueras</a>
         <a href="#flotas" class="hover:text-[#2f5f9b] transition">Flotas</a>
         <a href="#allison" class="hover:text-[#2f5f9b] transition">Allison</a>
         <a href="#lubricantes" class="hover:text-[#2f5f9b] transition">Lubricantes</a>
@@ -160,6 +158,73 @@
       <div class="dot active" onclick="goToSlide(0)"></div>
       <div class="dot" onclick="goToSlide(1)"></div>
       <div class="dot" onclick="goToSlide(2)"></div>
+    </div>
+  </section>
+
+  <section id="mangueras" class="py-16 bg-slate-900 text-white relative overflow-hidden">
+    <div class="absolute inset-0 z-0 opacity-20" style="background-image: url('seccion-mangueras.jpg'); background-size: cover; background-position: center;"></div>
+    
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+      <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
+        <div class="lg:w-1/3 text-center lg:text-left">
+          <div class="bg-white/10 backdrop-blur-sm p-6 rounded-2xl inline-block mb-6 border border-white/10">
+            <img src="logo-gates.png" alt="Gates Logo" class="h-16 w-auto object-contain mx-auto lg:mx-0 filter brightness-0 invert">
+          </div>
+          <h2 class="text-3xl md:text-4xl font-black mb-4">Fabricamos Mangueras Hidráulicas</h2>
+          <p class="text-slate-300 text-lg">Soluciones a medida con tecnología líder mundial.</p>
+          <div class="mt-8">
+            <a href="#contacto" class="btn bg-[#e02222] hover:bg-red-700 text-white border-none shadow-lg shadow-red-900/50">Cotizar Manguera Ahora</a>
+          </div>
+        </div>
+
+        <div class="lg:w-2/3 bg-white/5 backdrop-blur-md rounded-2xl p-8 border border-white/10">
+          <h3 class="text-xl font-bold mb-6 text-white border-b border-white/20 pb-4">Ventajas GATES MegaSys™</h3>
+          <div class="grid sm:grid-cols-2 gap-y-4 gap-x-8">
+            <div class="flex items-start gap-3">
+              <span class="text-[#e02222] text-xl mt-1">✔</span>
+              <div>
+                <strong class="block text-white">Confección a Medida</strong>
+                <span class="text-sm text-slate-400">Ensamblaje preciso según su equipo.</span>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-[#e02222] text-xl mt-1">✔</span>
+              <div>
+                <strong class="block text-white">Alta Presión</strong>
+                <span class="text-sm text-slate-400">Resistencia extrema para maquinaria pesada.</span>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-[#e02222] text-xl mt-1">✔</span>
+              <div>
+                <strong class="block text-white">Durabilidad Extrema</strong>
+                <span class="text-sm text-slate-400">Materiales resistentes a la abrasión y el calor.</span>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-[#e02222] text-xl mt-1">✔</span>
+              <div>
+                <strong class="block text-white">Stock Completo</strong>
+                <span class="text-sm text-slate-400">Conexiones y adaptadores disponibles.</span>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-[#e02222] text-xl mt-1">✔</span>
+              <div>
+                <strong class="block text-white">Servicio Inmediato</strong>
+                <span class="text-sm text-slate-400">Sin esperas largas, solución al instante.</span>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-[#e02222] text-xl mt-1">✔</span>
+              <div>
+                <strong class="block text-white">Calidad Certificada</strong>
+                <span class="text-sm text-slate-400">Garantía de la marca líder mundial.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -338,24 +403,24 @@
         <h3 class="text-2xl font-bold mb-8 text-center">Químicos Profesionales</h3>
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
           <div class="bg-slate-800 rounded-xl p-4 text-center border border-slate-700 hover:border-[#a855f7] transition">
-            <div class="h-32 mb-4 rounded-lg overflow-hidden bg-white/5 relative">
-                <img src="chem-purple.jpg" class="w-full h-full object-contain">
+            <div class="h-48 mb-4 rounded-lg overflow-hidden bg-white/5 relative">
+                <img src="chem-purple.jpg" class="w-full h-full object-cover">
                 <span class="img-missing-text text-black opacity-50">Foto Purple Power</span>
             </div>
             <h4 class="font-bold text-[#a855f7] text-xl mb-1">Purple Power</h4>
             <p class="text-sm text-slate-400">Limpiadores y desengrasantes industriales.</p>
           </div>
           <div class="bg-slate-800 rounded-xl p-4 text-center border border-slate-700 hover:border-[#e02222] transition">
-            <div class="h-32 mb-4 rounded-lg overflow-hidden bg-white/5 relative">
-                <img src="chem-macs.jpg" class="w-full h-full object-contain">
+            <div class="h-48 mb-4 rounded-lg overflow-hidden bg-white/5 relative">
+                <img src="chem-macs.jpg" class="w-full h-full object-cover">
                 <span class="img-missing-text text-black opacity-50">Foto MACs</span>
             </div>
             <h4 class="font-bold text-[#e02222] text-xl mb-1">MAC's Chemicals</h4>
             <p class="text-sm text-slate-400">Línea completa de químicos automotrices.</p>
           </div>
           <div class="bg-slate-800 rounded-xl p-4 text-center border border-slate-700 hover:border-[#2563eb] transition">
-            <div class="h-32 mb-4 rounded-lg overflow-hidden bg-white/5 relative">
-                <img src="chem-antifreeze.jpg" class="w-full h-full object-contain">
+            <div class="h-48 mb-4 rounded-lg overflow-hidden bg-white/5 relative">
+                <img src="chem-antifreeze.jpg" class="w-full h-full object-cover">
                 <span class="img-missing-text text-black opacity-50">Foto Antifreeze</span>
             </div>
             <h4 class="font-bold text-[#2563eb] text-xl mb-1">NAPA Antifreeze</h4>
@@ -437,24 +502,6 @@
               <div class="flex items-center gap-2">✓ Mantenimiento de Flotas</div>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="bg-[#e02222] rounded-3xl overflow-hidden shadow-2xl flex flex-col md:flex-row">
-        <div class="md:w-1/2 p-12 flex flex-col justify-center text-white">
-          <h3 class="text-3xl font-black mb-4">Mangueras Hidráulicas GATES</h3>
-          <p class="text-lg opacity-90 mb-8">
-            Confección de mangueras hidráulicas <strong>a medida</strong>. Stock de conexiones para alta presión (MegaSys).
-          </p>
-          <a href="#contacto" class="btn bg-white text-[#e02222] hover:bg-slate-100 self-start">Solicitar Cotización</a>
-        </div>
-        <div class="md:w-1/2 h-64 md:h-auto relative">
-            <img src="seccion-mangueras.jpg" class="w-full h-full object-cover absolute inset-0">
-            <span class="img-missing-text">Foto Mangueras</span>
         </div>
       </div>
     </div>
