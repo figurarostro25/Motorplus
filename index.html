@@ -3,9 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Motor Plus Panamá | Vehículos Comerciales · Allison · Repuestos y Lubricantes</title>
-  <meta name="description" content="Motor Plus Panamá: mantenimiento de vehículos comerciales, soporte para transmisiones ALLISON (repuestos originales, calibración y diagnóstico), repuestos, lubricantes y fabricación de mangueras GATES." />
+  <title>Motor Plus Panamá | Soluciones Integrales para Flotas</title>
+  <meta name="description" content="Motor Plus Panamá: Distribuidores NAPA y CEPSA. Dealers Allison y Cummins. Mantenimiento de flotas, chapistería, mangueras y repuestos." />
   <meta name="theme-color" content="#ffffff" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
 
   <style>
     :root{
@@ -14,35 +17,26 @@
       --text:#0b1220;
       --muted:#5b6475;
       --line: rgba(12,18,32,.12);
-
-      --blue:#2f5f9b;
-      --blue2:#1f4c85;
-      --red:#e02222;
+      --blue:#2f5f9b;     /* Azul corporativo similar al logo */
+      --red:#e02222;      /* Rojo corporativo similar al logo */
       --accent:#2563eb;
-
       --shadow: 0 18px 60px rgba(2,6,23,.10);
       --shadow2: 0 12px 30px rgba(2,6,23,.08);
-
       --radius: 16px;
       --radius2: 26px;
-
-      /* Layout widths */
       --max: 1180px;
       --maxWide: 1480px;
     }
 
     *{box-sizing:border-box}
-    html,body{height:100%}
+    html{scroll-behavior:smooth}
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
+      font-family: 'Inter', sans-serif;
       color:var(--text);
-      background:
-        radial-gradient(1000px 620px at 10% 0%, rgba(37,99,235,.10), transparent 55%),
-        radial-gradient(1000px 620px at 95% 12%, rgba(224,34,34,.08), transparent 55%),
-        linear-gradient(180deg, var(--bg), var(--bg2));
+      background: linear-gradient(180deg, var(--bg), var(--bg2));
       overflow-x:hidden;
-      line-height:1.45;
+      line-height:1.5;
     }
     a{color:inherit; text-decoration:none}
     img{max-width:100%; display:block}
@@ -50,1551 +44,445 @@
     .wrap{max-width:var(--max); margin:0 auto; padding:0 18px}
     .wrapWide{max-width:var(--maxWide); margin:0 auto; padding:0 18px}
 
-    /* Topbar */
+    /* --- COMPONENTS --- */
+    .btn{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:10px 16px;
+      border-radius: 12px;
+      border:1px solid var(--line);
+      background: #fff;
+      color: var(--text);
+      font-weight:700;
+      font-size:14px;
+      cursor:pointer;
+      transition:.2s ease;
+      white-space:nowrap;
+    }
+    .btn:hover{transform: translateY(-2px); box-shadow: var(--shadow2)}
+    .btn.primary{
+      background: var(--blue);
+      color: #fff;
+      border-color: var(--blue);
+    }
+    .btn.red{
+      background: var(--red);
+      color: #fff;
+      border-color: var(--red);
+    }
+
+    .pill{
+      display:inline-flex; align-items:center; gap:6px;
+      font-size:12px; font-weight:600; letter-spacing:.05em; text-transform:uppercase;
+      padding:6px 10px;
+      border-radius: 99px;
+      background: rgba(47,95,155,.1);
+      color: var(--blue);
+    }
+
+    /* --- HEADER --- */
     .topbar{
-      position:sticky; top:0; z-index:50;
-      background: rgba(255,255,255,.82);
-      backdrop-filter: blur(14px);
+      position:sticky; top:0; z-index:100;
+      background: rgba(255,255,255,.9);
+      backdrop-filter: blur(12px);
       border-bottom:1px solid var(--line);
     }
-    .topbar .row{
+    .topbar .inner{
       display:flex; align-items:center; justify-content:space-between;
-      gap:14px;
-      padding:12px 0;
+      height: 70px;
     }
     .brand{
       display:flex; align-items:center; gap:12px;
-      min-width: 220px;
+      font-weight:900; font-size:18px; color:var(--blue);
     }
-    .logo{
-      width:44px; height:44px;
-      border-radius: 14px;
-      overflow:hidden;
-      border:1px solid var(--line);
-      background: #fff;
-      box-shadow: var(--shadow2);
-      display:grid; place-items:center;
-    }
-    .logo img{width:100%; height:100%; object-fit:cover}
-    .brand .txt strong{display:block; font-weight:950; letter-spacing:.2px}
-    .brand .txt span{display:block; font-size:12px; color:var(--muted); margin-top:1px}
+    .brand img{height:40px; width:auto}
+    
+    nav{display:flex; gap:20px}
+    nav a{font-size:14px; font-weight:600; color:var(--muted); transition:.2s}
+    nav a:hover{color:var(--blue)}
 
-    nav{
-      display:flex; align-items:center; gap:12px;
-      flex-wrap:wrap;
-      justify-content:center;
-    }
-    nav a{
-      font-size:14px;
-      color: rgba(11,18,32,.78);
-      padding:8px 10px;
-      border-radius: 999px;
-      border:1px solid transparent;
-      transition:.16s ease;
-    }
-    nav a:hover{
-      border-color: var(--line);
-      background: rgba(255,255,255,.70);
-    }
-
-    .cta{
-      display:flex; gap:10px; align-items:center;
-      justify-content:flex-end;
-    }
-    .pill{
-      display:inline-flex; align-items:center; gap:8px;
-      font-size:12px; color: rgba(11,18,32,.75);
-      padding:8px 10px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.80);
-      border-radius: 999px;
-      white-space:nowrap;
-    }
-    .dot{width:8px;height:8px;border-radius:999px;background:var(--red); box-shadow:0 0 0 3px rgba(224,34,34,.18)}
-    .btn{
-      display:inline-flex; align-items:center; gap:9px;
-      padding:10px 12px;
-      border-radius: 14px;
-      border:1px solid var(--line);
-      background: #fff;
-      color: var(--text);
-      font-weight:800;
-      font-size:14px;
-      cursor:pointer;
-      transition:.16s ease;
-      box-shadow: var(--shadow2);
-      white-space:nowrap;
-    }
-    .btn:hover{transform: translateY(-1px)}
-    .btn.primary{
-      border-color: rgba(37,99,235,.22);
-      background: linear-gradient(135deg, rgba(47,95,155,.12), rgba(224,34,34,.08));
-    }
-
-    /* Full-width Hero Slider */
-    .hero{
-      padding: 18px 0 0;
-    }
-    .slider{
-      width: 100%;
-      border-bottom:1px solid var(--line);
-      background: #fff;
-    }
-    .slides{
-      display:flex;
-      width:300%;
-      transform: translateX(0%);
-      transition: transform .55s cubic-bezier(.2,.9,.2,1);
-    }
+    /* --- HERO SLIDER --- */
+    .hero{position:relative; overflow:hidden; background:#000}
+    .slides{display:flex; width:300%; transition: transform .6s cubic-bezier(0.25, 1, 0.5, 1)}
     .slide{
-      width:100%;
-      min-height: 560px;
+      width:100%; min-height:600px;
       position:relative;
-      display:flex;
-      align-items:center;
-      padding: 40px 0;
-      background: #0b1220;
-      color:#fff;
-      overflow:hidden;
+      display:flex; align-items:center; justify-content:center;
+      color:#fff; text-align:center;
+      background-size:cover; background-position:center;
     }
-    .slide::before{
-      content:"";
-      position:absolute; inset:0;
-      background-size: cover;
-      background-position:center;
-      opacity:.82;
-      filter: saturate(1.05) contrast(1.05);
-      transform: scale(1.03);
-    }
-    .slide::after{
-      content:"";
-      position:absolute; inset:0;
-      background: linear-gradient(90deg, rgba(0,0,0,.72), rgba(0,0,0,.25) 55%, rgba(0,0,0,.10));
-    }
-    .slide[data-bg="maintenance"]::before{background-image:url("img/hero-maintenance.jpg")}
-    .slide[data-bg="allison"]::before{background-image:url("img/hero-allison.jpg")}
-    .slide[data-bg="lubes"]::before{background-image:url("img/hero-lubes.jpg")}
+    /* Placeholders for backgrounds - REPLACE URLs later */
+    .slide:nth-child(1){background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1580273916550-e323be2ed5f6?q=80&w=1920&auto=format&fit=crop')} /* Truck/Fleet */
+    .slide:nth-child(2){background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1597762693847-73d63234b36f?q=80&w=1920&auto=format&fit=crop')} /* Engine/Mechanic */
+    .slide:nth-child(3){background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=1920&auto=format&fit=crop')} /* Parts/Store */
 
-    .heroGrid{
-      position:relative;
-      z-index:2;
-      display:grid;
-      grid-template-columns: 1.05fr .95fr;
-      gap: 26px;
-      align-items:center;
-      max-width: var(--maxWide);
-      margin:0 auto;
-      padding: 0 18px;
-    }
-    .kicker{
-      display:inline-flex; align-items:center; gap:10px;
-      font-size:12px; letter-spacing:.12em; text-transform:uppercase;
-      color: rgba(255,255,255,.90);
-      background: rgba(255,255,255,.12);
-      border:1px solid rgba(255,255,255,.18);
-      padding:8px 12px;
-      border-radius: 999px;
-      margin-bottom:12px;
-    }
-    .kmini{width:9px;height:9px;border-radius:999px;background: rgba(255,255,255,.92)}
-    .kmini.red{background: var(--red)}
-    .kmini.blue{background: #7fb1ff}
+    .heroContent{max-width:800px; padding:20px; z-index:2}
+    .heroContent h1{font-size:clamp(32px, 5vw, 60px); font-weight:900; line-height:1.1; margin-bottom:20px}
+    .heroContent p{font-size:18px; margin-bottom:30px; opacity:.9}
 
-    .heroGrid h1{
-      margin:0 0 10px;
-      font-size: clamp(30px, 3.2vw, 54px);
-      line-height:1.03;
-      letter-spacing:-.02em;
-      font-weight: 950;
+    .sliderControls{
+      position:absolute; bottom:30px; left:0; right:0;
+      display:flex; justify-content:center; gap:10px; z-index:10;
     }
-    .heroGrid p{
-      margin:0 0 16px;
-      font-size: 16px;
-      color: rgba(255,255,255,.92);
-      max-width: 62ch;
-    }
-    .heroActions{display:flex; gap:10px; flex-wrap:wrap}
-    .heroActions .btn{box-shadow:none}
-    .btn.ghost{
-      background: rgba(255,255,255,.14);
-      border-color: rgba(255,255,255,.22);
-      color:#fff;
-    }
-    .heroCard{
-      border-radius: var(--radius2);
-      border:1px solid rgba(255,255,255,.18);
-      background: rgba(255,255,255,.10);
-      backdrop-filter: blur(12px);
-      padding: 16px;
-      box-shadow: 0 28px 90px rgba(0,0,0,.35);
-    }
-    .heroCard .meta{
-      display:grid;
-      gap:10px;
-    }
-    .meta .m{
-      background: rgba(0,0,0,.18);
-      border:1px solid rgba(255,255,255,.16);
-      border-radius: 18px;
-      padding: 12px 12px;
-    }
-    .meta .m strong{display:block; font-size:13px}
-    .meta .m span{display:block; font-size:13px; color: rgba(255,255,255,.90); margin-top:3px}
+    .dot{width:12px; height:12px; border-radius:50%; background:rgba(255,255,255,.3); cursor:pointer}
+    .dot.active{background:#fff}
 
-    .sliderUI{
-      position:absolute;
-      z-index:3;
-      left:50%;
-      bottom: 16px;
-      transform: translateX(-50%);
-      display:flex;
-      align-items:center;
-      gap:10px;
-      background: rgba(255,255,255,.18);
-      border:1px solid rgba(255,255,255,.22);
-      backdrop-filter: blur(10px);
-      border-radius: 999px;
-      padding: 8px 10px;
-    }
-    .arrow{
-      width:40px;height:40px;border-radius:999px;
-      border:1px solid rgba(255,255,255,.28);
-      background: rgba(0,0,0,.18);
-      color:#fff;
-      cursor:pointer;
-      display:grid; place-items:center;
-      font-size:20px;
-      transition:.16s ease;
-    }
-    .arrow:hover{transform: translateY(-1px)}
-    .dots{display:flex; gap:8px; padding: 0 8px}
-    .dots button{
-      width:10px;height:10px;border-radius:999px;
-      border:1px solid rgba(255,255,255,.35);
-      background: rgba(255,255,255,.30);
-      cursor:pointer;
-      transition:.16s ease;
-    }
-    .dots button.active{
-      width:24px;
-      background: rgba(255,255,255,.92);
-    }
+    /* --- SECTIONS --- */
+    section{padding:80px 0}
+    .section-header{text-align:center; max-width:700px; margin:0 auto 50px}
+    .section-header h2{font-size:32px; font-weight:900; color:var(--blue); margin-bottom:10px}
+    .section-header p{color:var(--muted)}
 
-    /* Sections */
-    section{padding: 56px 0}
-    .sectionTitle{
-      display:flex; align-items:flex-end; justify-content:space-between;
-      gap: 16px;
-      margin-bottom: 18px;
-    }
-    .sectionTitle h2{
-      margin:0;
-      font-size: clamp(22px, 2.1vw, 34px);
-      letter-spacing:-.02em;
-      font-weight: 950;
-    }
-    .sectionTitle p{
-      margin:0;
-      max-width: 62ch;
-      color: var(--muted);
-      font-size: 14.5px;
-    }
-
-    .card{
-      border:1px solid var(--line);
-      background:#fff;
-      border-radius: var(--radius2);
-      padding: 18px;
-      box-shadow: var(--shadow2);
-    }
-    .grid2{display:grid; grid-template-columns: 1.1fr .9fr; gap:16px}
-    .grid3{display:grid; grid-template-columns: repeat(3, 1fr); gap:16px}
-
-    .list{margin:12px 0 0; padding:0; list-style:none; display:grid; gap:10px}
-    .list li{
-      display:flex; gap:10px; align-items:flex-start;
-      padding:10px 12px;
-      border-radius: 18px;
-      border:1px solid var(--line);
-      background: rgba(246,248,252,.70);
-    }
-    .tick{
-      width:26px;height:26px;border-radius:10px;
-      display:grid; place-items:center;
-      background: rgba(37,99,235,.10);
-      border:1px solid rgba(37,99,235,.20);
-      flex:0 0 auto;
-      margin-top:1px;
-      color: var(--accent);
-      font-weight: 900;
-    }
-
-    /* Featured services with images */
-    .svc{
-      display:grid;
-      grid-template-columns: 110px 1fr;
-      gap:12px;
-      align-items:stretch;
-      border:1px solid var(--line);
-      border-radius: var(--radius2);
-      background:#fff;
-      overflow:hidden;
-      box-shadow: var(--shadow2);
-    }
-    .svc .img{
-      position:relative;
-      background: #f1f5ff;
-      border-right:1px solid var(--line);
-      min-height: 110px;
-    }
-    .svc .img img{
-      width:100%; height:100%;
-      object-fit:cover;
-      display:block;
-    }
-    .svc .body{padding:14px 14px 14px 0}
-    .svc h3{margin:0 0 6px; font-size:16px; font-weight:950}
-    .svc p{margin:0; color:var(--muted); font-size:13.8px}
-    .tag{
-      display:inline-flex; align-items:center; gap:8px;
-      margin-top:10px;
-      font-size:12px;
-      color: rgba(11,18,32,.78);
-      border:1px solid var(--line);
-      padding:7px 10px;
-      border-radius: 999px;
-      background: rgba(246,248,252,.75);
-      font-weight:700;
-    }
-
-    /* Brand marquee (more logos) */
-    .logoStrip{
-      border-top:1px solid var(--line);
-      border-bottom:1px solid var(--line);
-      background:#fff;
-      padding: 16px 0;
-    }
-    .marquee{
-      display:flex; gap:36px; align-items:center;
-      animation: marquee 20s linear infinite;
-      will-change: transform;
-    }
-    .brandLogo{
-      height:42px;
-      width:auto;
-      opacity:.95;
-      filter: drop-shadow(0 10px 14px rgba(2,6,23,.10));
-    }
-    @keyframes marquee{
-      0%{transform: translateX(0)}
-      100%{transform: translateX(-50%)}
-    }
-
-    /* Allison feature section (like your screenshot: text left, media right) */
-    .feature{
-      display:grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 18px;
-      align-items:center;
-    }
-    .feature h3{
-      margin:0 0 10px;
-      font-size: clamp(18px, 1.6vw, 24px);
-      font-weight: 950;
-      letter-spacing:-.01em;
-    }
-    .feature p{
-      margin:0 0 12px;
-      color: var(--muted);
-      font-size: 14.8px;
-    }
-    .feature .points{
-      display:grid; gap:10px; margin-top:10px;
-    }
-    .point{
-      display:flex; gap:10px; align-items:flex-start;
-      padding:10px 12px;
-      border:1px solid var(--line);
-      background: rgba(246,248,252,.75);
-      border-radius: 18px;
-    }
-    .badge{
-      width:28px;height:28px;border-radius:10px;
-      display:grid; place-items:center;
-      background: rgba(224,34,34,.10);
-      border:1px solid rgba(224,34,34,.20);
-      color: var(--red);
-      font-weight: 950;
-      flex:0 0 auto;
-      margin-top:1px;
-    }
-    .media{
-      border-radius: var(--radius2);
-      border:1px solid var(--line);
-      overflow:hidden;
-      background:#fff;
-      box-shadow: var(--shadow);
-      position:relative;
-    }
-    .media img{width:100%; height:auto; display:block}
-    .play{
-      position:absolute;
-      inset:0;
-      display:grid;
-      place-items:center;
-      pointer-events:none;
-    }
-    .play .btnPlay{
-      width:86px; height:56px;
-      border-radius: 18px;
-      background: rgba(224,34,34,.88);
-      box-shadow: 0 22px 70px rgba(224,34,34,.22);
-      display:grid;
-      place-items:center;
-      color:#fff;
-      font-weight: 950;
-      letter-spacing:.02em;
-    }
-
-    /* Big banner section like Allison (full width) */
-    .bannerWide{
-      border-top:1px solid var(--line);
-      border-bottom:1px solid var(--line);
-      background:
-        linear-gradient(90deg, rgba(47,95,155,.10), rgba(224,34,34,.06)),
-        #fff;
-      padding: 0;
-      overflow:hidden;
-    }
-    .bannerGrid{
-      display:grid;
-      grid-template-columns: 1.15fr .85fr;
-      align-items:stretch;
-      max-width: var(--maxWide);
-      margin:0 auto;
-      padding: 0 18px;
-      gap: 16px;
-    }
-    .bannerText{
-      padding: 34px 0;
-    }
-    .bannerText h3{
-      margin:0 0 10px;
-      font-size: clamp(20px, 2.0vw, 34px);
-      font-weight: 950;
-      letter-spacing:-.02em;
-    }
-    .bannerText p{
-      margin:0 0 14px;
-      color: var(--muted);
-      max-width: 64ch;
-    }
-    .bannerImg{
-      padding: 22px 0;
-    }
-    .bannerImg .media{height:100%}
-    .bannerImg img{height:100%; object-fit:cover}
-
-    /* Parts categories like the screenshot grid */
-    .partsGrid{
-      display:grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-    }
-    .part{
-      border:1px solid var(--line);
-      background:#fff;
-      border-radius: 18px;
-      overflow:hidden;
-      box-shadow: var(--shadow2);
-      transition: .16s ease;
-      cursor:pointer;
-    }
-    .part:hover{transform: translateY(-2px)}
-    .part .ph{
-      height: 150px;
-      background: #f3f6ff;
-      border-bottom:1px solid var(--line);
-      position:relative;
-    }
-    .part .ph img{width:100%; height:100%; object-fit:cover}
-    .part .name{
-      padding: 12px;
+    /* Misión/Visión Grid */
+    .mv-grid{display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap:30px}
+    .mv-card{
+      background:#fff; padding:30px; border-radius:var(--radius);
+      border:1px solid var(--line); box-shadow:var(--shadow2);
       text-align:center;
-      font-weight: 950;
-      letter-spacing:.02em;
-      color: rgba(11,18,32,.92);
     }
+    .mv-icon{font-size:40px; margin-bottom:15px; display:block}
 
-    /* Gallery (more images) */
-    .gallery{
-      display:grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
+    /* Services Grid */
+    .services-grid{display:grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap:24px}
+    .service-card{
+      background:#fff; border:1px solid var(--line); border-radius:var(--radius);
+      overflow:hidden; transition:.3s; display:flex; flex-direction:column;
     }
-    .g{
-      border-radius: 18px;
-      border:1px solid var(--line);
-      overflow:hidden;
-      background:#fff;
-      box-shadow: var(--shadow2);
-      min-height: 160px;
-    }
-    .g img{width:100%; height:100%; object-fit:cover; display:block}
+    .service-card:hover{transform:translateY(-5px); box-shadow:var(--shadow)}
+    .service-img{height:200px; background:#eee; position:relative}
+    .service-img img{width:100%; height:100%; object-fit:cover}
+    .service-body{padding:24px; flex:1; display:flex; flex-direction:column}
+    .service-body h3{font-size:20px; font-weight:800; margin:0 0 10px; color:var(--text)}
+    .service-body p{color:var(--muted); font-size:14px; margin-bottom:20px; flex:1}
 
-    /* Blog */
-    .toolbar{
-      display:flex; align-items:center; justify-content:space-between;
-      gap:12px; flex-wrap:wrap;
-      margin: 10px 0 14px;
+    /* Brands Marquee */
+    .brands-section{background:var(--bg2); border-top:1px solid var(--line); padding:40px 0}
+    .marquee-container{overflow:hidden; white-space:nowrap; position:relative}
+    .marquee-content{display:inline-flex; animation:scroll 30s linear infinite}
+    .brand-item{
+      width:150px; height:80px; margin:0 30px;
+      display:grid; place-items:center;
+      opacity:0.6; transition:.3s;
     }
-    .filters{display:flex; gap:10px; flex-wrap:wrap}
-    .chip{
-      border:1px solid var(--line);
-      background: rgba(246,248,252,.75);
-      padding:8px 12px;
-      border-radius: 999px;
-      font-size:13px;
-      font-weight:800;
-      color: rgba(11,18,32,.78);
-      cursor:pointer;
-      transition:.16s ease;
-      user-select:none;
-    }
-    .chip.active{border-color: rgba(37,99,235,.25); background: rgba(37,99,235,.08); color: rgba(11,18,32,.92)}
-    .search{
-      display:flex; align-items:center; gap:10px;
-      border:1px solid var(--line);
-      background:#fff;
-      border-radius: 999px;
-      padding:8px 12px;
-      min-width: 260px;
-      box-shadow: var(--shadow2);
-    }
-    .search input{
-      border:0; outline:none; background:transparent;
-      font-size:14px; width:100%;
-      color: var(--text);
-    }
-    .posts{display:grid; grid-template-columns: repeat(3, 1fr); gap: 16px;}
-    .post{
-      border:1px solid var(--line);
-      border-radius: var(--radius2);
-      background:#fff;
-      box-shadow: var(--shadow2);
-      overflow:hidden;
-    }
-    .post .cover{
-      height: 140px;
-      background:
-        radial-gradient(420px 220px at 20% 20%, rgba(37,99,235,.12), transparent 60%),
-        radial-gradient(420px 220px at 80% 30%, rgba(224,34,34,.10), transparent 60%),
-        linear-gradient(180deg, rgba(246,248,252,.8), rgba(255,255,255,1));
-      border-bottom:1px solid var(--line);
-    }
-    .post .body{padding: 14px 14px 16px;}
-    .post h3{margin:0 0 8px; font-size:16px; font-weight: 950}
-    .post p{margin:0; color: var(--muted); font-size:13.8px}
-    .read{
-      display:inline-flex; align-items:center; gap:8px;
-      margin-top: 10px;
-      color: var(--accent);
-      font-weight: 900;
-      font-size: 13px;
-    }
+    .brand-item:hover{opacity:1; transform:scale(1.05)}
+    .brand-item img{max-height:60px; max-width:100%}
 
-    /* Contact / lead form */
-    .lead{
-      display:grid;
-      grid-template-columns: 1.05fr .95fr;
-      gap: 16px;
-      align-items:stretch;
-    }
-    .form{
-      border:1px solid var(--line);
-      background:#fff;
-      border-radius: var(--radius2);
-      box-shadow: var(--shadow);
-      padding: 16px;
-    }
-    .form .row{display:grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom:10px}
-    label{display:block; font-size:12px; font-weight:800; color: rgba(11,18,32,.78); margin:0 0 6px}
-    input, select, textarea{
-      width:100%;
-      border:1px solid var(--line);
-      background: rgba(246,248,252,.65);
-      border-radius: 14px;
-      padding: 11px 12px;
-      outline:none;
-      font-size:14px;
-      color: var(--text);
-    }
-    textarea{min-height: 110px; resize: vertical}
-    .actions{display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap; margin-top:10px}
-    .toggle{
-      display:flex; align-items:center; gap:10px;
-      padding: 8px 10px;
-      border:1px solid var(--line);
-      border-radius: 999px;
-      background: rgba(246,248,252,.75);
-      cursor:pointer;
-      user-select:none;
-      font-size:13px;
-      font-weight:900;
-      color: rgba(11,18,32,.80);
-    }
-    .switch{
-      width:38px;height:22px;border-radius:999px;
-      border:1px solid rgba(37,99,235,.22);
-      background: rgba(37,99,235,.10);
-      position:relative;
-    }
-    .switch::after{
-      content:"";
-      width:18px;height:18px;border-radius:999px;
-      position:absolute; top:2px; left:2px;
-      background: rgba(37,99,235,.85);
-      transition:.16s ease;
-    }
-    .toggle.on .switch::after{left:18px}
-    .aside{
-      border:1px solid var(--line);
-      background:
-        linear-gradient(135deg, rgba(47,95,155,.10), rgba(224,34,34,.06)),
-        #fff;
-      border-radius: var(--radius2);
-      box-shadow: var(--shadow);
-      padding: 16px;
-      display:flex; flex-direction:column; justify-content:space-between;
-      gap: 14px;
-    }
-    .kv{display:grid; gap:10px}
-    .kv .item{
-      border:1px solid var(--line);
-      background:#fff;
-      border-radius: 18px;
-      padding: 10px 12px;
-      box-shadow: var(--shadow2);
-    }
-    .kv strong{display:block; font-size:13px}
-    .kv span{display:block; font-size:13px; color: rgba(11,18,32,.75); margin-top:3px}
-    .note{
-      font-size:12.5px;
-      color: rgba(11,18,32,.75);
-      line-height:1.4;
-    }
+    @keyframes scroll{0%{transform:translateX(0)} 100%{transform:translateX(-50%)}}
 
-    /* Footer */
-    footer{
-      border-top:1px solid var(--line);
-      background:#fff;
-      padding: 34px 0 44px;
-    }
-    .foot{
-      display:grid;
-      grid-template-columns: 1.1fr .9fr .9fr;
-      gap: 16px;
-    }
-    .box{
-      border:1px solid var(--line);
-      background:#fff;
-      border-radius: var(--radius2);
-      padding: 14px;
-      box-shadow: var(--shadow2);
-    }
-    .box h4{margin:0 0 10px; font-size:14px; font-weight:950}
-    .box p{margin:0; color: rgba(11,18,32,.78); font-size:13.6px}
-    .stack{display:grid; gap:8px}
-    .small{margin-top:10px; color: rgba(11,18,32,.62); font-size:12px}
+    /* Contact Form */
+    .contact-grid{display:grid; grid-template-columns: 1fr 1fr; gap:40px; align-items:start}
+    .contact-info{background:var(--blue); color:#fff; padding:40px; border-radius:var(--radius2)}
+    .contact-info h3{font-size:24px; font-weight:800; margin-bottom:20px}
+    .contact-list li{margin-bottom:15px; display:flex; gap:10px}
+    .form-box{background:#fff; padding:40px; border-radius:var(--radius2); border:1px solid var(--line); box-shadow:var(--shadow)}
+    .form-group{margin-bottom:15px}
+    .form-group label{display:block; font-size:13px; font-weight:700; margin-bottom:5px; color:var(--muted)}
+    .form-input{width:100%; padding:12px; border:1px solid var(--line); border-radius:8px; background:var(--bg2)}
 
-    /* Responsive */
-    @media (max-width: 1100px){
-      nav{display:none}
-      .heroGrid{grid-template-columns: 1fr}
-      .feature{grid-template-columns: 1fr}
-      .bannerGrid{grid-template-columns: 1fr}
-      .grid2{grid-template-columns: 1fr}
-      .grid3{grid-template-columns: 1fr}
-      .partsGrid{grid-template-columns: repeat(2, 1fr)}
-      .gallery{grid-template-columns: repeat(2, 1fr)}
-      .posts{grid-template-columns: 1fr}
-      .lead{grid-template-columns: 1fr}
-      .form .row{grid-template-columns: 1fr}
-      .slide{min-height: 580px}
-    }
-    @media (max-width: 520px){
-      .partsGrid{grid-template-columns: 1fr}
-      .slide{min-height: 600px}
+    /* Mobile */
+    @media (max-width: 768px){
+      nav{display:none} /* Simple hide for demo, normally add hamburger */
+      .contact-grid{grid-template-columns:1fr}
+      .topbar .inner{height:60px}
     }
   </style>
 </head>
-
 <body>
-  <!-- TOPBAR -->
+
   <header class="topbar">
-    <div class="wrapWide">
-      <div class="row">
-        <a class="brand" href="#inicio" aria-label="Motor Plus Panamá">
-          <div class="logo">
-            <img src="img/logo-motor-plus.png" alt="Motor Plus Logo" onerror="this.style.display='none'">
-          </div>
-          <div class="txt">
-            <strong>Motor Plus Panamá</strong>
-            <span>A toda máquina…</span>
-          </div>
-        </a>
-
-        <nav aria-label="Navegación principal">
-          <a href="#servicios">Servicios</a>
-          <a href="#allison">Allison</a>
-          <a href="#repuestos">Repuestos</a>
-          <a href="#marcas">Marcas</a>
-          <a href="#galeria">Galería</a>
-          <a href="#blog">Blog</a>
-          <a href="#contacto">Contacto</a>
-        </nav>
-
-        <div class="cta">
-          <span class="pill"><span class="dot"></span> Atención 24 horas</span>
-          <a class="btn primary" href="#contacto">Cotiza / Solicita info</a>
-        </div>
-      </div>
+    <div class="wrapWide inner">
+      <a href="#" class="brand">
+        <span style="color:var(--blue)">MOTOR</span><span style="color:var(--red)">PLUS</span>
+      </a>
+      <nav>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#productos">Productos</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+      <a href="#contacto" class="btn primary">Cotizar Ahora</a>
     </div>
   </header>
 
-  <!-- HERO FULL WIDTH SLIDER -->
-  <main id="inicio" class="hero">
-    <div class="slider" aria-label="Slider principal Motor Plus">
-      <div class="slides" id="slides">
-
-        <!-- Slide 1 -->
-        <section class="slide" data-bg="maintenance" aria-label="Mantenimiento de vehículos comerciales">
-          <div class="heroGrid">
-            <div>
-              <div class="kicker"><span class="kmini blue"></span> Mantenimiento de vehículos comerciales</div>
-              <h1>Mantén tu flota operativa, segura y rentable.</h1>
-              <p>
-                En Motor Plus te apoyamos con mantenimiento preventivo y correctivo para vehículos comerciales,
-                diagnóstico y respaldo técnico para que tu operación siga <strong>sin paradas inesperadas</strong>.
-              </p>
-              <div class="heroActions">
-                <a class="btn primary" href="#contacto">Solicitar evaluación</a>
-                <a class="btn ghost" href="#servicios">Ver servicios</a>
-              </div>
-            </div>
-
-            <div class="heroCard" aria-label="Datos rápidos">
-              <div class="meta">
-                <div class="m">
-                  <strong>Enfoque</strong>
-                  <span>Flotas · vehículos comerciales · equipos de trabajo</span>
-                </div>
-                <div class="m">
-                  <strong>Respuesta</strong>
-                  <span>Atención 24 horas · entrega inmediata (según inventario)</span>
-                </div>
-                <div class="m">
-                  <strong>Soluciones</strong>
-                  <span>Diagnóstico, mantenimiento y asesoría técnica</span>
-                </div>
-              </div>
-            </div>
+  <div class="hero">
+    <div class="slides" id="slides">
+      <div class="slide">
+        <div class="heroContent">
+          <h1>Soluciones Integrales para Flotas Industriales</h1>
+          <p>Somos distribuidores exclusivos de NAPA y CEPSA. Especialistas en mecánica, repuestos y lubricantes.</p>
+          <div style="display:flex; gap:10px; justify-content:center">
+            <a href="#servicios" class="btn primary">Nuestros Servicios</a>
+            <a href="#contacto" class="btn" style="background:rgba(255,255,255,0.2); color:#fff; border:1px solid #fff">Contáctanos</a>
           </div>
-
-          <div class="sliderUI" aria-label="Controles del slider">
-            <button class="arrow" id="prev" aria-label="Anterior">‹</button>
-            <div class="dots" id="dots" aria-label="Indicadores"></div>
-            <button class="arrow" id="next" aria-label="Siguiente">›</button>
-          </div>
-        </section>
-
-        <!-- Slide 2 -->
-        <section class="slide" data-bg="allison" aria-label="Transmisiones ALLISON">
-          <div class="heroGrid">
-            <div>
-              <div class="kicker"><span class="kmini red"></span> Transmisiones ALLISON</div>
-              <h1>Soporte Allison en Panamá: repuestos originales y calibración.</h1>
-              <p>
-                Brindamos respaldo especializado para transmisiones <strong>ALLISON</strong>:
-                diagnóstico, calibración, reparación de componentes y
-                <strong>venta/distribución de repuestos originales</strong> para flotas.
-              </p>
-              <div class="heroActions">
-                <a class="btn primary" href="#allison">Ver sección Allison</a>
-                <a class="btn ghost" href="#contacto">Hablar con un asesor</a>
-              </div>
-            </div>
-
-            <div class="heroCard">
-              <div class="meta">
-                <div class="m">
-                  <strong>Qué hacemos</strong>
-                  <span>Diagnóstico computarizado · calibración · servicio técnico</span>
-                </div>
-                <div class="m">
-                  <strong>Repuestos</strong>
-                  <span>Genuinos/Originales (según disponibilidad y serie)</span>
-                </div>
-                <div class="m">
-                  <strong>Aplicación</strong>
-                  <span>Buses, camiones, equipo comercial y operación pesada</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="sliderUI">
-            <button class="arrow" aria-label="Anterior" onclick="prevSlide()">‹</button>
-            <div class="dots" aria-hidden="true"></div>
-            <button class="arrow" aria-label="Siguiente" onclick="nextSlide()">›</button>
-          </div>
-        </section>
-
-        <!-- Slide 3 -->
-        <section class="slide" data-bg="lubes" aria-label="Lubricantes, repuestos y mangueras GATES">
-          <div class="heroGrid">
-            <div>
-              <div class="kicker"><span class="kmini blue"></span> Repuestos · Lubricantes · Mangueras</div>
-              <h1>Repuestos y lubricantes para trabajo duro — y mangueras GATES.</h1>
-              <p>
-                Venta y distribución de repuestos, filtros, lubricantes y fluidos para vehículos comerciales y particulares.
-                Además, ofrecemos <strong>fabricación de mangueras hidráulicas GATES</strong> a la medida para tu operación.
-              </p>
-              <div class="heroActions">
-                <a class="btn primary" href="#repuestos">Ver repuestos</a>
-                <a class="btn ghost" href="#contacto">Cotizar ahora</a>
-              </div>
-            </div>
-
-            <div class="heroCard">
-              <div class="meta">
-                <div class="m">
-                  <strong>Inventario</strong>
-                  <span>Filtros · aceites · fluidos · consumibles</span>
-                </div>
-                <div class="m">
-                  <strong>Mangueras</strong>
-                  <span>Confección hidráulica (GATES) según medida y uso</span>
-                </div>
-                <div class="m">
-                  <strong>Atención</strong>
-                  <span>Tienda física + soporte a flotas</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="sliderUI">
-            <button class="arrow" aria-label="Anterior" onclick="prevSlide()">‹</button>
-            <div class="dots" aria-hidden="true"></div>
-            <button class="arrow" aria-label="Siguiente" onclick="nextSlide()">›</button>
-          </div>
-        </section>
-
+        </div>
+      </div>
+      <div class="slide">
+        <div class="heroContent">
+          <h1>Expertos en Allison y Cummins</h1>
+          <p>Diagnóstico en sitio, calibración de transmisiones y overhaul de motores con repuestos genuinos.</p>
+          <a href="#especializada" class="btn red">Ver Mecánica Especializada</a>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="heroContent">
+          <h1>Amplio Portafolio de Productos</h1>
+          <p>Filtros, lubricantes, fluidos e insumos para el sector transporte, marítimo e industrial.</p>
+          <a href="#productos" class="btn primary">Ver Catálogo</a>
+        </div>
       </div>
     </div>
-  </main>
+    <div class="sliderControls">
+      <div class="dot active" onclick="goToSlide(0)"></div>
+      <div class="dot" onclick="goToSlide(1)"></div>
+      <div class="dot" onclick="goToSlide(2)"></div>
+    </div>
+  </div>
 
-  <!-- QUIÉNES SOMOS / PUNTOS FUERTES -->
-  <section>
-    <div class="wrapWide">
-      <div class="sectionTitle">
-        <div>
-          <h2>Tu aliado comercial para flotas y vehículos de trabajo</h2>
-          <p>
-            Motor Plus combina taller técnico, repuestos, lubricantes y soluciones especializadas para mantener tu operación al día.
-          </p>
-        </div>
-        <span class="pill"><span class="dot"></span> Respuesta rápida · asesoría técnica</span>
+  <section id="nosotros" style="background:#fff">
+    <div class="wrap">
+      <div class="section-header">
+        <span class="pill">Nuestra Empresa</span>
+        <h2>Motor Plus Panamá, S.A.</h2>
+        <p>Fundada en 2014, con amplia experiencia en distribución de insumos y mecánica para flotas de equipo pesado y liviano.</p>
       </div>
-
-      <div class="grid2">
-        <div class="card">
-          <h3 style="margin:0 0 8px; font-weight:950">Por qué Motor Plus</h3>
-          <p style="margin:0; color:var(--muted)">
-            Enfoque en servicio y disponibilidad: diagnóstico, mantenimiento, repuestos y soporte para flotas.
-          </p>
-          <ul class="list">
-            <li><div class="tick">✓</div><div><strong>Soporte técnico especializado</strong><div style="color:var(--muted)">Diagnóstico computarizado y asesoría para decisiones correctas.</div></div></li>
-            <li><div class="tick">✓</div><div><strong>Transmisiones ALLISON</strong><div style="color:var(--muted)">Repuestos originales, calibración y respaldo para flotas.</div></div></li>
-            <li><div class="tick">✓</div><div><strong>Repuestos y lubricantes</strong><div style="color:var(--muted)">Amplio portafolio para vehículos comerciales y particulares.</div></div></li>
-            <li><div class="tick">✓</div><div><strong>Mangueras hidráulicas GATES</strong><div style="color:var(--muted)">Confección a medida para operaciones exigentes.</div></div></li>
-          </ul>
+      <div class="mv-grid">
+        <div class="mv-card">
+          <span class="mv-icon">🚀</span>
+          <h3 style="font-weight:800; margin-bottom:10px">Misión</h3>
+          <p style="font-size:14px; color:var(--muted)">Satisfacer las necesidades de nuestros clientes brindando un servicio excepcional, esmerado y personalizado a toda la industria automotriz, marítima e industrial.</p>
         </div>
-
-        <div class="card">
-          <h3 style="margin:0 0 8px; font-weight:950">Valores agregados</h3>
-          <p style="margin:0; color:var(--muted)">Beneficios que te ayudan a operar mejor:</p>
-          <ul class="list">
-            <li><div class="tick">✓</div><div><strong>Atención 24 horas</strong><div style="color:var(--muted)">Para urgencias y continuidad operativa.</div></div></li>
-            <li><div class="tick">✓</div><div><strong>Entrega inmediata</strong><div style="color:var(--muted)">Según inventario y coordinación de despacho.</div></div></li>
-            <li><div class="tick">✓</div><div><strong>Capacitación sin costo</strong><div style="color:var(--muted)">Buenas prácticas en filtros y lubricantes.</div></div></li>
-            <li><div class="tick">✓</div><div><strong>Acceso a plataformas técnicas</strong><div style="color:var(--muted)">Soporte documental / fichas técnicas (según proveedor).</div></div></li>
-          </ul>
+        <div class="mv-card">
+          <span class="mv-icon">👁️</span>
+          <h3 style="font-weight:800; margin-bottom:10px">Visión</h3>
+          <p style="font-size:14px; color:var(--muted)">Ser la empresa panameña líder en el suministro de filtros, lubricantes y servicios de mecánica menor y especializada con los más altos estándares de calidad.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SERVICIOS DESTACADOS (con imagen) -->
   <section id="servicios">
     <div class="wrapWide">
-      <div class="sectionTitle">
-        <div>
-          <h2>Servicios destacados</h2>
-          <p>Los 3 servicios principales (con ilustración) para que el cliente entienda rápido.</p>
-        </div>
+      <div class="section-header">
+        <span class="pill">Lo que hacemos</span>
+        <h2>Nuestros Servicios</h2>
+        <p>Desde diagnóstico computarizado hasta reparaciones mayores. "A Toda Máquina".</p>
       </div>
 
-      <div class="grid3">
-        <div class="svc">
-          <div class="img">
-            <img src="img/svc-maintenance.jpg" alt="Mantenimiento vehículos comerciales" onerror="this.style.display='none'">
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-img">
+            <img src="https://images.unsplash.com/photo-1487754180451-c456f719a1fc?auto=format&fit=crop&q=80&w=600" alt="Mecánica Menor">
           </div>
-          <div class="body">
-            <h3>Mantenimiento de vehículos comerciales</h3>
-            <p>
-              Preventivo y correctivo con enfoque en disponibilidad operativa, seguridad y control de costos.
-            </p>
-            <div class="tag">⚙️ Flotas y equipos</div>
+          <div class="service-body">
+            <h3>Mecánica Menor y Preventiva</h3>
+            <p>Mantenimiento preventivo y correctivo para flotas. Ejecución de campañas de mantenimiento para asegurar la operatividad.</p>
+            <span class="pill">Flotas Livianas y Pesadas</span>
           </div>
         </div>
 
-        <div class="svc">
-          <div class="img">
-            <img src="img/svc-allison.jpg" alt="Transmisiones Allison" onerror="this.style.display='none'">
+        <div class="service-card" id="especializada">
+          <div class="service-img">
+            <img src="https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f?auto=format&fit=crop&q=80&w=600" alt="Motores y Transmisiones">
           </div>
-          <div class="body">
-            <h3>Transmisiones ALLISON</h3>
-            <p>
-              Diagnóstico, calibración y respaldo técnico. Repuestos originales para series y aplicaciones comerciales.
-            </p>
-            <div class="tag">🧠 Diagnóstico + calibración</div>
-          </div>
-        </div>
-
-        <div class="svc">
-          <div class="img">
-            <img src="img/svc-parts.jpg" alt="Repuestos y lubricantes" onerror="this.style.display='none'">
-          </div>
-          <div class="body">
-            <h3>Repuestos, lubricantes y mangueras GATES</h3>
-            <p>
-              Portafolio para trabajo duro: filtros, aceites, fluidos, consumibles y confección de mangueras hidráulicas.
-            </p>
-            <div class="tag">🛒 Tienda + mayorista</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECCIÓN ALLISON (tipo Allison.com: texto + media al lado) -->
-  <section id="allison">
-    <div class="wrapWide">
-      <div class="sectionTitle">
-        <div>
-          <h2>Transmisiones ALLISON (sección ampliada)</h2>
-          <p>
-            Esta sección es estilo “Allison”: explicación clara, beneficios, y un bloque tipo video/imagen para reforzar confianza.
-          </p>
-        </div>
-      </div>
-
-      <div class="feature">
-        <div class="card">
-          <h3>Respaldo Allison para flotas en Panamá</h3>
-          <p>
-            Las transmisiones <strong>ALLISON</strong> son reconocidas internacionalmente por su rendimiento en operaciones exigentes.
-            En Motor Plus ofrecemos soporte especializado para ayudarte a mantener la transmisión en condición óptima:
-            <strong>diagnóstico, calibración, mantenimiento</strong> y suministro de <strong>repuestos originales</strong>.
-          </p>
-
-          <div class="points">
-            <div class="point">
-              <div class="badge">1</div>
-              <div>
-                <strong>Diagnóstico y calibración</strong>
-                <div style="color:var(--muted)">Evaluación computarizada y ajustes para desempeño estable.</div>
-              </div>
-            </div>
-            <div class="point">
-              <div class="badge">2</div>
-              <div>
-                <strong>Repuestos originales</strong>
-                <div style="color:var(--muted)">Componentes adecuados por serie/aplicación para proteger tu inversión.</div>
-              </div>
-            </div>
-            <div class="point">
-              <div class="badge">3</div>
-              <div>
-                <strong>Soporte técnico para flotas</strong>
-                <div style="color:var(--muted)">Recomendaciones y plan de mantenimiento según operación y carga.</div>
-              </div>
+          <div class="service-body">
+            <h3 style="color:var(--red)">Mecánica Especializada</h3>
+            <p>Reparación y <strong>Overhaul de motores Cummins</strong>. Diagnóstico y calibración de transmisiones <strong>Allison</strong> con escáneres originales.</p>
+            <div style="display:flex; gap:5px; flex-wrap:wrap">
+              <span class="pill">Allison Dealer</span>
+              <span class="pill">Cummins</span>
             </div>
           </div>
+        </div>
 
-          <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:14px">
-            <a class="btn primary" href="#contacto">Solicitar soporte Allison</a>
-            <a class="btn" href="#repuestos">Ver repuestos sugeridos</a>
+        <div class="service-card">
+          <div class="service-img">
+            <img src="https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?auto=format&fit=crop&q=80&w=600" alt="Diagnóstico">
+          </div>
+          <div class="service-body">
+            <h3>Diagnóstico Computarizado</h3>
+            <p>Diagnóstico en sitio de unidades de control, componentes eléctricos y calibraciones para motores y transmisiones.</p>
+            <span class="pill">Tecnología de Punta</span>
           </div>
         </div>
 
-        <div class="media" aria-label="Video/imagen de Allison (placeholder)">
-          <!-- Si quieres un video, luego lo reemplazamos por <iframe> -->
-          <img src="img/allison-feature.jpg" alt="Allison - imagen destacada" onerror="this.style.display='none'">
-          <div class="play">
-            <div class="btnPlay">▶</div>
+        <div class="service-card">
+          <div class="service-img">
+            <img src="https://images.unsplash.com/photo-1632823469866-2d0c3dc040ce?auto=format&fit=crop&q=80&w=600" alt="Chapistería">
+          </div>
+          <div class="service-body">
+            <h3>Chapistería y Pintura</h3>
+            <p>Rehabilitación de estructuras de equipo pesado y liviano. Servicio de chapistería profesional para flotas.</p>
+            <span class="pill">Restauración</span>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-img">
+            <img src="https://images.unsplash.com/photo-1581092921461-eab62e97a782?auto=format&fit=crop&q=80&w=600" alt="Mangueras">
+          </div>
+          <div class="service-body">
+            <h3>Mangueras Hidráulicas</h3>
+            <p>Confección de mangueras hidráulicas con tecnología <strong>GATES</strong>. Soluciones a medida para maquinaria industrial.</p>
+            <span class="pill">Gates MegaSys</span>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-img">
+            <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80&w=600" alt="Montacargas">
+          </div>
+          <div class="service-body">
+            <h3>Equipos de Carga</h3>
+            <p>Reparación a equipos de levantamiento de carga de bajo tonelaje y maquinaria portuaria.</p>
+            <span class="pill">Industrial</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- BANNER ANCHO (como la franja grande de Allison) -->
-  <section class="bannerWide" aria-label="Franja informativa Allison">
-    <div class="bannerGrid">
-      <div class="bannerText">
-        <div class="kicker" style="color:rgba(11,18,32,.75); border-color: var(--line); background: rgba(255,255,255,.70)">
-          <span class="kmini red"></span> Beneficio para tu operación
-        </div>
-        <h3>Menos paradas, mejor control de costos y mayor continuidad operativa</h3>
-        <p>
-          Con un diagnóstico correcto, calibración a tiempo y repuestos adecuados, tu transmisión puede trabajar con mayor estabilidad.
-          Nuestro objetivo: ayudarte a mantener la flota <strong>en ruta</strong> y con menor riesgo de fallas por mantenimiento atrasado.
-        </p>
-        <div style="display:flex; gap:10px; flex-wrap:wrap">
-          <a class="btn primary" href="#contacto">Quiero asesoría</a>
-          <a class="btn" href="#blog">Leer artículos</a>
-        </div>
+  <section id="productos" class="brands-section">
+    <div class="wrap">
+      <div class="section-header" style="margin-bottom:30px">
+        <h2>Nuestras Marcas y Productos</h2>
+        <p>Distribuidores exclusivos y oficiales. Inventario de filtros exclusivo.</p>
       </div>
-
-      <div class="bannerImg">
-        <div class="media">
-          <img src="img/allison-video-thumb.jpg" alt="Miniatura video Allison" onerror="this.style.display='none'">
-          <div class="play"><div class="btnPlay">▶</div></div>
-        </div>
+    </div>
+    <div class="marquee-container">
+      <div class="marquee-content">
+        <div class="brand-item"><img src="https://via.placeholder.com/150x60?text=NAPA" alt="NAPA"></div>
+        <div class="brand-item"><img src="https://via.placeholder.com/150x60?text=CEPSA" alt="CEPSA"></div>
+        <div class="brand-item"><img src="https://via.placeholder.com/150x60?text=ALLISON" alt="ALLISON"></div>
+        <div class="brand-item"><img src="https://via.placeholder.com/150x60?text=CUMMINS" alt="CUMMINS"></div>
+        <div class="brand-item"><img src="https://via.placeholder.com/150x60?text=GATES" alt="GATES"></div>
+        <div class="brand-item"><img src="https://via.placeholder.com/150x60?text=VALVOLINE" alt="VALVOLINE"></div>
+        <div class="brand-item"><img src="https://via.placeholder.com/150x60?text=LOCTITE" alt="LOCTITE"></div>
+        <div class="brand-item"><img src="https://via.placeholder.com/150x60?text=CRC" alt="CRC"></div>
+        <div class="brand-item"><img src="https://via.placeholder.com/150x60?text=NAPA" alt="NAPA"></div>
+        <div class="brand-item"><img src="https://via.placeholder.com/150x60?text=CEPSA" alt="CEPSA"></div>
+        <div class="brand-item"><img src="https://via.placeholder.com/150x60?text=ALLISON" alt="ALLISON"></div>
+        <div class="brand-item"><img src="https://via.placeholder.com/150x60?text=CUMMINS" alt="CUMMINS"></div>
       </div>
     </div>
   </section>
 
-  <!-- REPUESTOS (categorías estilo grid, tú subes imágenes) -->
-  <section id="repuestos">
-    <div class="wrapWide">
-      <div class="sectionTitle">
+  <section style="background:#fff">
+    <div class="wrap">
+      <div class="contact-grid">
         <div>
-          <h2>Repuestos más relevantes (ejemplo)</h2>
-          <p>
-            Esta sección es solo plantilla. Tú luego subes las imágenes y ajustamos categorías según tu inventario real.
-          </p>
+          <span class="pill">Por qué elegirnos</span>
+          <h2 style="font-size:32px; font-weight:900; color:var(--text); margin:15px 0">Valor Agregado Motor Plus</h2>
+          <p style="color:var(--muted); margin-bottom:20px">No solo vendemos productos, brindamos soluciones integrales para asegurar su operación.</p>
+          
+          <ul style="list-style:none; padding:0; display:grid; gap:15px">
+            <li style="display:flex; gap:10px; align-items:center">
+              <span style="color:var(--green); font-weight:bold">✓</span> Atención 24 Horas
+            </li>
+            <li style="display:flex; gap:10px; align-items:center">
+              <span style="color:var(--green); font-weight:bold">✓</span> Capacitación al personal sin costo (Filtros y Lubricantes)
+            </li>
+            <li style="display:flex; gap:10px; align-items:center">
+              <span style="color:var(--green); font-weight:bold">✓</span> Acceso a plataforma Pro-Link (Inventario NAPA Panamá y USA)
+            </li>
+            <li style="display:flex; gap:10px; align-items:center">
+              <span style="color:var(--green); font-weight:bold">✓</span> Análisis de Lubricantes y Fichas Técnicas CEPSA
+            </li>
+            <li style="display:flex; gap:10px; align-items:center">
+              <span style="color:var(--green); font-weight:bold">✓</span> Entrega Inmediata de pedidos
+            </li>
+          </ul>
         </div>
-      </div>
-
-      <div class="partsGrid">
-        <div class="part">
-          <div class="ph"><img src="img/parts-batteries.jpg" alt="Baterías" onerror="this.style.display='none'"></div>
-          <div class="name">BATERÍAS</div>
-        </div>
-        <div class="part">
-          <div class="ph"><img src="img/parts-brakes.jpg" alt="Frenos" onerror="this.style.display='none'"></div>
-          <div class="name">FRENOS</div>
-        </div>
-        <div class="part">
-          <div class="ph"><img src="img/parts-oils.jpg" alt="Aceites" onerror="this.style.display='none'"></div>
-          <div class="name">ACEITES & FLUIDOS</div>
-        </div>
-        <div class="part">
-          <div class="ph"><img src="img/parts-filters.jpg" alt="Filtros" onerror="this.style.display='none'"></div>
-          <div class="name">FILTROS</div>
-        </div>
-
-        <div class="part">
-          <div class="ph"><img src="img/parts-fuel.jpg" alt="Combustible y emisiones" onerror="this.style.display='none'"></div>
-          <div class="name">COMBUSTIBLE & EMISIONES</div>
-        </div>
-        <div class="part">
-          <div class="ph"><img src="img/parts-suspension.jpg" alt="Dirección y suspensión" onerror="this.style.display='none'"></div>
-          <div class="name">DIRECCIÓN & SUSPENSIÓN</div>
-        </div>
-        <div class="part">
-          <div class="ph"><img src="img/parts-electrical.jpg" alt="Eléctrico & encendido" onerror="this.style.display='none'"></div>
-          <div class="name">ELÉCTRICO & ENCENDIDO</div>
-        </div>
-        <div class="part">
-          <div class="ph"><img src="img/parts-cooling.jpg" alt="Enfriamiento" onerror="this.style.display='none'"></div>
-          <div class="name">ENFRIAMIENTO</div>
-        </div>
-      </div>
-
-      <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap">
-        <a class="btn primary" href="#contacto">Cotizar repuestos</a>
-        <a class="btn" href="#marcas">Ver marcas</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- MARCAS (más logos) -->
-  <section id="marcas" class="logoStrip">
-    <div class="wrapWide">
-      <div class="sectionTitle" style="margin-bottom:12px">
-        <div>
-          <h2>Marcas</h2>
-          <p>Agrega logos aquí (hasta 10) — se muestran en carrusel continuo.</p>
-        </div>
-      </div>
-
-      <div style="overflow:hidden">
-        <div class="marquee" id="marquee">
-          <!-- 10 logos + duplicados -->
-          <img class="brandLogo" src="img/brands/brand-1.png" alt="Marca 1" onerror="this.style.display='none'">
-          <img class="brandLogo" src="img/brands/brand-2.png" alt="Marca 2" onerror="this.style.display='none'">
-          <img class="brandLogo" src="img/brands/brand-3.png" alt="Marca 3" onerror="this.style.display='none'">
-          <img class="brandLogo" src="img/brands/brand-4.png" alt="Marca 4" onerror="this.style.display='none'">
-          <img class="brandLogo" src="img/brands/brand-5.png" alt="Marca 5" onerror="this.style.display='none'">
-          <img class="brandLogo" src="img/brands/brand-6.png" alt="Marca 6" onerror="this.style.display='none'">
-          <img class="brandLogo" src="img/brands/brand-7.png" alt="Marca 7" onerror="this.style.display='none'">
-          <img class="brandLogo" src="img/brands/brand-8.png" alt="Marca 8" onerror="this.style.display='none'">
-          <img class="brandLogo" src="img/brands/brand-9.png" alt="Marca 9" onerror="this.style.display='none'">
-          <img class="brandLogo" src="img/brands/brand-10.png" alt="Marca 10" onerror="this.style.display='none'">
-
-          <img class="brandLogo" src="img/brands/brand-1.png" alt="Marca 1 dup" onerror="this.style.display='none'">
-          <img class="brandLogo" src="img/brands/brand-2.png" alt="Marca 2 dup" onerror="this.style.display='none'">
-          <img class="brandLogo" src="img/brands/brand-3.png" alt="Marca 3 dup" onerror="this.style.display='none'">
-          <img class="brandLogo" src="img/brands/brand-4.png" alt="Marca 4 dup" onerror="this.style.display='none'">
-          <img class="brandLogo" src="img/brands/brand-5.png" alt="Marca 5 dup" onerror="this.style.display='none'">
-          <img class="brandLogo" src="img/brands/brand-6.png" alt="Marca 6 dup" onerror="this.style.display='none'">
-          <img class="brandLogo" src="img/brands/brand-7.png" alt="Marca 7 dup" onerror="this.style.display='none'">
-          <img class="brandLogo" src="img/brands/brand-8.png" alt="Marca 8 dup" onerror="this.style.display='none'">
-          <img class="brandLogo" src="img/brands/brand-9.png" alt="Marca 9 dup" onerror="this.style.display='none'">
-          <img class="brandLogo" src="img/brands/brand-10.png" alt="Marca 10 dup" onerror="this.style.display='none'">
+        <div style="background:var(--bg2); border-radius:var(--radius2); min-height:300px; display:flex; align-items:center; justify-content:center">
+          <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=600" alt="Logística y Entrega" style="border-radius:var(--radius); max-width:80%">
         </div>
       </div>
     </div>
   </section>
 
-  <!-- GALERÍA (más imágenes) -->
-  <section id="galeria">
-    <div class="wrapWide">
-      <div class="sectionTitle">
-        <div>
-          <h2>Galería</h2>
-          <p>Más imágenes para que el sitio “se sienta grande” y con contenido visual (subes las tuyas luego).</p>
-        </div>
-      </div>
-
-      <div class="gallery">
-        <div class="g"><img src="img/gallery-1.jpg" alt="Galería 1" onerror="this.style.display='none'"></div>
-        <div class="g"><img src="img/gallery-2.jpg" alt="Galería 2" onerror="this.style.display='none'"></div>
-        <div class="g"><img src="img/gallery-3.jpg" alt="Galería 3" onerror="this.style.display='none'"></div>
-        <div class="g"><img src="img/gallery-4.jpg" alt="Galería 4" onerror="this.style.display='none'"></div>
-        <div class="g"><img src="img/gallery-5.jpg" alt="Galería 5" onerror="this.style.display='none'"></div>
-        <div class="g"><img src="img/gallery-6.jpg" alt="Galería 6" onerror="this.style.display='none'"></div>
-        <div class="g"><img src="img/gallery-7.jpg" alt="Galería 7" onerror="this.style.display='none'"></div>
-        <div class="g"><img src="img/gallery-8.jpg" alt="Galería 8" onerror="this.style.display='none'"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- BLOG (SEO) -->
-  <section id="blog">
-    <div class="wrapWide">
-      <div class="sectionTitle">
-        <div>
-          <h2>Blog (SEO)</h2>
-          <p>Contenido para posicionar: mantenimiento, Allison, repuestos/lubricantes y operación de flotas.</p>
-        </div>
-      </div>
-
-      <div class="toolbar">
-        <div class="filters" id="filters">
-          <span class="chip active" data-filter="all">Todos</span>
-          <span class="chip" data-filter="mantenimiento">Mantenimiento</span>
-          <span class="chip" data-filter="allison">Allison</span>
-          <span class="chip" data-filter="repuestos">Repuestos</span>
-          <span class="chip" data-filter="lubricantes">Lubricantes</span>
-        </div>
-
-        <div class="search">
-          🔎 <input id="search" placeholder="Buscar en el blog…">
-        </div>
-      </div>
-
-      <div class="posts" id="posts">
-        <article class="post" data-cat="mantenimiento" data-key="mantenimiento preventivo correctivo flotas vehiculos comerciales">
-          <div class="cover"></div>
-          <div class="body">
-            <h3>Checklist de mantenimiento para vehículos comerciales</h3>
-            <p>
-              Un plan preventivo bien ejecutado reduce paradas, protege componentes y mejora rendimiento. Te explicamos
-              cómo estructurar rutinas según carga, rutas y tipo de operación.
-            </p>
-            <a class="read" href="#contacto">Quiero un plan para mi flota →</a>
-          </div>
-        </article>
-
-        <article class="post" data-cat="allison" data-key="allison transmision calibracion diagnostico repuestos originales">
-          <div class="cover"></div>
-          <div class="body">
-            <h3>Allison: por qué la calibración a tiempo marca la diferencia</h3>
-            <p>
-              La calibración correcta mejora la estabilidad de cambios y ayuda a proteger componentes clave. Te contamos
-              qué señales indican que tu transmisión necesita diagnóstico.
-            </p>
-            <a class="read" href="#contacto">Solicitar soporte Allison →</a>
-          </div>
-        </article>
-
-        <article class="post" data-cat="repuestos" data-key="repuestos filtros frenos suspension baterias flotas">
-          <div class="cover"></div>
-          <div class="body">
-            <h3>Repuestos críticos que tu flota no puede descuidar</h3>
-            <p>
-              Filtros, frenos, suspensión y componentes de combustible son clave para seguridad y continuidad operativa.
-              Te ayudamos a definir “stock mínimo” según tu operación.
-            </p>
-            <a class="read" href="#contacto">Cotizar repuestos →</a>
-          </div>
-        </article>
-
-        <article class="post" data-cat="lubricantes" data-key="lubricantes aceites fluidos filtros rendimiento">
-          <div class="cover"></div>
-          <div class="body">
-            <h3>Lubricantes y fluidos: cómo elegir correctamente</h3>
-            <p>
-              El lubricante adecuado prolonga la vida útil del motor y reduce desgaste. Te damos una guía práctica por tipo
-              de motor, uso y condiciones de trabajo.
-            </p>
-            <a class="read" href="#contacto">Asesoría en lubricantes →</a>
-          </div>
-        </article>
-
-        <article class="post" data-cat="repuestos" data-key="mangueras gates hidraulicas confeccion medida presion">
-          <div class="cover"></div>
-          <div class="body">
-            <h3>Mangueras hidráulicas GATES: confección a la medida</h3>
-            <p>
-              Medidas correctas, presión adecuada y buena instalación evitan fugas y paradas. Te explicamos lo básico para
-              seleccionar y reemplazar mangueras en operación.
-            </p>
-            <a class="read" href="#contacto">Cotizar mangueras →</a>
-          </div>
-        </article>
-
-        <article class="post" data-cat="mantenimiento" data-key="diagnostico computarizado motores transmisiones flotas">
-          <div class="cover"></div>
-          <div class="body">
-            <h3>Diagnóstico computarizado: ahorra tiempo y dinero</h3>
-            <p>
-              Detectar fallas temprano evita daños mayores. Un diagnóstico correcto te ayuda a planificar mantenimiento y
-              priorizar reparaciones según criticidad.
-            </p>
-            <a class="read" href="#contacto">Agendar diagnóstico →</a>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACTO -->
   <section id="contacto">
-    <div class="wrapWide">
-      <div class="sectionTitle">
-        <div>
-          <h2>Solicita información / cotización</h2>
-          <p>Déjanos tus datos para preparar una oferta personalizada. Para flotas, indícanos cuántos vehículos manejas.</p>
-        </div>
-      </div>
-
-      <div class="lead">
-        <div class="form">
-          <div class="toolbar" style="margin-top:0">
-            <div class="toggle" id="toggleParticular" role="button" aria-label="Cambiar a cliente particular">
-              <div class="switch" aria-hidden="true"></div>
-              Cliente particular (sin flota)
-            </div>
-            <span class="pill"><span class="dot"></span> Respuesta rápida · asesoría técnica</span>
+    <div class="wrap">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h3>Contáctanos</h3>
+          <p style="margin-bottom:30px; opacity:0.9">Estamos listos para atender sus necesidades a toda máquina.</p>
+          
+          <ul class="contact-list" style="list-style:none; padding:0">
+            <li>
+              <strong>📍</strong> <span>Panamá, Rep. de Panamá</span>
+            </li>
+            <li>
+              <strong>📞</strong> <span>232-5200 / +507 6558-6494</span>
+            </li>
+            <li>
+              <strong>✉️</strong> <span>gerencia@motorplus.pro<br>ventas4@motorplus.pro</span>
+            </li>
+            <li>
+              <strong>🌐</strong> <span>www.motorplus.com.pa</span>
+            </li>
+          </ul>
+          
+          <div style="margin-top:30px">
+            <p style="font-size:12px; opacity:0.7">Siguenos en Instagram:</p>
+            <a href="#" style="font-weight:bold">@motorplus.pro</a>
           </div>
+        </div>
 
-          <form id="leadForm">
-            <div class="row">
-              <div>
-                <label>Nombre y Apellido *</label>
-                <input required name="nombre" placeholder="Ej. Carlos Pérez">
-              </div>
-              <div>
-                <label>Teléfono / WhatsApp *</label>
-                <input required name="telefono" placeholder="Ej. +507 6xxx-xxxx">
-              </div>
+        <div class="form-box">
+          <h3 style="margin-top:0">Solicitar Cotización</h3>
+          <form id="contactForm">
+            <div class="form-group">
+              <label>Nombre</label>
+              <input type="text" class="form-input" placeholder="Tu nombre">
             </div>
-
-            <div class="row">
-              <div>
-                <label>Correo electrónico *</label>
-                <input required type="email" name="email" placeholder="Ej. compras@empresa.com">
-              </div>
-              <div>
-                <label>Tipo de solicitud *</label>
-                <select required name="tipo">
-                  <option value="" selected disabled>Selecciona…</option>
-                  <option>Mantenimiento de vehículos comerciales</option>
-                  <option>Transmisión ALLISON: repuestos / calibración / servicio</option>
-                  <option>Repuestos (frenos, filtros, suspensión, etc.)</option>
-                  <option>Lubricantes y fluidos</option>
-                  <option>Mangueras hidráulicas GATES</option>
-                  <option>Otro</option>
-                </select>
-              </div>
+            <div class="form-group">
+              <label>Empresa</label>
+              <input type="text" class="form-input" placeholder="Nombre de la empresa">
             </div>
-
-            <div class="row" id="fleetRow">
-              <div>
-                <label>Empresa / Razón social</label>
-                <input name="empresa" placeholder="Ej. Transporte XYZ, S.A.">
-              </div>
-              <div>
-                <label>Cantidad de vehículos (flota)</label>
-                <input name="flota" inputmode="numeric" placeholder="Ej. 8">
-              </div>
+            <div class="form-group">
+              <label>Correo / Teléfono</label>
+              <input type="text" class="form-input" placeholder="Datos de contacto">
             </div>
-
-            <div class="row" id="fleetRow2">
-              <div>
-                <label>Tipo de vehículos</label>
-                <select name="vehiculos">
-                  <option value="" selected disabled>Selecciona…</option>
-                  <option>Camiones livianos</option>
-                  <option>Camiones pesados</option>
-                  <option>Volquetes</option>
-                  <option>Buses</option>
-                  <option>Maquinaria portuaria</option>
-                  <option>Mixto</option>
-                </select>
-              </div>
-              <div>
-                <label>Ubicación / zona de operación</label>
-                <input name="zona" placeholder="Ej. Panamá Metro / Interior">
-              </div>
+            <div class="form-group">
+              <label>Servicio de interés</label>
+              <select class="form-input">
+                <option>Repuestos / Filtros</option>
+                <option>Lubricantes</option>
+                <option>Servicio Técnico Allison</option>
+                <option>Mecánica General</option>
+                <option>Mangueras Hidráulicas</option>
+              </select>
             </div>
-
-            <div>
-              <label>Detalle de lo que necesitas</label>
-              <textarea name="mensaje" placeholder="Ej. Necesito diagnóstico + calibración para transmisión ALLISON y plan de mantenimiento para 10 camiones."></textarea>
-            </div>
-
-            <div class="actions">
-              <button class="btn primary" type="submit">Enviar solicitud</button>
-              <a class="btn" id="waBtn" href="#" target="_blank" rel="noopener">WhatsApp inmediato</a>
-            </div>
-
-            <p class="small">
-              Envío rápido vía correo (mailto). Si quieres que llegue a un formulario real (sin abrir correo),
-              lo conectamos con Formspree/Netlify en 1 paso.
-            </p>
+            <button type="button" class="btn primary" style="width:100%; justify-content:center">Enviar Mensaje</button>
           </form>
         </div>
-
-        <aside class="aside">
-          <div>
-            <h3 style="margin:0 0 10px; font-weight:950">Contacto Motor Plus</h3>
-            <div class="kv">
-              <div class="item">
-                <strong>Teléfonos</strong>
-                <span>232-5200 · +507 6558-6494</span>
-              </div>
-              <div class="item">
-                <strong>Correo</strong>
-                <span>gerencia@motorplus.pro · ventas4@motorplus.pro</span>
-              </div>
-              <div class="item">
-                <strong>Sitio web</strong>
-                <span>www.motorplus.com.pa</span>
-              </div>
-              <div class="item">
-                <strong>Instagram</strong>
-                <span>@motorplus.pro</span>
-              </div>
-            </div>
-
-            <div class="note" style="margin-top:12px">
-              <strong>Direcciones (pásamelas exactas y las coloco):</strong><br>
-              • Oficinas principales y bodega: Mañanitas (pendiente detalle)<br>
-              • Tienda física: Vistahermosa / Fernández de Córdoba (pendiente detalle)<br>
-              • Taller: servicio coordinado para clientes
-            </div>
-          </div>
-
-          <div style="display:flex; gap:10px; flex-wrap:wrap">
-            <a class="btn primary" href="#allison">Ver Allison</a>
-            <a class="btn" href="#repuestos">Ver repuestos</a>
-          </div>
-        </aside>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="wrapWide">
-      <div class="foot">
-        <div class="box">
-          <div style="display:flex; gap:12px; align-items:center">
-            <div class="logo" style="width:46px;height:46px;border-radius:16px">
-              <img src="img/logo-motor-plus.png" alt="Motor Plus" onerror="this.style.display='none'">
-            </div>
-            <div>
-              <strong style="display:block; font-weight:950">Motor Plus Panamá</strong>
-              <span style="display:block; font-size:12px; color:var(--muted)">A toda máquina…</span>
-            </div>
-          </div>
-          <p class="small">Mantenimiento · Allison · Repuestos · Lubricantes · Mangueras GATES</p>
-        </div>
-
-        <div class="box">
-          <h4>Contacto</h4>
-          <div class="stack">
-            <p><strong>Tel:</strong> 232-5200 / +507 6558-6494</p>
-            <p><strong>WhatsApp (urgencias):</strong> +507 6558-6494</p>
-            <p><strong>Email:</strong> gerencia@motorplus.pro · ventas4@motorplus.pro</p>
-            <p><strong>Web:</strong> www.motorplus.com.pa</p>
-            <p><strong>Instagram:</strong> @motorplus.pro</p>
-          </div>
-        </div>
-
-        <div class="box">
-          <h4>Ubicaciones</h4>
-          <div class="stack">
-            <p><strong>Oficinas principales y bodega</strong><br><span style="color:var(--muted)">Mañanitas (pendiente dirección exacta)</span></p>
-            <p><strong>Tienda física</strong><br><span style="color:var(--muted)">Vistahermosa / Fernández de Córdoba (pendiente dirección exacta)</span></p>
-            <p><strong>Taller de vehículos comerciales</strong><br><span style="color:var(--muted)">Servicio coordinado para clientes</span></p>
-          </div>
-          <p class="small">Cuando me pases direcciones exactas, agrego botones de Waze/Maps.</p>
-        </div>
-      </div>
-
-      <p class="small" style="text-align:center; margin-top:14px">
-        © <span id="year"></span> Motor Plus Panamá. Todos los derechos reservados.
-      </p>
+  <footer style="background:#0b1220; color:#fff; padding:40px 0; text-align:center; font-size:14px">
+    <div class="wrap">
+      <p style="opacity:0.6">© 2024 Motor Plus Panamá S.A. | A Toda Máquina.</p>
     </div>
   </footer>
 
   <script>
-    // ===== Slider =====
-    const slidesEl = document.getElementById('slides');
-    const dotsEl = document.getElementById('dots');
-    const total = 3;
-    let idx = 0;
-    let timer = null;
+    /* Simple Slider Logic */
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
+    const track = document.getElementById('slides');
 
-    function renderDots(){
-      dotsEl.innerHTML = '';
-      for(let i=0;i<total;i++){
-        const b = document.createElement('button');
-        b.className = (i===idx) ? 'active' : '';
-        b.addEventListener('click', ()=>go(i));
-        dotsEl.appendChild(b);
-      }
-    }
-    function go(i){
-      idx = (i + total) % total;
-      slidesEl.style.transform = `translateX(-${idx*100}%)`;
-      renderDots();
-    }
-    function nextSlide(){ go(idx+1); restart(); }
-    function prevSlide(){ go(idx-1); restart(); }
-
-    window.nextSlide = nextSlide;
-    window.prevSlide = prevSlide;
-
-    document.getElementById('next').addEventListener('click', nextSlide);
-    document.getElementById('prev').addEventListener('click', prevSlide);
-
-    function restart(){
-      if(timer) clearInterval(timer);
-      timer = setInterval(()=>go(idx+1), 6500);
+    function goToSlide(n) {
+      currentSlide = n;
+      track.style.transform = `translateX(-${currentSlide * (100/3)}%)`;
+      dots.forEach(d => d.classList.remove('active'));
+      dots[n].classList.add('active');
     }
 
-    renderDots();
-    restart();
-
-    // ===== Blog filters + search =====
-    const chips = [...document.querySelectorAll('.chip')];
-    const posts = [...document.querySelectorAll('.post')];
-    const search = document.getElementById('search');
-    let activeFilter = 'all';
-
-    function applyBlogFilter(){
-      const q = (search.value || '').trim().toLowerCase();
-      posts.forEach(p=>{
-        const cat = p.dataset.cat;
-        const key = (p.dataset.key || '').toLowerCase();
-        const matchFilter = (activeFilter==='all') || (cat===activeFilter);
-        const text = (p.innerText || '').toLowerCase();
-        const matchSearch = (!q) || key.includes(q) || text.includes(q);
-        p.style.display = (matchFilter && matchSearch) ? '' : 'none';
-      });
-    }
-    chips.forEach(c=>{
-      c.addEventListener('click', ()=>{
-        chips.forEach(x=>x.classList.remove('active'));
-        c.classList.add('active');
-        activeFilter = c.dataset.filter;
-        applyBlogFilter();
-      });
-    });
-    search.addEventListener('input', applyBlogFilter);
-
-    // ===== Lead form + Particular toggle =====
-    const toggle = document.getElementById('toggleParticular');
-    const fleetRow = document.getElementById('fleetRow');
-    const fleetRow2 = document.getElementById('fleetRow2');
-    let isParticular = false;
-
-    function setParticular(on){
-      isParticular = on;
-      toggle.classList.toggle('on', isParticular);
-      fleetRow.style.display = isParticular ? 'none' : 'grid';
-      fleetRow2.style.display = isParticular ? 'none' : 'grid';
-    }
-    toggle.addEventListener('click', ()=>setParticular(!isParticular));
-
-    // WhatsApp
-    const WA_NUMBER = "50765586494";
-    const waBtn = document.getElementById('waBtn');
-    waBtn.href = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent("Hola Motor Plus, deseo información/cotización. ¿Me pueden apoyar?")}`;
-
-    // Form submit (mailto a 2 correos)
-    const leadForm = document.getElementById('leadForm');
-    leadForm.addEventListener('submit', (e)=>{
-      e.preventDefault();
-      const data = new FormData(leadForm);
-      const payload = Object.fromEntries(data.entries());
-
-      const subject = `Solicitud Web - ${payload.tipo || 'Información'} - ${payload.nombre || ''}`.trim();
-      const body = [
-        "Solicitud desde el sitio web Motor Plus",
-        "--------------------------------------------",
-        `Tipo: ${payload.tipo || ""}`,
-        `Cliente: ${isParticular ? "Particular" : "Empresa / Flota"}`,
-        "",
-        `Nombre: ${payload.nombre || ""}`,
-        `Teléfono/WhatsApp: ${payload.telefono || ""}`,
-        `Correo: ${payload.email || ""}`,
-        "",
-        isParticular ? "" : `Empresa: ${payload.empresa || ""}`,
-        isParticular ? "" : `Cantidad de vehículos: ${payload.flota || ""}`,
-        isParticular ? "" : `Tipo de vehículos: ${payload.vehiculos || ""}`,
-        isParticular ? "" : `Zona: ${payload.zona || ""}`,
-        "",
-        `Mensaje: ${payload.mensaje || ""}`,
-        "",
-        "Fin del mensaje."
-      ].filter(Boolean).join("\n");
-
-      const to = "gerencia@motorplus.pro,ventas4@motorplus.pro";
-      window.location.href = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    });
-
-    document.getElementById('year').textContent = new Date().getFullYear();
+    // Auto play
+    setInterval(() => {
+      let next = (currentSlide + 1) % slides.length;
+      goToSlide(next);
+    }, 5000);
   </script>
 </body>
 </html>
