@@ -32,7 +32,7 @@
       align-items: center;
       justify-content: center;
       padding: 16px 36px;
-      font-weight: 800;
+      font-weight: 700; /* Un poco menos grueso para ser más corporativo */
       border-radius: 4px;
       transition: all 0.3s ease;
       text-transform: uppercase;
@@ -71,18 +71,18 @@
     .logo-container img { height: 90px; width: auto; object-fit: contain; display: block; transition: transform 0.3s ease; }
     .logo-container:hover img { transform: scale(1.02); }
     
-    /* --- HERO SLIDER --- */
+    /* --- ANIMACIÓN HERO --- */
     .hero-bg { transition: transform 8s ease; animation: zoomEffect 20s infinite alternate; }
     @keyframes zoomEffect { 0% { transform: scale(1); } 100% { transform: scale(1.1); } }
 
-    /* --- SLIDER DE SERVICIOS --- */
+    /* --- SLIDER SERVICIOS --- */
     .services-slider { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 24px; padding-bottom: 40px; padding-top: 10px; -ms-overflow-style: none; scrollbar-width: none; }
     .services-slider::-webkit-scrollbar { display: none; }
     .service-card { flex: 0 0 85%; scroll-snap-align: center; transition: transform 0.3s ease; }
     .service-card:hover { transform: translateY(-10px); }
     @media(min-width: 768px) { .service-card { flex: 0 0 380px; } }
 
-    /* --- VIDEO MASK (Estilo Celular Vertical) --- */
+    /* --- VIDEO MASK (VERTICAL) --- */
     .video-mask {
         border-radius: 20px;
         overflow: hidden;
@@ -92,9 +92,7 @@
         background: black;
     }
     .video-mask:hover { transform: scale(1.02); }
-    
-    /* Clase para iframes responsivos */
-    .iframe-container { width: 100%; height: 100%; }
+    .iframe-full { width: 100%; height: 100%; object-fit: cover; }
 
     /* --- ACORDEON BLOG --- */
     details > summary { list-style: none; cursor: pointer; }
@@ -129,10 +127,10 @@
     <div class="max-w-7xl mx-auto px-6 h-32 md:h-40 flex items-center justify-between">
       
       <a href="#inicio" class="logo-container block py-2 flex-shrink-0">
-        <img src="https://placehold.co/400x150?text=MOTOR+PLUS+LOGO" alt="Motor Plus Logo">
+        <img src="https://placehold.co/400x120/1e40af/ffffff?text=MOTOR+PLUS+PANAM%C3%81" alt="Motor Plus Logo">
       </a>
 
-      <nav class="hidden xl:flex items-center gap-8 text-xs font-bold text-slate-700 uppercase tracking-widest ml-auto mr-8">
+      <nav class="hidden xl:flex items-center gap-8 text-sm font-semibold text-slate-600 uppercase tracking-wider ml-auto mr-8">
         <a href="#tienda" class="text-red-600 hover:text-red-800 transition py-4 border-b-2 border-transparent hover:border-red-600">Tienda</a>
         <a href="#nosotros" class="hover:text-blue-700 transition py-4 border-b-2 border-transparent hover:border-blue-600">Nosotros</a>
         <a href="#servicios" class="hover:text-blue-700 transition py-4 border-b-2 border-transparent hover:border-blue-600">Servicios</a>
@@ -148,7 +146,7 @@
 
   <section id="inicio" class="relative h-[85vh] min-h-[650px] overflow-hidden bg-slate-900">
     <div class="absolute inset-0 transition-opacity duration-1000 opacity-100 z-10" id="hero-1">
-        <img src="https://placehold.co/1920x1080/1e293b/ffffff?text=FOTO+1+CAMIONES+FLOTA" class="w-full h-full object-cover hero-bg opacity-40">
+        <img src="https://images.unsplash.com/photo-1583255349985-e8c930379799?q=80&w=1920&auto=format&fit=crop" class="w-full h-full object-cover hero-bg opacity-40" alt="Flota de Camiones">
         <div class="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/80 to-transparent"></div>
         <div class="absolute inset-0 flex items-center">
             <div class="max-w-7xl mx-auto px-6 w-full">
@@ -168,7 +166,7 @@
     </div>
     
     <div class="absolute inset-0 transition-opacity duration-1000 opacity-0 z-0" id="hero-2">
-        <img src="https://placehold.co/1920x1080/1e293b/ffffff?text=FOTO+2+TALLER+LIMPIO" class="w-full h-full object-cover hero-bg opacity-40">
+        <img src="https://images.unsplash.com/photo-1615906655593-ad0386347d3b?q=80&w=1920&auto=format&fit=crop" class="w-full h-full object-cover hero-bg opacity-40" alt="Taller Mecánico">
         <div class="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/80 to-transparent"></div>
         <div class="absolute inset-0 flex items-center">
             <div class="max-w-7xl mx-auto px-6 w-full">
@@ -202,7 +200,7 @@
               <div class="bg-white p-4 rounded-xl shadow-sm hover:shadow-xl transition group border border-slate-100" data-aos="fade-up" data-aos-delay="100">
                   <div class="h-40 bg-slate-100 rounded-lg mb-4 overflow-hidden relative">
                       <span class="absolute top-2 left-2 bg-green-500 text-white text-[10px] font-bold px-2 py-1 rounded">EN STOCK</span>
-                      <img src="https://placehold.co/500x500/ddd/999?text=FOTO+FILTROS" class="w-full h-full object-cover group-hover:scale-110 transition">
+                      <img src="https://plus.unsplash.com/premium_photo-1664304185774-536d6e5f3766?q=80&w=500&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition" alt="Filtros">
                   </div>
                   <h3 class="font-bold text-slate-900">Filtros Heavy Duty</h3>
                   <p class="text-xs text-slate-500 mb-4">Aire, Aceite y Combustible</p>
@@ -211,7 +209,7 @@
 
               <div class="bg-white p-4 rounded-xl shadow-sm hover:shadow-xl transition group border border-slate-100" data-aos="fade-up" data-aos-delay="200">
                   <div class="h-40 bg-slate-100 rounded-lg mb-4 overflow-hidden relative">
-                       <img src="https://placehold.co/500x500/ddd/999?text=FOTO+BATERIAS" class="w-full h-full object-cover group-hover:scale-110 transition">
+                       <img src="https://images.unsplash.com/photo-1623061074307-7651f2f953f2?q=80&w=500&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition" alt="Baterías">
                   </div>
                   <h3 class="font-bold text-slate-900">Sistema Eléctrico</h3>
                   <p class="text-xs text-slate-500 mb-4">Baterías, Alternadores</p>
@@ -220,7 +218,7 @@
 
               <div class="bg-white p-4 rounded-xl shadow-sm hover:shadow-xl transition group border border-slate-100" data-aos="fade-up" data-aos-delay="300">
                   <div class="h-40 bg-slate-100 rounded-lg mb-4 overflow-hidden relative">
-                       <img src="https://placehold.co/500x500/ddd/999?text=FOTO+FRENOS" class="w-full h-full object-cover group-hover:scale-110 transition">
+                       <img src="https://images.unsplash.com/photo-1508431830507-9435478a3407?q=80&w=500&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition" alt="Frenos">
                   </div>
                   <h3 class="font-bold text-slate-900">Frenos y Aire</h3>
                   <p class="text-xs text-slate-500 mb-4">Valvulería y pulmones</p>
@@ -229,7 +227,7 @@
 
               <div class="bg-white p-4 rounded-xl shadow-sm hover:shadow-xl transition group border border-slate-100" data-aos="fade-up" data-aos-delay="400">
                   <div class="h-40 bg-slate-100 rounded-lg mb-4 overflow-hidden relative">
-                       <img src="https://placehold.co/500x500/ddd/999?text=FOTO+CORREAS" class="w-full h-full object-cover group-hover:scale-110 transition">
+                       <img src="https://images.unsplash.com/photo-1589739900266-43b28453c181?q=80&w=500&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition" alt="Repuestos varios">
                   </div>
                   <h3 class="font-bold text-slate-900">Correas y Mangueras</h3>
                   <p class="text-xs text-slate-500 mb-4">Gates originales</p>
@@ -279,14 +277,13 @@
             <div class="relative flex justify-center lg:justify-end" data-aos="fade-left">
                 <div class="video-mask relative z-10 w-[300px] h-[530px] bg-black">
                     <iframe 
-                        class="iframe-container" 
+                        class="iframe-full" 
                         src="https://www.youtube.com/embed/tVzMm4N5h3Y?rel=0&modestbranding=1&controls=1&showinfo=0&loop=1&playlist=tVzMm4N5h3Y" 
                         title="Motor Plus Shorts" 
                         frameborder="0" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                         allowfullscreen>
                     </iframe>
-                    
                     <div class="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-black/80 to-transparent pointer-events-none"></div>
                     <div class="absolute bottom-6 left-6 right-6 text-white pointer-events-none">
                         <p class="font-bold text-lg drop-shadow-md">Tecnología en Acción</p>
@@ -398,7 +395,7 @@
               
               <div class="lg:w-1/2 relative h-[350px] lg:h-[500px] w-full" data-aos="zoom-in">
                   <iframe 
-                      class="w-full h-full rounded-2xl shadow-2xl border border-slate-200" 
+                      class="iframe-full rounded-2xl shadow-2xl border border-slate-200" 
                       src="https://www.youtube.com/embed/fA6rN5X53VU?rel=0&modestbranding=1" 
                       title="Gates Hoses" 
                       frameborder="0" 
@@ -419,9 +416,9 @@
 
       <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8">
           <div class="bg-white p-10 rounded-2xl shadow-lg hover:-translate-y-2 transition duration-500 group border-t-8 border-blue-600 flex flex-col items-center text-center">
-              <div class="h-48 w-full flex items-center justify-center bg-slate-100 rounded-xl mb-8 overflow-hidden relative">
+              <div class="h-48 w-full flex items-center justify-center bg-white rounded-xl mb-8 overflow-hidden relative p-4">
                    <div class="absolute top-2 right-2 bg-blue-600 text-white text-[10px] font-bold px-2 py-1 rounded">USA</div>
-                   <img src="https://placehold.co/500x500/eee/999?text=BOTELLA+NAPA" class="h-full object-cover mix-blend-multiply opacity-80 group-hover:scale-110 transition">
+                   <img src="https://m.media-amazon.com/images/I/71+2R7G5p6L._AC_SL1500_.jpg" class="h-full object-contain group-hover:scale-110 transition" alt="Aceite NAPA">
               </div>
               <h3 class="text-2xl font-black text-slate-900 mb-2">Aceites NAPA</h3>
               <p class="text-slate-500 mb-6 text-sm leading-relaxed">Fórmulas avanzadas Heavy Duty Diesel Universal Fleet Plus.</p>
@@ -429,9 +426,9 @@
           </div>
 
           <div class="bg-white p-10 rounded-2xl shadow-lg hover:-translate-y-2 transition duration-500 group border-t-8 border-red-600 flex flex-col items-center text-center">
-              <div class="h-48 w-full flex items-center justify-center bg-slate-100 rounded-xl mb-8 overflow-hidden relative">
+              <div class="h-48 w-full flex items-center justify-center bg-white rounded-xl mb-8 overflow-hidden relative p-4">
                    <div class="absolute top-2 right-2 bg-red-600 text-white text-[10px] font-bold px-2 py-1 rounded">EUROPA</div>
-                   <img src="https://placehold.co/500x500/eee/999?text=BOTELLA+CEPSA" class="h-full object-cover mix-blend-multiply opacity-80 group-hover:scale-110 transition">
+                   <img src="https://www.cepsa.com/stfls/CepsaCom/Lubricantes/Imagenes/Gama_Traction_2021.png" class="h-full object-contain group-hover:scale-110 transition" alt="Aceite CEPSA">
               </div>
               <h3 class="text-2xl font-black text-slate-900 mb-2">CEPSA Traction</h3>
               <p class="text-slate-500 mb-6 text-sm leading-relaxed">Tecnología europea para máxima eficiencia energética.</p>
@@ -439,12 +436,12 @@
           </div>
 
           <div class="bg-white p-10 rounded-2xl shadow-lg hover:-translate-y-2 transition duration-500 group border-t-8 border-slate-800 flex flex-col items-center text-center">
-              <div class="h-48 w-full flex items-center justify-center bg-slate-100 rounded-xl mb-8 overflow-hidden relative">
+              <div class="h-48 w-full flex items-center justify-center bg-white rounded-xl mb-8 overflow-hidden relative p-4">
                    <div class="absolute top-2 right-2 bg-slate-800 text-white text-[10px] font-bold px-2 py-1 rounded">INDUSTRIAL</div>
-                   <img src="https://placehold.co/500x500/eee/999?text=QUIMICOS" class="h-full object-cover mix-blend-multiply opacity-80 group-hover:scale-110 transition">
+                   <img src="https://m.media-amazon.com/images/I/81A+2c+2R8L._AC_SL1500_.jpg" class="h-full object-contain group-hover:scale-110 transition" alt="Refrigerante">
               </div>
               <h3 class="text-2xl font-black text-slate-900 mb-2">Químicos Industriales</h3>
-              <p class="text-slate-500 mb-6 text-sm leading-relaxed">Desengrasantes Purple Power, Refrigerantes y Aditivos.</p>
+              <p class="text-slate-500 mb-6 text-sm leading-relaxed">Desengrasantes, Refrigerantes y Aditivos profesionales.</p>
               <a href="#contacto-form" class="text-slate-800 font-bold text-sm uppercase tracking-wider border-b-2 border-slate-200 hover:border-slate-800 transition pb-1">Ver Catálogo Completo</a>
           </div>
       </div>
@@ -458,7 +455,7 @@
             
             <div class="relative h-[350px] lg:h-[500px] rounded-[2.5rem] overflow-hidden shadow-2xl border-8 border-white bg-black" data-aos="fade-right">
                  <iframe 
-                      class="w-full h-full object-cover" 
+                      class="iframe-full" 
                       src="https://www.youtube.com/embed/R0W6Yr9nk9E?rel=0&modestbranding=1" 
                       title="Allison Transmissions" 
                       frameborder="0" 
@@ -535,7 +532,7 @@
                           </div>
                        </div>
                        <div class="md:w-1/2">
-                           <img src="https://placehold.co/800x600/ccc/777?text=FOTO+MECANICO+BLOG" class="rounded-xl shadow-lg w-full">
+                           <img src="https://images.unsplash.com/photo-1580274455191-1c62238fa333?q=80&w=800&auto=format&fit=crop" class="rounded-xl shadow-lg w-full" alt="Mecánico trabajando">
                        </div>
                   </div>
               </div>
@@ -629,10 +626,8 @@
   </footer>
 
   <script>
-    // 1. Inicializar Animaciones (AOS)
     AOS.init({ duration: 1000, once: true, offset: 100 });
 
-    // 2. Lógica del Slider Principal
     let currentHero = 1;
     function switchHero(num) {
         const slide1 = document.getElementById('hero-1');
