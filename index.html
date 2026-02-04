@@ -27,6 +27,7 @@
     body { font-family: 'Inter', sans-serif; color: #334155; overflow-x: hidden; }
     h1, h2, h3, h4, .font-heading { font-family: 'Montserrat', sans-serif; }
     
+    /* --- BOTONES --- */
     .btn {
       display: inline-flex; align-items: center; justify-content: center;
       padding: 14px 32px; font-weight: 700; border-radius: 6px;
@@ -35,16 +36,14 @@
     }
     .btn-primary { background: var(--blue); color: white; box-shadow: 0 4px 15px rgba(30, 64, 175, 0.3); }
     .btn-red { background: var(--red); color: white; box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3); }
-    .btn-outline-white { border: 2px solid white; color: white; }
-    .btn-outline-white:hover { background: white; color: var(--slate-dark); }
     
-    /* --- HEADER SCROLL --- */
+    /* --- HEADER SCROLL EFFECT --- */
     header { transition: all 0.4s ease; }
     header.header-small { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
     header.header-small .header-container { height: 75px; }
     header.header-small .logo-container img { height: 45px !important; }
 
-    /* --- ICONOS ROJOS --- */
+    /* --- ICONOS ROJOS MENÚ --- */
     .nav-icon { color: var(--red); margin-right: 8px; font-size: 14px; }
     
     /* --- BOTONES FLOTANTES --- */
@@ -62,39 +61,49 @@
     .float-whatsapp { background-color: #25D366; }
     .float-waze { background-color: #33CCFF; }
 
-    /* --- MARCAS MANUAL (REEMPLAZA ANIMACIÓN) --- */
-    .brands-wrapper { position: relative; width: 100%; overflow: hidden; padding: 20px 50px; }
+    /* --- MARCAS MANUAL (COLORES Y MÁS GRANDES) --- */
+    .brands-wrapper { position: relative; width: 100%; overflow: hidden; padding: 30px 60px; }
     .brands-container { 
-        display: flex; gap: 50px; transition: transform 0.5s ease; 
+        display: flex; gap: 60px; transition: transform 0.5s ease; 
         align-items: center; width: max-content;
     }
-    .logo-item { height: 60px; width: auto; object-fit: contain; filter: grayscale(100%); opacity: 0.6; transition: 0.3s; }
-    .logo-item:hover { filter: grayscale(0); opacity: 1; transform: scale(1.1); }
+    .logo-item { height: 80px; width: auto; object-fit: contain; transition: 0.3s; opacity: 0.9; }
+    .logo-item:hover { transform: scale(1.1); opacity: 1; }
     
     .nav-arrow {
         position: absolute; top: 50%; transform: translateY(-50%);
         background: white; border: 1px solid #ddd; width: 45px; height: 45px;
         border-radius: 50%; cursor: pointer; z-index: 10; display: flex;
         align-items: center; justify-content: center; color: var(--red);
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: 0.3s;
     }
     .nav-arrow:hover { background: var(--red); color: white; border-color: var(--red); }
     .arrow-left { left: 10px; }
     .arrow-right { right: 10px; }
 
-    /* --- GALERÍA Y SERVICIOS MANUAL --- */
-    .manual-scroll {
-        display: flex; overflow-x: auto; gap: 20px; padding: 20px 0;
-        scrollbar-width: none; -ms-overflow-style: none;
+    /* --- GALERÍA FORZADA (GRID) --- */
+    .galeria-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 20px;
+        padding: 20px 0;
     }
-    .manual-scroll::-webkit-scrollbar { display: none; }
-    
-    .card-manual { min-width: 320px; flex-shrink: 0; }
+    .galeria-item-forzado {
+        width: 100%;
+        height: 250px; /* Altura forzada igual para todas */
+        border-radius: 15px;
+        overflow: hidden;
+        border: 1px solid #e2e8f0;
+    }
+    .galeria-item-forzado img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Esto hace que se ajusten sin estirarse */
+        transition: 0.6s;
+    }
+    .galeria-item-forzado:hover img { transform: scale(1.1); }
 
-    .logo-container img { height: 90px; width: auto; object-fit: contain; display: block; transition: all 0.4s ease; }
-    .hero-bg { transition: transform 8s ease; animation: zoomEffect 20s infinite alternate; }
-    @keyframes zoomEffect { 0% { transform: scale(1); } 100% { transform: scale(1.1); } }
-
+    /* --- OTROS --- */
     .video-mask { border-radius: 20px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.4); border: 4px solid #1e293b; background: black; }
     .video-container-169 {
         position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;
@@ -102,6 +111,10 @@
         background: #000; border: 1px solid #cbd5e1;
     }
     .video-container-169 iframe, .video-mask iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+    /* Scroll animado para Servicios Especializados */
+    @keyframes scrollServices { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    .animate-scroll-services { animation: scrollServices 40s linear infinite; display: flex; width: max-content; }
   </style>
 </head>
 <body class="bg-slate-50">
@@ -126,7 +139,7 @@
   <header id="main-header" class="bg-white sticky top-0 z-40 border-b border-slate-200 shadow-xl">
     <div class="max-w-7xl mx-auto px-6 h-28 flex items-center justify-between header-container transition-all">
       <a href="#inicio" class="logo-container block py-2 flex-shrink-0">
-        <img src="motor_plus_logo_grande.png" alt="Motor Plus Logo">
+        <img src="motor_plus_logo_grande.png" alt="Motor Plus Logo" style="height: 90px; transition: 0.4s;">
       </a>
 
       <nav class="hidden xl:flex items-center gap-6 text-xs font-bold text-slate-700 uppercase tracking-widest ml-auto mr-6 font-heading">
@@ -148,11 +161,11 @@
         <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?q=80&w=2000&auto=format&fit=crop" class="w-full h-full object-cover hero-bg opacity-40" alt="Flota">
         <div class="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/80 to-transparent"></div>
         <div class="absolute inset-0 flex items-center">
-            <div class="max-w-7xl mx-auto px-6 w-full">
-                <div class="max-w-3xl" data-aos="fade-right">
+            <div class="max-w-7xl mx-auto px-6 w-full text-center md:text-left">
+                <div class="max-w-3xl mx-auto md:mx-0" data-aos="fade-right">
                     <span class="bg-blue-600 text-white px-4 py-2 text-xs font-bold uppercase tracking-widest mb-6 inline-block rounded">Líderes en Panamá</span>
                     <h1 class="text-5xl lg:text-7xl font-black text-white mb-6 leading-tight">Soluciones Integrales para <span class="text-red-500">Transporte</span></h1>
-                    <div class="flex flex-col sm:flex-row gap-4">
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
                         <a href="#tienda" class="btn btn-primary">Ver Repuestos</a>
                         <a href="#allison" class="btn btn-outline-white">Transmisiones</a>
                     </div>
@@ -164,8 +177,8 @@
         <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?q=80&w=2000&auto=format&fit=crop" class="w-full h-full object-cover hero-bg opacity-40" alt="Taller">
         <div class="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/80 to-transparent"></div>
         <div class="absolute inset-0 flex items-center">
-            <div class="max-w-7xl mx-auto px-6 w-full">
-                <div class="max-w-3xl">
+            <div class="max-w-7xl mx-auto px-6 w-full text-center md:text-left">
+                <div class="max-w-3xl mx-auto md:mx-0">
                     <span class="bg-red-600 text-white px-4 py-2 text-xs font-bold uppercase tracking-widest mb-6 inline-block rounded">Distribuidor Autorizado</span>
                     <h1 class="text-5xl lg:text-7xl font-black text-white mb-6 leading-tight">Lubricantes <span class="text-blue-500">NAPA & CEPSA</span></h1>
                     <a href="#lubricantes" class="btn btn-red">Ver Catálogo</a>
@@ -183,15 +196,14 @@
       <div class="max-w-7xl mx-auto px-6">
           <div class="flex flex-col lg:flex-row items-center gap-12 bg-slate-50 rounded-3xl overflow-hidden shadow-sm border border-slate-100">
               <div class="lg:w-1/2 h-[450px]">
-                  <img src="tienda-vista-hermosa.jpg" class="w-full h-full object-cover" alt="Tienda Motor Plus Vista Hermosa" onerror="this.src='https://placehold.co/800x600?text=TIENDA+VISTA+HERMOSA'">
+                  <img src="tienda-vista-hermosa.jpg" class="w-full h-full object-cover" alt="Tienda Vista Hermosa" onerror="this.src='https://placehold.co/800x600?text=TIENDA+VISTA+HERMOSA'">
               </div>
               <div class="lg:w-1/2 p-10 lg:p-16">
-                  <span class="text-red-600 font-bold uppercase tracking-widest text-sm mb-3 block">Protagonista en Repuestos</span>
-                  <h2 class="text-4xl font-black text-slate-900 mb-6 leading-tight">Auto Repuestos Motor Plus <span class="text-red-600">Vista Hermosa</span></h2>
-                  <p class="text-slate-600 text-lg leading-relaxed mb-8">Nuestra sucursal en Vista Hermosa (PH Los Toneles) es tu centro de soluciones inmediatas. Contamos con el stock más robusto de piezas NAPA, CEPSA y Gates en la ciudad. Atención experta en mostrador.</p>
-                  <div class="flex flex-wrap gap-4">
-                      <a href="https://waze.com/ul?ll=9.006325,-79.516147&navigate=yes" target="_blank" class="btn btn-primary">📍 Ir con Waze</a>
-                      <a href="tel:2325200" class="btn btn-outline-slate border-slate-300 text-slate-700">Llamar Ahora</a>
+                  <span class="text-red-600 font-bold uppercase tracking-widest text-sm mb-3 block">Sede Central</span>
+                  <h2 class="text-4xl font-black text-slate-900 mb-6 leading-tight text-center lg:text-left">Auto Repuestos Motor Plus <span class="text-red-600">Vista Hermosa</span></h2>
+                  <p class="text-slate-600 text-lg leading-relaxed mb-8 text-center lg:text-left">Nuestra sucursal en PH Los Toneles es tu centro de soluciones inmediatas. Contamos con el stock más robusto de piezas NAPA, CEPSA y Gates en la ciudad. Atención experta en mostrador.</p>
+                  <div class="flex justify-center lg:justify-start">
+                    <a href="https://waze.com/ul?ll=9.006325,-79.516147&navigate=yes" target="_blank" class="btn btn-primary">📍 Ir con Waze</a>
                   </div>
               </div>
           </div>
@@ -272,14 +284,17 @@
       </div>
   </section>
 
-  <section id="allison" class="py-24 bg-white relative">
-      <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+  <section id="allison" class="py-24 bg-white border-t border-slate-200">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
             <div class="video-container-169"><iframe src="https://www.youtube.com/embed/R0W6Yr9nk9E" allowfullscreen></iframe></div>
-            <div data-aos="fade-left">
+            <div data-aos="fade-left" class="text-center lg:text-left">
+              <span class="inline-block bg-blue-700 text-white font-bold px-4 py-2 mb-6 text-xs uppercase tracking-widest rounded shadow-lg">Especialidad de la Casa</span>
               <h2 class="text-4xl lg:text-6xl font-black text-slate-900 mb-6 leading-tight">Transmisiones <span class="text-red-600 block">ALLISON</span></h2>
-              <p class="text-slate-600 text-lg mb-8">Dealers oficiales en Panamá. Diagnóstico y mantenimiento certificado de fábrica.</p>
-              <a href="#contacto-form" class="btn btn-primary bg-blue-700">Agendar Diagnóstico</a>
+              <p class="text-slate-600 text-lg mb-8">Dealers oficiales en Panamá. Diagnóstico avanzado y repuestos genuinos.</p>
+              <a href="#contacto-form" class="btn btn-primary">Agendar Diagnóstico</a>
             </div>
+        </div>
       </div>
   </section>
 
@@ -287,15 +302,15 @@
       <div class="max-w-7xl mx-auto px-6 text-center">
           <h2 class="text-4xl font-black text-slate-900 mb-16">Mantenimiento de Vehículos Comerciales</h2>
           <div class="grid md:grid-cols-3 gap-8 text-left">
-              <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+              <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-slate-100">
                   <img src="preventiva.jpg" class="h-48 w-full object-cover" onerror="this.src='https://placehold.co/600x400?text=PREVENTIVA'">
                   <div class="p-8"><h3 class="text-xl font-bold mb-3">Mecánica Preventiva</h3><p class="text-slate-600 text-sm">Revisiones periódicas para evitar paradas costosas.</p></div>
               </div>
-              <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+              <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-slate-100">
                   <img src="overhaul-motores.jpg" class="h-48 w-full object-cover" onerror="this.src='https://placehold.co/600x400?text=OVERHAUL'">
-                  <div class="p-8"><h3 class="text-xl font-bold mb-3">Overhaul de Motores</h3><p class="text-slate-600 text-sm">Reconstrucción de motores Cummins, Detroit y CAT.</p></div>
+                  <div class="p-8"><h3 class="text-xl font-bold mb-3">Overhaul de Motores</h3><p class="text-slate-600 text-sm">Reconstrucción completa Cummins, Detroit y CAT.</p></div>
               </div>
-              <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+              <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-slate-100">
                   <img src="diagnostico.jpg" class="h-48 w-full object-cover" onerror="this.src='https://placehold.co/600x400?text=DIAGNOSTICO'">
                   <div class="p-8"><h3 class="text-xl font-bold mb-3">Diagnóstico Electrónico</h3><p class="text-slate-600 text-sm">Identificación precisa de códigos de falla.</p></div>
               </div>
@@ -303,22 +318,37 @@
       </div>
   </section>
 
+  <section id="nosotros" class="py-24 bg-white overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center">
+        <div data-aos="fade-right" class="text-center lg:text-left">
+            <span class="text-blue-600 font-bold uppercase tracking-widest text-xs mb-2 block">Sobre Motor Plus</span>
+            <h2 class="text-4xl font-black text-slate-900 mb-8 leading-tight">Más de una década impulsando la industria</h2>
+            <p class="text-slate-600 text-lg leading-relaxed mb-6">Fundada en 2014, Motor Plus Panamá, S.A. es el aliado estratégico número uno para empresas de transporte e industrial.</p>
+        </div>
+        <div class="relative flex justify-center lg:justify-end" data-aos="fade-left">
+            <div class="video-mask w-[300px] h-[530px]">
+                <iframe src="https://www.youtube.com/embed/tVzMm4N5h3Y?autoplay=1&mute=1&loop=1" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+  </section>
+
   <section id="servicios" class="py-20 bg-slate-900 text-white overflow-hidden">
-      <div class="max-w-7xl mx-auto px-6 mb-10"><h2 class="text-4xl font-black">Servicios Especializados</h2></div>
-      <div class="manual-scroll px-6">
-          <div class="card-manual bg-slate-800 rounded-xl overflow-hidden border border-slate-700">
+      <div class="max-w-7xl mx-auto px-6 mb-10 text-center lg:text-left"><h2 class="text-4xl font-black">Servicios Especializados</h2></div>
+      <div class="animate-scroll-services gap-8 pb-10">
+          <div class="w-[350px] bg-slate-800 rounded-xl overflow-hidden border border-slate-700 mx-4">
               <img src="mantenimiento-flota.jpg" class="h-40 w-full object-cover" onerror="this.src='https://placehold.co/400x200?text=FLOTAS'">
               <div class="p-6"><h3 class="font-bold text-xl">Mantenimiento Flotas</h3></div>
           </div>
-          <div class="card-manual bg-slate-800 rounded-xl overflow-hidden border border-slate-700">
+          <div class="w-[350px] bg-slate-800 rounded-xl overflow-hidden border border-slate-700 mx-4">
               <img src="overhaul-scroll.jpg" class="h-40 w-full object-cover" onerror="this.src='https://placehold.co/400x200?text=OVERHAUL'">
               <div class="p-6"><h3 class="font-bold text-xl">Overhaul Motores</h3></div>
           </div>
-          <div class="card-manual bg-slate-800 rounded-xl overflow-hidden border border-slate-700">
+          <div class="w-[350px] bg-slate-800 rounded-xl overflow-hidden border border-slate-700 mx-4">
               <img src="transmisiones-scroll.jpg" class="h-40 w-full object-cover" onerror="this.src='https://placehold.co/400x200?text=TRANSMISIONES'">
               <div class="p-6"><h3 class="font-bold text-xl">Transmisiones</h3></div>
           </div>
-          <div class="card-manual bg-slate-800 rounded-xl overflow-hidden border border-slate-700">
+          <div class="w-[350px] bg-slate-800 rounded-xl overflow-hidden border border-slate-700 mx-4">
               <img src="mangueras-scroll.jpg" class="h-40 w-full object-cover" onerror="this.src='https://placehold.co/400x200?text=MANGUERAS'">
               <div class="p-6"><h3 class="font-bold text-xl">Mangueras</h3></div>
           </div>
@@ -344,7 +374,7 @@
 
   <section id="mangueras" class="py-24 bg-white border-t border-slate-200">
       <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
-          <div data-aos="fade-right">
+          <div data-aos="fade-right" class="text-center lg:text-left">
               <h2 class="text-5xl font-black text-slate-900 mb-6 leading-none">Mangueras Hidráulicas <span class="text-red-600 block mt-2">GATES ORIGINALES</span></h2>
               <p class="text-slate-600 text-lg mb-8">Fabricación y distribución inmediata de mangueras de alta presión.</p>
               <a href="#contacto-form" class="btn btn-red">Cotizar Manguera</a>
@@ -355,29 +385,32 @@
 
   <section class="py-16 bg-slate-50">
       <div class="max-w-7xl mx-auto px-6">
-          <h3 class="text-2xl font-black text-slate-900 mb-8 uppercase tracking-tighter">Galería de Instalaciones</h3>
-          <div class="manual-scroll">
-              <div class="galeria-item"><img src="galeria1.jpg" alt="1" onerror="this.src='https://placehold.co/400x300?text=IMG1'"></div>
-              <div class="galeria-item"><img src="galeria2.jpg" alt="2" onerror="this.src='https://placehold.co/400x300?text=IMG2'"></div>
-              <div class="galeria-item"><img src="galeria3.jpg" alt="3" onerror="this.src='https://placehold.co/400x300?text=IMG3'"></div>
-              <div class="galeria-item"><img src="galeria4.jpg" alt="4" onerror="this.src='https://placehold.co/400x300?text=IMG4'"></div>
-              <div class="galeria-item"><img src="galeria5.jpg" alt="5" onerror="this.src='https://placehold.co/400x300?text=IMG5'"></div>
-              <div class="galeria-item"><img src="galeria6.jpg" alt="6" onerror="this.src='https://placehold.co/400x300?text=IMG6'"></div>
+          <h3 class="text-3xl font-black text-slate-900 mb-8 uppercase text-center lg:text-left">Galería de Instalaciones</h3>
+          <div class="galeria-grid">
+              <div class="galeria-item-forzado"><img src="galeria1.jpg" alt="1" onerror="this.src='https://placehold.co/600x600?text=INSTALACION+1'"></div>
+              <div class="galeria-item-forzado"><img src="galeria2.jpg" alt="2" onerror="this.src='https://placehold.co/600x600?text=INSTALACION+2'"></div>
+              <div class="galeria-item-forzado"><img src="galeria3.jpg" alt="3" onerror="this.src='https://placehold.co/600x600?text=INSTALACION+3'"></div>
+              <div class="galeria-item-forzado"><img src="galeria4.jpg" alt="4" onerror="this.src='https://placehold.co/600x600?text=INSTALACION+4'"></div>
+              <div class="galeria-item-forzado"><img src="galeria5.jpg" alt="5" onerror="this.src='https://placehold.co/600x600?text=INSTALACION+5'"></div>
+              <div class="galeria-item-forzado"><img src="galeria6.jpg" alt="6" onerror="this.src='https://placehold.co/600x600?text=INSTALACION+6'"></div>
+              <div class="galeria-item-forzado"><img src="galeria7.jpg" alt="7" onerror="this.src='https://placehold.co/600x600?text=INSTALACION+7'"></div>
+              <div class="galeria-item-forzado"><img src="galeria8.jpg" alt="8" onerror="this.src='https://placehold.co/600x600?text=INSTALACION+8'"></div>
           </div>
       </div>
   </section>
 
   <section id="contacto-form" class="py-24 bg-slate-900 relative">
-      <div class="max-w-4xl mx-auto px-6 relative z-10">
-          <h2 class="text-center text-4xl font-black text-white mb-12 uppercase">Solicitar Cotización</h2>
-          <div class="bg-white rounded-2xl p-8 md:p-12 shadow-2xl">
+      <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1486262715619-01b80258d43d?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center mix-blend-overlay opacity-30"></div>
+      <div class="max-w-4xl mx-auto px-6 relative z-10 text-center">
+          <h2 class="text-4xl md:text-5xl font-black text-white mb-12 uppercase">Solicitar Cotización</h2>
+          <div class="bg-white/95 rounded-2xl p-8 md:p-12 shadow-2xl text-left">
               <form id="whatsapp-form" class="space-y-6">
                   <div class="grid md:grid-cols-2 gap-6">
-                      <input type="text" id="wa-nombre" placeholder="Nombre completo" class="w-full bg-slate-50 border p-4 rounded" required>
-                      <input type="tel" id="wa-tel" placeholder="Teléfono" class="w-full bg-slate-50 border p-4 rounded" required>
+                      <input type="text" id="wa-nombre" placeholder="Nombre completo" class="w-full bg-slate-50 border p-4 rounded focus:ring-2 focus:ring-red-500 outline-none" required>
+                      <input type="tel" id="wa-tel" placeholder="Teléfono" class="w-full bg-slate-50 border p-4 rounded focus:ring-2 focus:ring-red-500 outline-none" required>
                   </div>
-                  <textarea id="wa-mensaje" rows="4" placeholder="¿Qué necesita?" class="w-full bg-slate-50 border p-4 rounded" required></textarea>
-                  <button type="submit" class="btn btn-red w-full py-5">Enviar vía WhatsApp</button>
+                  <textarea id="wa-mensaje" rows="4" placeholder="¿Qué necesita?" class="w-full bg-slate-50 border p-4 rounded focus:ring-2 focus:ring-red-500 outline-none" required></textarea>
+                  <button type="submit" class="btn btn-red w-full py-5 text-base">Enviar Mensaje vía WhatsApp</button>
               </form>
           </div>
       </div>
@@ -385,28 +418,64 @@
 
   <footer class="bg-black text-slate-400 py-16 border-t border-slate-900 relative z-10 text-sm">
       <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-12 mb-16">
-          <div class="col-span-2">
-              <h3 class="text-white font-black text-2xl mb-4 tracking-tight">MOTOR PLUS PANAMÁ, S.A.</h3>
-              <p class="mb-6">Líder en soluciones para el transporte y sector industrial desde 2014.</p>
-              <a href="presentacion_motorplus.pdf" download class="inline-flex items-center gap-3 border border-slate-700 px-6 py-3 rounded text-white hover:bg-white hover:text-black transition">
-                  <i class="fas fa-file-pdf text-red-500 text-xl"></i> <span>Descargar Presentación</span>
-              </a>
+          <div class="col-span-1 md:col-span-2">
+              <h3 class="text-white font-black text-2xl mb-4 tracking-tight uppercase">Motor Plus Panamá, S.A.</h3>
+              <p class="mb-6 max-w-sm leading-relaxed">Líder en soluciones para el transporte y sector industrial desde 2014.</p>
+              
+              <div class="flex flex-col gap-2 mb-8">
+                  <strong class="text-white">Valores Agregados:</strong>
+                  <span>✅ Atención 24 Horas</span>
+                  <span>✅ Acceso a plataforma Pro-Link</span>
+                  <span>✅ Capacitación Técnica</span>
+                  <span>✅ Analisis de Lubricantes</span>
+              </div>
+
+              <div class="mb-8">
+                  <a href="presentacion_motorplus.pdf" download class="inline-flex items-center gap-3 border border-slate-700 px-6 py-3 rounded-lg text-white hover:bg-white hover:text-black transition">
+                      <i class="fas fa-file-pdf text-red-500 text-xl"></i> <span>Descargar Presentación</span>
+                  </a>
+              </div>
+
+              <div class="flex gap-4">
+                  <a href="#" class="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center hover:bg-blue-600 hover:text-white transition text-slate-500 border border-slate-800">FB</a>
+                  <a href="#" class="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center hover:bg-pink-600 hover:text-white transition text-slate-500 border border-slate-800">IG</a>
+              </div>
           </div>
-          <div class="col-span-2 grid sm:grid-cols-2 gap-8">
-              <div>
-                  <h4 class="text-white font-bold mb-4 uppercase text-xs">Ubicaciones</h4>
-                  <p>Vista Hermosa: PH Toneles</p>
-                  <p>Mañanitas: PH Ofidepósitos</p>
+          
+          <div class="col-span-1 md:col-span-2">
+              <div class="grid sm:grid-cols-2 gap-8">
+                  <div>
+                      <h4 class="text-white font-bold uppercase tracking-widest text-xs mb-4">Contacto Directo</h4>
+                      <ul class="space-y-3">
+                          <li class="flex items-center gap-2"><span class="text-red-500">📞</span> <a href="tel:2325200" class="hover:text-white">232-5200</a></li>
+                          <li class="flex items-center gap-2"><span class="text-red-500">✉️</span> <a href="mailto:ventas4@motorplus.pro" class="hover:text-white">ventas4@motorplus.pro</a></li>
+                      </ul>
+                  </div>
+                  <div>
+                      <h4 class="text-white font-bold uppercase tracking-widest text-xs mb-4">Nuestras Sedes</h4>
+                      <div class="mb-4">
+                          <strong class="text-white block mb-1">Vista Hermosa</strong>
+                          <p class="text-xs mb-1">PH Toneles, Planta Baja.</p>
+                          <a href="https://waze.com/ul?ll=9.006325,-79.516147&navigate=yes" target="_blank" class="text-blue-400 text-xs hover:text-white">🚗 Ir con Waze</a>
+                      </div>
+                      <div>
+                          <strong class="text-white block mb-1">Mañanitas</strong>
+                          <p class="text-xs mb-1">PH Ofidepósitos, Tocumen.</p>
+                          <a href="https://waze.com/ul?ll=9.062331,-79.378772&navigate=yes" target="_blank" class="text-blue-400 text-xs hover:text-white">🚗 Ir con Waze</a>
+                      </div>
+                  </div>
               </div>
           </div>
       </div>
-      <div class="text-center mt-16 pt-8 border-t border-slate-900">&copy; 2026 Motor Plus Panamá S.A.</div>
+      <div class="text-center pt-8 border-t border-slate-900 text-xs text-slate-600">
+          <p>&copy; 2026 Motor Plus Panamá S.A. Todos los derechos reservados.</p>
+      </div>
   </footer>
 
   <script>
     AOS.init({ duration: 1000, once: true });
 
-    // 1. SCROLL HEADER EFECTO
+    // 1. SCROLL HEADER
     window.addEventListener('scroll', () => {
         const header = document.getElementById('main-header');
         header.classList.toggle('header-small', window.scrollY > 50);
@@ -419,11 +488,11 @@
         window.open(`https://wa.me/50765586494?text=${encodeURIComponent(texto)}`, '_blank');
     });
 
-    // 3. SLIDER DE MARCAS MANUAL
+    // 3. MARCAS MANUAL
     let offset = 0;
     function moveBrands(direction) {
         const slider = document.getElementById('brands-slider');
-        const step = 300; 
+        const step = 350; 
         const maxScroll = slider.scrollWidth - slider.parentElement.clientWidth;
         offset += direction * step;
         if (offset < 0) offset = 0;
